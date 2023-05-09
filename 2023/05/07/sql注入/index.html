@@ -5,16 +5,22 @@
   
 
   
-  <title>Dokiy</title>
+  <title>sql注入 | Dokiy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Dokiy">
-<meta property="og:url" content="https://dokidokiy.github.io/index.html">
+  <meta name="description" content="什么是sql注入？SQL注入就是在web应用程序对用户输入数据的合法性没有判断，前端传入后端的参数是攻击者可控的，并且参数带入数据库查询，攻击者可以通过构造不同的SQL语句来对数据库的任意操作。 php代码举例： 1$query &#x3D; &quot;select * from users where id &#x3D; $_GET[&amp;#x27;id&amp;#x27;];  sql注入原理sql注入漏洞的产生需要满足以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sql注入">
+<meta property="og:url" content="https://dokidokiy.github.io/2023/05/07/sql%E6%B3%A8%E5%85%A5/index.html">
 <meta property="og:site_name" content="Dokiy">
+<meta property="og:description" content="什么是sql注入？SQL注入就是在web应用程序对用户输入数据的合法性没有判断，前端传入后端的参数是攻击者可控的，并且参数带入数据库查询，攻击者可以通过构造不同的SQL语句来对数据库的任意操作。 php代码举例： 1$query &#x3D; &quot;select * from users where id &#x3D; $_GET[&amp;#x27;id&amp;#x27;];  sql注入原理sql注入漏洞的产生需要满足以">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="d:/blogi/blog/source_posts/sql注入/84c47cb2bd7c422fdb7b836598944a58.jpg">
+<meta property="article:published_time" content="2023-05-07T02:17:36.000Z">
+<meta property="article:modified_time" content="2023-05-07T14:48:13.476Z">
 <meta property="article:author" content="许德梅">
 <meta property="article:tag" content="web，ctf">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="d:/blogi/blog/source_posts/sql注入/84c47cb2bd7c422fdb7b836598944a58.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Dokiy" type="application/atom+xml">
   
@@ -63,9 +69,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-sql注入" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-sql注入" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2023/05/07/sql%E6%B3%A8%E5%85%A5/" class="article-date">
   <time datetime="2023-05-07T02:17:36.000Z" itemprop="datePublished">2023-05-07</time>
@@ -78,8 +82,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/05/07/sql%E6%B3%A8%E5%85%A5/">sql注入</a>
+    <h1 class="article-title" itemprop="name">
+      sql注入
     </h1>
   
 
@@ -132,112 +136,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-我的第一篇博客" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2023/05/06/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="article-date">
-  <time datetime="2023-05-06T12:26:57.000Z" itemprop="datePublished">2023-05-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/05/06/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">我的第一篇博客</a>
-    </h1>
+    <a href="/2023/05/06/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">我的第一篇博客</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="python基础"><a href="#python基础" class="headerlink" title="python基础"></a>python基础</h1><h1 id="一、数学计算符"><a href="#一、数学计算符" class="headerlink" title="一、数学计算符"></a>一、数学计算符</h1><p>1.+加 -减 *乘 /除 //整除 %余数 **幂指数</p>
-<p>2.变量：python的容器，跟print函数（打印数据类型及函数对象）</p>
-<p>异曲同工：变量可以存放数据类型及函数对象，简短的代码（结果也属于Python中的数据类型）</p>
-<p>使用变量来存放字符串及数值</p>
-<p>存放的过程在Python中叫’赋值’，赋值就是=符号，不是数学中的等于</p>
-<p>Python中的等于是”==”，赋值是”=”，一个’=’叫赋值，两个”==”叫等于</p>
-<p>eg：1.</p>
-<p>a=’小许’  b=3  c=3+4</p>
-<p>print(c)</p>
-<ol>
-<li></li>
-</ol>
-<p>2==2</p>
-<p>true 布尔值就是由条件判断得到的</p>
-<p>变量，帮助我们减少代码的复杂性，增强可读性，不管用户输入什么都不会影响我们提前写好代码</p>
-<h1 id="二、命名"><a href="#二、命名" class="headerlink" title="二、命名"></a>二、命名</h1><p>命名：采用驼峰命名法，字母开头(小写)，下换线结尾</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://dokidokiy.github.io/2023/05/06/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" data-id="clhft4nen0002g4vggsh22wrt" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2023/05/06/hello-world/" class="article-date">
-  <time datetime="2023-05-05T16:26:39.549Z" itemprop="datePublished">2023-05-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/05/06/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://dokidokiy.github.io/2023/05/06/hello-world/" data-id="clhft4nee0000g4vg9vnvafm3" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
