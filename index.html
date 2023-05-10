@@ -13,7 +13,6 @@
 <meta property="og:site_name" content="Dokiy">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="aurora">
-<meta property="article:tag" content="web，ctf">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Dokiy" type="application/atom+xml">
@@ -65,174 +64,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-报错注入" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/" class="article-date">
-  <time datetime="2023-05-09T12:56:50.000Z" itemprop="datePublished">2023-05-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/">报错注入</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="报错注入的定义"><a href="#报错注入的定义" class="headerlink" title="报错注入的定义"></a>报错注入的定义</h2><p>当网站的页面上没有显示位用于展示SQL语句执行后的结果，但是SQL语句执行可以输出错误信息，那么攻击者可以利用注入过程中返回的错误信息进行判断。</p>
-<p>报错注入就是利用了数据库的某些机制，人为地制造错误条件，使得查询结果能够出现在错误信息中。</p>
-<h2 id="常见的函数"><a href="#常见的函数" class="headerlink" title="常见的函数"></a>常见的函数</h2><p>1.extractvalue()</p>
-<p>2.updataxml()</p>
-<p>3.count() + rand() +floor() +group  by() 导致的主键重复</p>
-<h2 id="extractvalue"><a href="#extractvalue" class="headerlink" title="extractvalue()"></a>extractvalue()</h2><p>extractvalue (xml_document,xpath_string)</p>
-<p>第一个参数是xml文档对象名称</p>
-<p>第二个参数作用是从xml文档对象中返回查询到的字符串值，返回结果长度限制在32位字符。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">extractvalue(null,concat(0x7e,(sqli_inject),0x7e))</span><br><span class="line"></span><br><span class="line">注：利用extractvalue()对数据进行一个排序，指定一个参数为null，可以换成1、#或者其他符号，使其报错，并执行第二个参数语句。0x7e表示&quot;-&quot;号。</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://dokidokiy.github.io/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/" data-id="clhgaw6de0003ucvgfs50brdu" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-sql注入" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2023/05/07/sql%E6%B3%A8%E5%85%A5/" class="article-date">
-  <time datetime="2023-05-07T02:17:36.000Z" itemprop="datePublished">2023-05-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/05/07/sql%E6%B3%A8%E5%85%A5/">sql注入</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是sql注入？"><a href="#什么是sql注入？" class="headerlink" title="什么是sql注入？"></a>什么是sql注入？</h2><p>SQL注入就是在web应用程序对用户输入数据的合法性没有判断，前端传入后端的参数是攻击者可控的，并且参数带入数据库查询，攻击者可以通过构造不同的SQL语句来对数据库的任意操作。</p>
-<p>php代码举例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$query = &quot;select * from users where id = $_GET[&#x27;id&#x27;];</span><br></pre></td></tr></table></figure>
-
-<h2 id="sql注入原理"><a href="#sql注入原理" class="headerlink" title="sql注入原理"></a>sql注入原理</h2><p>sql注入漏洞的产生需要满足以下两个条件：</p>
-<p>1.参数用户可控：前端传给后端的参数内容是用户可以控制的；</p>
-<p>2.参数传入数据库查询：传入的参数拼接到sql语句，且带入数据库查询。</p>
-<p>当传入的id参数为 1’ 时，</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from users where id=1&#x27;</span><br></pre></td></tr></table></figure>
-
-<p>这不符合数据库语法的规范，所以会报错。</p>
-<p>当传入的id参数为and 1=1 时，</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from users where id= 1 and 1 = 1</span><br></pre></td></tr></table></figure>
-
-<p>因为1 = 1为真，且where语句中id=1也为真，所以页面会返回与id = 1相同的结果，</p>
-<p>当传入的id参数为and 1 =2时，由于 1=2不成立，所以返回假，页面就会返回与id =1不同的结果。</p>
-<h2 id="mysql查询语句"><a href="#mysql查询语句" class="headerlink" title="mysql查询语句"></a>mysql查询语句</h2><p>1.在不知道任何条件时，</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 要查询的字段名 from 库名.表名</span><br></pre></td></tr></table></figure>
-
-<p>2.在知道一条已知条件时，</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 要查询的字段名 from 库名.表名 where 已知条件的字段名=&#x27;已知条件的值&#x27;</span><br></pre></td></tr></table></figure>
-
-<p>3.在知道两条已知条件时，</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 要查询的字段名 from 库名.表名 where 已知条件1的字段名 = &#x27;已知条件1的值&#x27; and 已知条件2的字段名=&#x27;已知条件2的值&#x27;</span><br></pre></td></tr></table></figure>
-
-<h2 id="limit用法"><a href="#limit用法" class="headerlink" title="limit用法"></a>limit用法</h2><p>limit的使用格式为limit m ,n, 其中m是记录开始的位置，从0开始，表示第一条记录；n是指取n条记录。</p>
-<p>eg：limit 0,1表示从第一条记录开始，去一条记录。</p>
-<h2 id="注释符"><a href="#注释符" class="headerlink" title="注释符"></a>注释符</h2><p>mysql中常见的注释符： #或  –空格  或  /**/</p>
-<h2 id="内联注释"><a href="#内联注释" class="headerlink" title="内联注释"></a>内联注释</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">内联注释的形式：/*!code*/</span><br></pre></td></tr></table></figure>
-
-<p>内联注释可以用于整个sql语句</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">index.php?id=-15 /*!UNION*/ /*!SELECT*/ 1,2,3</span><br></pre></td></tr></table></figure>
-
-<p>?加参数  &amp;连接参数</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://dokidokiy.github.io/2023/05/07/sql%E6%B3%A8%E5%85%A5/" data-id="clhgaw6db0002ucvg5uyi5yju" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-我的第一篇博客" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2023/05/06/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="article-date">
-  <time datetime="2023-05-06T12:26:57.000Z" itemprop="datePublished">2023-05-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/05/06/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">我的第一篇博客</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="python基础"><a href="#python基础" class="headerlink" title="python基础"></a>python基础</h1><h1 id="一、数学计算符"><a href="#一、数学计算符" class="headerlink" title="一、数学计算符"></a>一、数学计算符</h1><p>1.+加 -减 *乘 /除 //整除 %余数 **幂指数</p>
-<p>2.变量：python的容器，跟print函数（打印数据类型及函数对象）</p>
-<p>异曲同工：变量可以存放数据类型及函数对象，简短的代码（结果也属于Python中的数据类型）</p>
-<p>使用变量来存放字符串及数值</p>
-<p>存放的过程在Python中叫’赋值’，赋值就是=符号，不是数学中的等于</p>
-<p>Python中的等于是”==”，赋值是”=”，一个’=’叫赋值，两个”==”叫等于</p>
-<p>eg：1.</p>
-<p>a=’小许’  b=3  c=3+4</p>
-<p>print(c)</p>
-<ol>
-<li></li>
-</ol>
-<p>2==2</p>
-<p>true 布尔值就是由条件判断得到的</p>
-<p>变量，帮助我们减少代码的复杂性，增强可读性，不管用户输入什么都不会影响我们提前写好代码</p>
-<h1 id="二、命名"><a href="#二、命名" class="headerlink" title="二、命名"></a>二、命名</h1><p>命名：采用驼峰命名法，字母开头(小写)，下换线结尾</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://dokidokiy.github.io/2023/05/06/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" data-id="clhgaw6d90001ucvg2j1j4jvc" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2023/05/06/hello-world/" class="article-date">
@@ -272,7 +103,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dokidokiy.github.io/2023/05/06/hello-world/" data-id="clhgaw6d20000ucvg6zjz508h" class="article-share-link">Share</a>
+      <a data-url="https://dokidokiy.github.io/2023/05/06/hello-world/" data-id="clhhb5qo10000u0vgh5avc62i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -311,18 +142,6 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
-        
-          <li>
-            <a href="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/">报错注入</a>
-          </li>
-        
-          <li>
-            <a href="/2023/05/07/sql%E6%B3%A8%E5%85%A5/">sql注入</a>
-          </li>
-        
-          <li>
-            <a href="/2023/05/06/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">我的第一篇博客</a>
-          </li>
         
           <li>
             <a href="/2023/05/06/hello-world/">Hello World</a>
