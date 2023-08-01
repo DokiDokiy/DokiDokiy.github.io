@@ -1,0 +1,245 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>文件包含 | Dokiy's Blog</title><meta name="author" content="Dokiy"><meta name="copyright" content="Dokiy"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="文件包含漏洞概述什么是文件包含？程序开发人员通常会把可重复使用的函数写到单个文件中，在使用某个函数的时候，直接调用此文件，无需再次编写，这种调用文件的过程通常称为包含。 文件包含漏洞产生原理文件包含函数加载的参数没有经过严格过滤或严格定义，可以被用户控制，包含其他恶意文件，导致执行了非预期代码。 这种包含可以是代码更加灵活，所以通常会把被包含的文件设置为变量进行动态调用，但正是由于这种灵活性，从而">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文件包含">
+<meta property="og:url" content="https://dokidokiy.github.io/2023/07/31/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/index.html">
+<meta property="og:site_name" content="Dokiy&#39;s Blog">
+<meta property="og:description" content="文件包含漏洞概述什么是文件包含？程序开发人员通常会把可重复使用的函数写到单个文件中，在使用某个函数的时候，直接调用此文件，无需再次编写，这种调用文件的过程通常称为包含。 文件包含漏洞产生原理文件包含函数加载的参数没有经过严格过滤或严格定义，可以被用户控制，包含其他恶意文件，导致执行了非预期代码。 这种包含可以是代码更加灵活，所以通常会把被包含的文件设置为变量进行动态调用，但正是由于这种灵活性，从而">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dokidokiy.github.io/img/head.png">
+<meta property="article:published_time" content="2023-07-31T07:08:53.000Z">
+<meta property="article:modified_time" content="2023-08-01T13:57:31.060Z">
+<meta property="article:author" content="Dokiy">
+<meta property="article:tag" content="文件包含">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dokidokiy.github.io/img/head.png"><link rel="shortcut icon" href="/img/head.png"><link rel="canonical" href="https://dokidokiy.github.io/2023/07/31/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '文件包含',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-01 21:57:31'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/head.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: transparent"><nav id="nav"><span id="blog-info"><a href="/" title="Dokiy's Blog"><span class="site-name">Dokiy's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">文件包含</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-31T07:08:53.000Z" title="发表于 2023-07-31 15:08:53">2023-07-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-08-01T13:57:31.060Z" title="更新于 2023-08-01 21:57:31">2023-08-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0/">漏洞学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="文件包含"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="文件包含漏洞概述"><a href="#文件包含漏洞概述" class="headerlink" title="文件包含漏洞概述"></a>文件包含漏洞概述</h2><h3 id="什么是文件包含？"><a href="#什么是文件包含？" class="headerlink" title="什么是文件包含？"></a>什么是文件包含？</h3><p>程序开发人员通常会把可重复使用的函数写到单个文件中，在使用某个函数的时候，直接调用此文件，无需再次编写，这种调用文件的过程通常称为包含。</p>
+<h3 id="文件包含漏洞产生原理"><a href="#文件包含漏洞产生原理" class="headerlink" title="文件包含漏洞产生原理"></a>文件包含漏洞产生原理</h3><p>文件包含函数加载的参数没有经过严格过滤或严格定义，可以被用户控制，包含其他恶意文件，导致执行了非预期代码。</p>
+<p>这种包含可以是代码更加灵活，所以通常会把被包含的文件设置为变量进行动态调用，但正是由于这种灵活性，从而导致客户端可以调用任意文件，造成文件包含漏洞。</p>
+<h4 id="1-常见的漏洞代码"><a href="#1-常见的漏洞代码" class="headerlink" title="1.常见的漏洞代码"></a>1.常见的漏洞代码</h4><pre><code>&lt;?php 
+   $filename=$_GET[&#39;filename&#39;];
+   include($filename);
+?&gt;
+</code></pre>
+<h4 id="2-访问-url"><a href="#2-访问-url" class="headerlink" title="2.访问  url"></a>2.访问  url</h4><pre><code>http://xxx/xxx.php?filename=show.php
+
+改变filename值即可改变代码中的包含文件
+</code></pre>
+<p><code>$_GET[&#39;filename&#39;]</code>参数，如果开发者没有经过严格的过滤，直接带入了include的函数，攻击者可以修改<code>$_GET[&#39;filename&#39;]</code>的值，执行非预期的操作。</p>
+<p>show.php即可为用户上传的可执行的恶意脚本文件</p>
+<p>包含文件内容只要符合php语法都能被当成php代码进行解析，无关后缀名是什么。</p>
+<h5 id="php相关配置"><a href="#php相关配置" class="headerlink" title="php相关配置"></a>php相关配置</h5><pre><code>allow_url_fopen=on
+// 本地文件包含(LFI)，但这个无论on或off，本地文件包含都存在
+
+allow_url_include=on
+//  远程文件包含(RFI)
+</code></pre>
+<h4 id="3-存在文件包含的脚本语言及函数"><a href="#3-存在文件包含的脚本语言及函数" class="headerlink" title="3.存在文件包含的脚本语言及函数"></a>3.存在文件包含的脚本语言及函数</h4><ul>
+<li><p>php</p>
+<pre><code>require:函数出现错误时，会直接报错并退出程序执行
+require_once:出错直接退出，且仅包含一次。在脚本执行期间同一个文件可能被多次使用，确保包含一次以避免函数重新定义，变量重新赋值等问题。
+include:出现错误时，会出现警告但是程序会继续执行
+include_once:出现错误时，会抛出警告，且仅包含一次
+</code></pre>
+</li>
+</ul>
+<p>举个例子：</p>
+<p>index.php</p>
+<pre><code>
+</code></pre>
+<ul>
+<li><p>jsp/servlet</p>
+<pre><code>ava.io.file()
+java.io.filereader()
+</code></pre>
+</li>
+<li><p>asp</p>
+<pre><code>include file
+include virtual
+</code></pre>
+</li>
+</ul>
+<h4 id="4-文件包含漏洞的危害"><a href="#4-文件包含漏洞的危害" class="headerlink" title="4.文件包含漏洞的危害"></a>4.文件包含漏洞的危害</h4><ol>
+<li><p>敏感信息泄露</p>
+</li>
+<li><p>获取网站权限(webshell)</p>
+</li>
+<li><p>任意命令执行</p>
+</li>
+</ol>
+<h1 id="文件包含漏洞类型"><a href="#文件包含漏洞类型" class="headerlink" title="文件包含漏洞类型"></a>文件包含漏洞类型</h1><h3 id="本地文件包含漏洞-LFI"><a href="#本地文件包含漏洞-LFI" class="headerlink" title="本地文件包含漏洞(LFI)"></a>本地文件包含漏洞(LFI)</h3><p>能够读取执行包含本地文件的漏洞，称为本地文件包含漏洞。</p>
+<p>包含服务器本身存在的恶意文件</p>
+<p>a.txt</p>
+<pre><code>&lt;?php
+phpinfo();
+&gt;
+</code></pre>
+<p>b.php</p>
+<pre><code>&lt;?php
+$b=$_GET[&#39;id&#39;];
+include($b);
+&gt;
+</code></pre>
+<p>payload</p>
+<pre><code>127.0.0.1/phptest/b.php?id=a.txt
+返回phpinfo页面
+</code></pre>
+<p>注意：</p>
+<ul>
+<li><p>两个文件在同一目录下（若不在同一目录这被包含的文件路径必须写绝对路径或相对路径）</p>
+<p>（相对路径./当前目录../上级目录）</p>
+</li>
+<li><p>被包含的页面的<code>后缀名无论是什么</code>都会当做php解析</p>
+</li>
+</ul>
+<h3 id="远程文件包含-RFI"><a href="#远程文件包含-RFI" class="headerlink" title="远程文件包含(RFI)"></a>远程文件包含(RFI)</h3><p>如果php的配置选项<code>allow_url_include、allow_url_fopen</code>状态为on的话，则<code>include/require</code>函数是可以加载远程文件的，这种漏洞被称为远程包含文件(RFI)</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://DokiDokiy.github.io">Dokiy</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://dokidokiy.github.io/2023/07/31/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/">https://dokidokiy.github.io/2023/07/31/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://DokiDokiy.github.io" target="_blank">Dokiy's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/">文件包含</a></div><div class="post_share"><div class="social-share" data-image="/img/head.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/07/25/AWD%E6%80%BB%E7%BB%93/" title=""><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info"></div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/head.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Dokiy</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/dokidokiy"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">文件包含漏洞概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">什么是文件包含？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E%E4%BA%A7%E7%94%9F%E5%8E%9F%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text">文件包含漏洞产生原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%B8%B8%E8%A7%81%E7%9A%84%E6%BC%8F%E6%B4%9E%E4%BB%A3%E7%A0%81"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.常见的漏洞代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%AE%BF%E9%97%AE-url"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.访问  url</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#php%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">php相关配置</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%AD%98%E5%9C%A8%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E7%9A%84%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80%E5%8F%8A%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.3.</span> <span class="toc-text">3.存在文件包含的脚本语言及函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E%E7%9A%84%E5%8D%B1%E5%AE%B3"><span class="toc-number">1.2.4.</span> <span class="toc-text">4.文件包含漏洞的危害</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E%E7%B1%BB%E5%9E%8B"><span class="toc-number"></span> <span class="toc-text">文件包含漏洞类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E-LFI"><span class="toc-number">0.1.</span> <span class="toc-text">本地文件包含漏洞(LFI)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB-RFI"><span class="toc-number">0.2.</span> <span class="toc-text">远程文件包含(RFI)</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/31/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" title="文件包含">文件包含</a><time datetime="2023-07-31T07:08:53.000Z" title="发表于 2023-07-31 15:08:53">2023-07-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/25/AWD%E6%80%BB%E7%BB%93/" title="无题">无题</a><time datetime="2023-07-25T15:26:16.389Z" title="发表于 2023-07-25 23:26:16">2023-07-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/21/xss%E9%9D%B6%E5%9C%BA/" title="xss靶场">xss靶场</a><time datetime="2023-07-21T13:30:23.000Z" title="发表于 2023-07-21 21:30:23">2023-07-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/15/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" title="linux基础命令">linux基础命令</a><time datetime="2023-07-15T07:08:38.000Z" title="发表于 2023-07-15 15:08:38">2023-07-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/12/ctfhub/" title="ctfhub">ctfhub</a><time datetime="2023-07-12T14:24:10.559Z" title="发表于 2023-07-12 22:24:10">2023-07-12</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Dokiy</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
