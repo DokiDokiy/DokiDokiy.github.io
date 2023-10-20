@@ -193,31 +193,6 @@
     
     
     <entry>
-      <title>xxe靶场</title>
-      <link href="/2023/07/21/webgoat(xxe)%E9%9D%B6%E5%9C%BA/"/>
-      <url>/2023/07/21/webgoat(xxe)%E9%9D%B6%E5%9C%BA/</url>
-      
-        <content type="html"><![CDATA[<p><code>webgoat xxe靶场学习</code></p><span id="more"></span><h2 id="1-let’s-try"><a href="#1-let’s-try" class="headerlink" title="1.let’s try"></a>1.let’s try</h2><blockquote><p>任务目标：</p><p>在此作业中，您将向照片添加评论，提交表单时尝试使用评论字段执行 XXE 注入。尝试列出文件系统的根目录。</p></blockquote><p><img src="/2023/07/21/webgoat(xxe)%E9%9D%B6%E5%9C%BA/image-20230811155305646.png" alt="image-20230811155305646"></p><p>评论抓包</p><p><img src="/2023/07/21/webgoat(xxe)%E9%9D%B6%E5%9C%BA/image-20230811155628447.png" alt="image-20230811155628447"></p><p>发现评论数据传输是xml文件格式</p><p>尝试进行xxe注入</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">comment</span> [</span></span><br><span class="line"><span class="meta"><span class="meta">&lt;!ENTITY <span class="keyword">root</span> <span class="keyword">SYSTEM</span> <span class="string">&quot;file:///C:/&quot;</span>&gt;</span>     </span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">comment</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">text</span>&gt;</span></span><br><span class="line">      <span class="symbol">&amp;root;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">comment</span>&gt;</span></span><br></pre></td></tr></table></figure><blockquote><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">comment</span> [</span></span><br><span class="line"><span class="meta"><span class="meta">&lt;!ENTITY <span class="keyword">root</span> <span class="keyword">SYSTEM</span> <span class="string">&quot;file:///C:/&quot;</span>&gt;</span>     </span></span><br><span class="line"><span class="meta">]&gt;</span></span><br></pre></td></tr></table></figure><p>1.<code>&lt;!DOCTYPE&gt;是dtd文件的格式</code></p><p>2.<code>comment []是根（父）元素，[]中可以进行定义ENTITY(变量名)或者ELEMENT(标签名)</code></p><p>3.<code>&lt;!ENTITY root SYSTEM &quot;file:///C:/&quot;&gt; 用file伪协议读取C盘根目录内容，赋值给实体root</code></p><p>4.<code>&amp;root;</code>这个是实体值的调用格式</p></blockquote><p>发送<code>payload</code></p><p><img src="/2023/07/21/webgoat(xxe)%E9%9D%B6%E5%9C%BA/image-20230811161301169.png" alt="image-20230811161301169"></p><h2 id="2-Modern-REST-framework"><a href="#2-Modern-REST-framework" class="headerlink" title="2.Modern REST framework"></a>2.Modern REST framework</h2><blockquote><p>在现代 REST 框架中，服务器可能能够接受您作为开发人员没有想到的</p><p>数据格式。因此，这可能会导致 JSON 端点容易受到 XXE 攻击。</p><p>再次进行相同的练习，但尝试执行与第一次作业相同的 XML 注入。</p></blockquote><p>根据题目，先抓包看看</p><p><img src="/2023/07/21/webgoat(xxe)%E9%9D%B6%E5%9C%BA/image-20230811165945895.png" alt="image-20230811165945895"></p><p><img src="/2023/07/21/webgoat(xxe)%E9%9D%B6%E5%9C%BA/image-20230811170453542.png" alt="image-20230811170453542"></p><p>抓包看到的Content-Type是json格式，题目说尝试执行与第一次作业相同的 XML 注入，尝试一下看看</p><p><img src="/2023/07/21/webgoat(xxe)%E9%9D%B6%E5%9C%BA/image-20230811170925749.png" alt="image-20230811170925749"></p><p>发送后，响应内容提示</p><blockquote><p>You are posting JSON which does not work with a XXE</p></blockquote><p>告诉我们，我们发送的数据是json，并不是有效的xxe注入</p><p>但是我们发送的内容明明是xml文件格式，为什么会被认为是json而不是xml呢</p><p>仔细查看请求包中数据发现</p><p><img src="/2023/07/21/webgoat(xxe)%E9%9D%B6%E5%9C%BA/image-20230811172431865.png" alt="image-20230811172431865"></p><p>这里的<code>Content-Type: application/json</code>是json，所以我们发送的post数据包，会被json解析器解析而不是我们想要的xml解析器</p><p>所以想要实现我们的xxe注入，需要修改Content-Type为xml类型</p><p>就是改成<code>Content-Type: application/xml</code></p><p><img src="/2023/07/21/webgoat(xxe)%E9%9D%B6%E5%9C%BA/image-20230811172639504.png" alt="image-20230811172639504"></p><h2 id="3-Blind-XXE-assignment"><a href="#3-Blind-XXE-assignment" class="headerlink" title="3.Blind XXE assignment"></a>3.Blind XXE assignment</h2><blockquote><p>在上一页中，我们向您展示了如何使用XXE攻击ping服务器，在此作业中尝试制作一个DTD，它将文件机密的内容从WebGoat服务器上传到我们的WebWolf服务器.txt。您可以使用 WebWolf 来提供 DTD。secret.txt 位于 WebGoat 服务器上的以下位置，因此您无需扫描所有目录和文件：</p><table><thead><tr><th align="left"><strong>OS</strong></th><th align="left">位置</th></tr></thead><tbody><tr><td align="left"><code>Windows 10</code></td><td align="left"><code>C:\Users\dokiy/.webgoat-8.1.0//XXE/secret.txt</code></td></tr></tbody></table><p>尝试使用 WebWolf 登录页面上传此文件，例如：（注意：此端点由您完全控制） 获得文件内容后，将其作为新评论发布在页面上，您将解决课程。</p></blockquote><p><img src="/2023/07/21/webgoat(xxe)%E9%9D%B6%E5%9C%BA/image-20230811172956473.png" alt="image-20230811172956473"></p><p>抓包评论</p><p><img src="/2023/07/21/webgoat(xxe)%E9%9D%B6%E5%9C%BA/image-20230811212740983.png" alt="image-20230811212740983"></p><p>发现就是正常的xml</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 漏洞学习 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> xxe </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>xss靶场</title>
       <link href="/2023/07/21/xss%E9%9D%B6%E5%9C%BA/"/>
       <url>/2023/07/21/xss%E9%9D%B6%E5%9C%BA/</url>
@@ -235,6 +210,31 @@
         <tags>
             
             <tag> xss </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>xxe靶场</title>
+      <link href="/2023/07/21/webgoat(xxe)%E9%9D%B6%E5%9C%BA/"/>
+      <url>/2023/07/21/webgoat(xxe)%E9%9D%B6%E5%9C%BA/</url>
+      
+        <content type="html"><![CDATA[<p><code>webgoat xxe靶场学习</code></p><span id="more"></span><h2 id="1-let’s-try"><a href="#1-let’s-try" class="headerlink" title="1.let’s try"></a>1.let’s try</h2><blockquote><p>任务目标：</p><p>在此作业中，您将向照片添加评论，提交表单时尝试使用评论字段执行 XXE 注入。尝试列出文件系统的根目录。</p></blockquote><p><img src="/2023/07/21/webgoat(xxe)%E9%9D%B6%E5%9C%BA/image-20230811155305646.png" alt="image-20230811155305646"></p><p>评论抓包</p><p><img src="/2023/07/21/webgoat(xxe)%E9%9D%B6%E5%9C%BA/image-20230811155628447.png" alt="image-20230811155628447"></p><p>发现评论数据传输是xml文件格式</p><p>尝试进行xxe注入</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">comment</span> [</span></span><br><span class="line"><span class="meta"><span class="meta">&lt;!ENTITY <span class="keyword">root</span> <span class="keyword">SYSTEM</span> <span class="string">&quot;file:///C:/&quot;</span>&gt;</span>     </span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">comment</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">text</span>&gt;</span></span><br><span class="line">      <span class="symbol">&amp;root;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">comment</span>&gt;</span></span><br></pre></td></tr></table></figure><blockquote><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">comment</span> [</span></span><br><span class="line"><span class="meta"><span class="meta">&lt;!ENTITY <span class="keyword">root</span> <span class="keyword">SYSTEM</span> <span class="string">&quot;file:///C:/&quot;</span>&gt;</span>     </span></span><br><span class="line"><span class="meta">]&gt;</span></span><br></pre></td></tr></table></figure><p>1.<code>&lt;!DOCTYPE&gt;是dtd文件的格式</code></p><p>2.<code>comment []是根（父）元素，[]中可以进行定义ENTITY(变量名)或者ELEMENT(标签名)</code></p><p>3.<code>&lt;!ENTITY root SYSTEM &quot;file:///C:/&quot;&gt; 用file伪协议读取C盘根目录内容，赋值给实体root</code></p><p>4.<code>&amp;root;</code>这个是实体值的调用格式</p></blockquote><p>发送<code>payload</code></p><p><img src="/2023/07/21/webgoat(xxe)%E9%9D%B6%E5%9C%BA/image-20230811161301169.png" alt="image-20230811161301169"></p><h2 id="2-Modern-REST-framework"><a href="#2-Modern-REST-framework" class="headerlink" title="2.Modern REST framework"></a>2.Modern REST framework</h2><blockquote><p>在现代 REST 框架中，服务器可能能够接受您作为开发人员没有想到的</p><p>数据格式。因此，这可能会导致 JSON 端点容易受到 XXE 攻击。</p><p>再次进行相同的练习，但尝试执行与第一次作业相同的 XML 注入。</p></blockquote><p>根据题目，先抓包看看</p><p><img src="/2023/07/21/webgoat(xxe)%E9%9D%B6%E5%9C%BA/image-20230811165945895.png" alt="image-20230811165945895"></p><p><img src="/2023/07/21/webgoat(xxe)%E9%9D%B6%E5%9C%BA/image-20230811170453542.png" alt="image-20230811170453542"></p><p>抓包看到的Content-Type是json格式，题目说尝试执行与第一次作业相同的 XML 注入，尝试一下看看</p><p><img src="/2023/07/21/webgoat(xxe)%E9%9D%B6%E5%9C%BA/image-20230811170925749.png" alt="image-20230811170925749"></p><p>发送后，响应内容提示</p><blockquote><p>You are posting JSON which does not work with a XXE</p></blockquote><p>告诉我们，我们发送的数据是json，并不是有效的xxe注入</p><p>但是我们发送的内容明明是xml文件格式，为什么会被认为是json而不是xml呢</p><p>仔细查看请求包中数据发现</p><p><img src="/2023/07/21/webgoat(xxe)%E9%9D%B6%E5%9C%BA/image-20230811172431865.png" alt="image-20230811172431865"></p><p>这里的<code>Content-Type: application/json</code>是json，所以我们发送的post数据包，会被json解析器解析而不是我们想要的xml解析器</p><p>所以想要实现我们的xxe注入，需要修改Content-Type为xml类型</p><p>就是改成<code>Content-Type: application/xml</code></p><p><img src="/2023/07/21/webgoat(xxe)%E9%9D%B6%E5%9C%BA/image-20230811172639504.png" alt="image-20230811172639504"></p><h2 id="3-Blind-XXE-assignment"><a href="#3-Blind-XXE-assignment" class="headerlink" title="3.Blind XXE assignment"></a>3.Blind XXE assignment</h2><blockquote><p>在上一页中，我们向您展示了如何使用XXE攻击ping服务器，在此作业中尝试制作一个DTD，它将文件机密的内容从WebGoat服务器上传到我们的WebWolf服务器.txt。您可以使用 WebWolf 来提供 DTD。secret.txt 位于 WebGoat 服务器上的以下位置，因此您无需扫描所有目录和文件：</p><table><thead><tr><th align="left"><strong>OS</strong></th><th align="left">位置</th></tr></thead><tbody><tr><td align="left"><code>Windows 10</code></td><td align="left"><code>C:\Users\dokiy/.webgoat-8.1.0//XXE/secret.txt</code></td></tr></tbody></table><p>尝试使用 WebWolf 登录页面上传此文件，例如：（注意：此端点由您完全控制） 获得文件内容后，将其作为新评论发布在页面上，您将解决课程。</p></blockquote><p><img src="/2023/07/21/webgoat(xxe)%E9%9D%B6%E5%9C%BA/image-20230811172956473.png" alt="image-20230811172956473"></p><p>抓包评论</p><p><img src="/2023/07/21/webgoat(xxe)%E9%9D%B6%E5%9C%BA/image-20230811212740983.png" alt="image-20230811212740983"></p><p>发现就是正常的xml</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 漏洞学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> xxe </tag>
             
         </tags>
       
